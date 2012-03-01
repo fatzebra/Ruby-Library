@@ -1,17 +1,17 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "FatZebra/version"
+require "fat_zebra/version"
 
 Gem::Specification.new do |s|
-  s.name        = "FatZebra"
+  s.name        = "fat_zebra"
   s.version     = FatZebra::VERSION
   s.authors     = ["Matthew Savage"]
   s.email       = ["matt@amasses.net"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Fat Zebra payments gem - integrate your ruby app with Fat Zebra}
+  s.description = %q{Provides integration with the Fat Zebra internet payment gateway (www.fatzebra.com.au), including purchase, refund, auth, capture and recurring billing functionality.}
 
-  s.rubyforge_project = "FatZebra"
+  s.rubyforge_project = "fat_zebra"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   # specify any dependencies here; for example:
-  # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "rake"
+  s.add_runtime_dependency "rest-client"
 end

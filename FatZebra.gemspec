@@ -21,5 +21,10 @@ Gem::Specification.new do |s|
   # specify any dependencies here; for example:
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake"
+  s.add_development_dependency "yard"
+  s.add_development_dependency "yard-tomdoc"
+  
+
   s.add_runtime_dependency "rest-client"
+  s.add_runtime_dependency "json"
 end

@@ -1,0 +1,1 @@
+GATEWAY_SERVER = "gateway.fatzebra.com.au"

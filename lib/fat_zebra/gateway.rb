@@ -171,7 +171,7 @@ module FatZebra
 		def get_resource(uri, method = :post, data = nil)
 			url = build_url(uri, (method == :get ? data : nil))
 			ssl_options = options[:secure] ? {
-				:ssl_ca_file =>  "ca_certificate.pem",
+				:ssl_ca_file =>  File.expand_path(File.dirname(__FILE__) + "/../../vendor/cacert.pem"),
   				:verify_ssl => OpenSSL::SSL::VERIFY_PEER
   			} : {}
 

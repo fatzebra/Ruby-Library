@@ -23,6 +23,7 @@ module FatZebra
 		# Public: Performs a purchase transaction against the gateway
 		#
 		# amount - the amount as an integer e.g. (1.00 * 100).to_i
+		# card_data - a hash of the card data (example: {:card_holder => "John Smith", :number => "...", :expiry => "...", :cvv => "123"} or {:token => "abcdefg1"})
 		# card_holder - the card holders name
 		# card_number - the customers credit card number
 		# card_expiry - the customers card expiry date (as Date or string [mm/yyyy])
@@ -30,29 +31,58 @@ module FatZebra
 		# reference - a reference for the purchase
 		# customer_ip - the customers IP address (for fraud prevention)
 		#
-		# Returns a new FatZebra::Models::Purchase object
-		def purchase(amount, card_holder, card_number, card_expiry, cvv, reference, customer_ip)
+		# Returns a new FatZebra::Models::Response (purchase) object
+		def purchase(amount, card_data, reference, customer_ip)
 			params = {
 				:amount => amount,
-				:card_holder => card_holder,
-				:card_number => card_number,
-				:card_expiry => extract_date(card_expiry),
-				:cvv => cvv,
+				:card_holder => card_data.delete(:card_holder),
+				:card_number => card_data.delete(:number),
+				:card_expiry => extract_date(card_data.delete(:expiry)),
+				:cvv => card_data.delete(:cvv),
+				:card_token => card_data.delete(:token),
 				:reference => reference,
 				:customer_ip => customer_ip
 			}
+
+			params.delete_if {|key, value| value.nil? } # If token is nil, remove, otherwise, remove card values
 
 			response = make_request(:post, "purchases", params)
 			FatZebra::Models::Response.new(response)
 		end
 
-		def purchases(id = nil)
+		# Retrieves purchases specified by the options hash
+		#
+		# @param [Hash] options for lookup
+		#               includes: 
+		#                 - id (unique purchase ID)
+		#                 - reference (merchant reference)
+		#                 - offset (defaults to 0) - for pagination
+		#                 - limit (defaults to 10) for pagination
+		# @return [Array<Purchase>] array of purchases
+		def purchases(options = {})
+			id = options.delete(:id)
+			options.merge!({offets: 0, limit: 10})
+
 			if id.nil?
-				response = make_request(:get, "purchases")
-				# handle list response
+				response = make_request(:get, "purchases", options)
+				if response["successful"]
+					Purchase.new(response["response"])
+				else
+					raise StandardError, "Unable to query purchases, #{response["errors"].inspect}"
+				end
 			else
 				response = make_request(:get, "purchases/#{id}.json")
-				puts response.inspect
+				if response["successful"]
+					purchases = []
+					response["response"].each do |purchase|
+						purchases << Purchase.new(purchase)
+					end
+
+					purchases
+				else
+					# TODO: This should raise a defined exception
+					raise StandardError, "Unable to query purchases, #{response["errors"].inspect}"
+				end
 			end
 		end
 
@@ -116,6 +146,8 @@ module FatZebra
 		#
 		# Returns date string as MM/YYYY
 		def extract_date(value)
+			return nil if value.nil?
+
 			if value.is_a?(String)
 				return value
 			elsif value.respond_to?(:strftime)

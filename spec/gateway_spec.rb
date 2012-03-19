@@ -24,13 +24,16 @@ describe FatZebra::Gateway do
 	end
 
 	it "should perform a purchase" do
-		result = @gw.purchase(10000, "Matthew Savage", "5123456789012346", "05/2013", 123, "TEST#{rand}", "1.2.3.4")
+		result = @gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5123456789012346", :expiry => "05/2013", :cvv => 123}, "TEST#{rand}", "1.2.3.4")
 		result.should be_successful
 		result.errors.should be_empty
 	end
 
 	it "should fetch a purchase" do
-		result = @gw.purchase(10000, "Matthew Savage", "5123456789012346", "05/2013", 123, "TES#{rand}T", "1.2.3.4")
-		@gw.purchases(result.purchase.id)
+		result = @gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5123456789012346", :expiry => "05/2013", :cvv => 123}, "TES#{rand}T", "1.2.3.4")
+		puts "ID: " + result.purchase.id
+		purchase = @gw.purchases(:id => result.purchase.id)
+
+		purchase.id = result.purchase.id
 	end
 end

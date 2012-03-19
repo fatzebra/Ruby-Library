@@ -1,7 +1,7 @@
 module FatZebra
 	module Models
 		class Purchase < Base
-			attr_accessor :id, :amount, :reference
+			attribute :id, :amount, :reference
 		end
 	end
 end

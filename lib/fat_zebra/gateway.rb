@@ -66,21 +66,21 @@ module FatZebra
 			if id.nil?
 				response = make_request(:get, "purchases", options)
 				if response["successful"]
-					Purchase.new(response["response"])
+					purchases = []
+					response["response"].each do |purchase|
+						purchases << FatZebra::Models::Purchase.new(purchase)
+					end
+
+					purchases.size == 1 ? purchases.first : purchases
 				else
+					# TODO: This should raise a defined exception
 					raise StandardError, "Unable to query purchases, #{response["errors"].inspect}"
 				end
 			else
 				response = make_request(:get, "purchases/#{id}.json")
 				if response["successful"]
-					purchases = []
-					response["response"].each do |purchase|
-						purchases << Purchase.new(purchase)
-					end
-
-					purchases
+					FatZebra::Models::Purchase.new(response["response"])
 				else
-					# TODO: This should raise a defined exception
 					raise StandardError, "Unable to query purchases, #{response["errors"].inspect}"
 				end
 			end

@@ -24,16 +24,18 @@ describe FatZebra::Gateway do
 	end
 
 	it "should perform a purchase" do
-		result = @gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5123456789012346", :expiry => "05/2013", :cvv => 123}, "TEST#{rand}", "1.2.3.4")
+		result = @gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5555555555554444", :expiry => "05/2013", :cvv => 123}, "TEST#{rand}", "1.2.3.4")
 		result.should be_successful
 		result.errors.should be_empty
 	end
 
 	it "should fetch a purchase" do
-		result = @gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5123456789012346", :expiry => "05/2013", :cvv => 123}, "TES#{rand}T", "1.2.3.4")
-		puts "ID: " + result.purchase.id
+		result = @gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5555555555554444", :expiry => "05/2013", :cvv => 123}, "TES#{rand}T", "1.2.3.4")
 		purchase = @gw.purchases(:id => result.purchase.id)
+		purchase.id.should == result.purchase.id
+	end
 
-		purchase.id = result.purchase.id
+	it "should fetch a purchase within a date range" do
+		
 	end
 end

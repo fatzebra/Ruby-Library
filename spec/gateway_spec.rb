@@ -35,7 +35,13 @@ describe FatZebra::Gateway do
 		purchase.id.should == result.purchase.id
 	end
 
-	it "should fetch a purchase within a date range" do
-		
+	it "should fetch a purchase within a date range"
+
+	it "should refund a transaction" do
+		purchase = @gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5555555555554444", :expiry => "05/2013", :cvv => 123}, "TES#{rand}T", "1.2.3.4")
+		result = @gw.refund(purchase.result.id, 100, "REFUND-#{purchase.result.id}")
+
+		result.should be_successful
+		result.result.successful.should be_true
 	end
 end

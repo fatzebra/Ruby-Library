@@ -119,7 +119,14 @@ module FatZebra
 		#
 		# Returns a new FatZebra::Models::Refund object
 		def refund(transaction_id, amount, reference)
-			raise "Sorry we haven't compelted this functionality yet."
+			params = {
+				:transaction_id => transaction_id,
+				:amount => amount,
+				:reference => reference
+			}
+
+			response = make_request(:post, "refunds", params)
+			FatZebra::Models::Response.new(response, :refund)
 		end
 
 		# Public: Pings the Fat Zebra service

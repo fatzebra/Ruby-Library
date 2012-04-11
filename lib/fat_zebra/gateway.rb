@@ -2,13 +2,14 @@ module FatZebra
 	class Gateway
 		attr_accessor :username, :token, :gateway_server, :options
 		
-		DEFAULT_OPTIONS = {:secure => true}
+		DEFAULT_OPTIONS = {:secure => true, :version => API_VERSION}
 
 		# Public: initializes a new gateway object
 		#
 		# username - merchants username
 		# token - merchants token for authentication
-		# gateway_service - the server for the gateway, defaults to 'gateway.fatzebra.com.au'
+		# gateway_server - the server for the gateway, defaults to 'gateway.fatzebra.com.au'
+		# options - the options for the gateway connection (e.g. secure, version etc)
 		#
 		# Returns a new FatZebra::Gateway instance
 		def initialize(username, token, gateway_server = GATEWAY_SERVER, options = {})
@@ -189,7 +190,8 @@ module FatZebra
 			when false
 				"http://"
 			end
-			url = "#{proto}#{self.gateway_server}/#{resource}"
+			version = options[:version]
+			url = "#{proto}#{self.gateway_server}/v#{version}/#{resource}"
 			unless data.nil?
 				url = url + "?"
 				data.each do |key, value|

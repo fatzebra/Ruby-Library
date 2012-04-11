@@ -1,19 +1,58 @@
 Ruby API Library for Fat Zebra
 ==============================
 
-Further (better) readme content coming soon - I promise!
+Release 1.0.0 for API version 1.0
 
-General Usage:
+A Ruby client for the [Fat Zebra](https://www.fatzebra.com.au) Online Payment Gateway (for Australian Merchants)
 
- 1. Add the gem to your project (i.e. Gemfile or otherwise)
- 2. Create a new FatZebra::Gateway object, and pass it your username, token, and true or false for using test mode.
- 4. Call the purchase() method on the gateway object.
- 5. Examine the result.
+Dependencies
+------------
 
-More details to follow (structure of request/response objects etc).
+ * Ruby (tested on 1.9.2, 1.9.3)
+ * Rest Client
+ * JSON
 
-Documentation for the Fat Zebra API can be found at http://docs.fatzebra.com.au
+Installing
+----------
 
-As always, patches, pull requests, comments, issues etc welcome.
+    gem install fat_zebra
 
-For support please visit https://www.fatzebra.com.au/help or email support@fatzebra.com.au
+Or in a Rails App (or similar, with Bundler), in your Gemfile:
+
+    gem "fat_zebra"
+
+Usage
+-----
+
+```ruby
+require 'fat_zebra'
+
+gateway = FatZebra::Gateway.new("TEST", "TEST", "gateway.sandbox.fatzebra.com.au") # You can ommit the last parameter - by default it will use the Live Gateway
+
+card_data = {
+	card_number: "5123456789012346",
+	card_holder: "Bill Simpson",
+	card_expiry: "05/2013",
+	ccv: "123"
+}
+response = gateway.purchase(10000, card_data, "ORDER-23, "203.99.87.4")
+
+if response.successful? && response.result.successful
+	puts "Transaction ID: #{response.result.id}"
+else
+	abort "Error in transaction: #{response.error_messages}"
+end
+```
+
+Documentation
+-------------
+
+Full API reference can be found at http://docs.fatzebra.com.au
+
+Support
+-------
+If you have any issue with the Fat Zebra Ruby Client please contact us at support@fatzebra.com.au and we will be more then happy to help out. Alternatively you may raise an issue in github.
+
+Pull Requests
+-------------
+If you would like to contribute to the plugin please fork the project, make your changes within a feature branch and then submit a pull request. All pull requests will be reviewed as soon as possible and integrated into the main branch if deemed suitable.

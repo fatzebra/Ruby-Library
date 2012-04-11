@@ -35,7 +35,7 @@ card_data = {
 	card_expiry: "05/2013",
 	ccv: "123"
 }
-response = gateway.purchase(10000, card_data, "ORDER-23, "203.99.87.4")
+response = gateway.purchase(10000, card_data, "ORDER-23", "203.99.87.4")
 
 if response.successful? && response.result.successful
 	puts "Transaction ID: #{response.result.id}"

@@ -2,13 +2,13 @@ require 'spec_helper'
 
 TEST_USER = "TEST"
 TEST_TOKEN = "TEST"
-TEST_LOCAL = true
+TEST_LOCAL = false
 
 describe FatZebra::Gateway do
 	before :each do
 		# Setup the gateway for testing
-		server = TEST_LOCAL == true ? "fatapi.dev" : "gateway.fatzebra.com.au"
-		@gw = FatZebra::Gateway.new(TEST_USER, TEST_TOKEN, server, {:secure => !TEST_LOCAL})
+		server = TEST_LOCAL == true ? "fatapi.dev" : "gateway.sandbox.fatzebra.com.au"
+		@gw = FatZebra::Gateway.new(TEST_USER, TEST_TOKEN, server, {:secure => !TEST_LOCAL, :version => nil})
 	end
 
 	it "should require username and token are provided" do

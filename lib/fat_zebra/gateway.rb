@@ -191,7 +191,12 @@ module FatZebra
 				"http://"
 			end
 			version = options[:version]
-			url = "#{proto}#{self.gateway_server}/v#{version}/#{resource}"
+			if version.nil?
+				url = "#{proto}#{self.gateway_server}/#{resource}"
+			else
+				url = "#{proto}#{self.gateway_server}/v#{version}/#{resource}"
+			end
+
 			unless data.nil?
 				url = url + "?"
 				data.each do |key, value|

@@ -62,7 +62,7 @@ module FatZebra
 		# @return [Array<Purchase>] array of purchases
 		def purchases(options = {})
 			id = options.delete(:id)
-			options.merge!({offets: 0, limit: 10})
+			options.merge!({:offets => 0, :limit => 10})
 
 			if id.nil?
 				response = make_request(:get, "purchases", options)

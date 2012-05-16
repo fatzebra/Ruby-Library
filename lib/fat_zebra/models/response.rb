@@ -1,11 +1,13 @@
 module FatZebra
 	module Models
 		class Response
-			attr_accessor :successful, :result, :errors, :test
+			attr_accessor :successful, :result, :errors, :test, :raw
 			def initialize(response, type = :purchase)
+				self.raw = response.dup
 				self.test = response["test"]
 				self.successful = response["successful"]
 				self.errors = response["errors"]
+				
 				case type
 					when :purchase
 						self.result = Purchase.new(response["response"])

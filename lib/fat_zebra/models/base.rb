@@ -14,6 +14,8 @@ module FatZebra
         attrs.each do |key, val|
           self.send("#{key}=", val) if self.respond_to?("#{key}=")
         end
+
+        self.raw = attrs if self.respond_to?(:raw=)
       end
 
       def inspect

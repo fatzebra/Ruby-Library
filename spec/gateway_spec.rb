@@ -2,7 +2,7 @@ require 'spec_helper'
 
 TEST_USER = "TEST"
 TEST_TOKEN = "TEST"
-TEST_LOCAL = true
+TEST_LOCAL = false
 
 describe FatZebra::Gateway do
 	before :each do

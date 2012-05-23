@@ -249,25 +249,35 @@ module FatZebra
 			resource = get_resource(resource, method, data)
 
 			payload = (method == :post) ? data.to_json : {}
+			headers = options[:headers] || {}
 
-			resource.send(method, payload) do |response, request, result, &block|
-				case response.code
-				when 201
-					JSON.parse(response)
-				when 200
-					JSON.parse(response)
-				when 400
-					raise RequestError, "Bad Data"
-				when 401
-					raise RequestError, "Unauthorized, please check your username and token"
-				when 404	
-					raise RequestError, "Requested URL not found"
-				when 500
-					raise RequestError, "Server Error, please check https://www.fatzebra.com.au"
-				when 501
-					raise RequestError, "Problem processing your request - please check your data"
+			if method == :get
+				resource.send(method, headers) do |response, request, result, &block|
+					handle_response(response)
 				end
+			else
+				resource.send(method, payload, headers) do |response, request, result, &block|
+					handle_response(response)
+				end
+			end
+		end
 
+		def handle_response(response)
+			case response.code
+			when 201
+				JSON.parse(response)
+			when 200
+				JSON.parse(response)
+			when 400
+				raise RequestError, "Bad Data"
+			when 401
+				raise RequestError, "Unauthorized, please check your username and token"
+			when 404	
+				raise RequestError, "Requested URL not found"
+			when 500
+				raise RequestError, "Server Error, please check https://www.fatzebra.com.au"
+			when 501
+				raise RequestError, "Problem processing your request - please check your data"
 			end
 		end
 	end

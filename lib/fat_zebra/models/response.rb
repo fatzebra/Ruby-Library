@@ -3,7 +3,7 @@ module FatZebra
 		class Response
 			attr_accessor :successful, :result, :errors, :test, :raw
 			def initialize(response, type = :purchase)
-				self.raw = response.dup
+				self.raw = response.dup unless response.nil?
 				self.test = response["test"]
 				self.successful = response["successful"]
 				self.errors = response["errors"]

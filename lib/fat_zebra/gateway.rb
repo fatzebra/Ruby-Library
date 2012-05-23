@@ -57,12 +57,19 @@ module FatZebra
 		#               includes: 
 		#                 - id (unique purchase ID)
 		#                 - reference (merchant reference)
+		# 				  - from (Date)
+		# 				  - to (Date)
 		#                 - offset (defaults to 0) - for pagination
 		#                 - limit (defaults to 10) for pagination
 		# @return [Array<Purchase>] array of purchases
 		def purchases(options = {})
 			id = options.delete(:id)
 			options.merge!({:offets => 0, :limit => 10})
+
+			# Format dates for the request
+			options[:from] = options[:from].strftime("%Y%m%dT%H%M") if options[:from]
+			options[:to] = options[:to].strftime("%Y%m%dT%H%M") if options[:to]
+
 
 			if id.nil?
 				response = make_request(:get, "purchases", options)
@@ -198,10 +205,10 @@ module FatZebra
 			end
 
 			unless data.nil?
-				url = url + "?"
-				data.each do |key, value|
-					url += "#{key}=#{value}" # TODO: URL Encode this
-				end
+				url = url + "?" + 
+				data.map do |key, value|
+					"#{key}=#{value}" # TODO: URL Encode this
+				end.join("&")
 			end
 
 			url
@@ -222,7 +229,13 @@ module FatZebra
   			} : {}
 
   			opts = {:user => self.username, :password => self.token}
-			RestClient::Resource.new(build_url(uri), opts.merge(ssl_options))
+			if method == :get
+				url = build_url(uri, data)
+			else
+				url = build_url(uri)
+			end
+
+			RestClient::Resource.new(url, opts.merge(ssl_options))
 		end
 
 		# Public: Performs the HTTP(s) request and returns a response object, handing errors etc

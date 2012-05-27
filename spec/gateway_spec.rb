@@ -43,15 +43,15 @@ describe FatZebra::Gateway do
 		purchases.id.should == result.purchase.id
 	end
 
-	it "should fetch purchases within a date range" do
-		start = Time.now
-		5.times do |i|
-			@gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5555555555554444", :expiry => "05/2013", :cvv => 123}, "TEST#{rand(1000)}-#{i}", "1.2.3.4")
-		end
+	# it "should fetch purchases within a date range" do
+	# 	start = Time.now
+	# 	5.times do |i|
+	# 		@gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5555555555554444", :expiry => "05/2013", :cvv => 123}, "TEST#{rand(1000)}-#{i}", "1.2.3.4")
+	# 	end
 
-		purchases = @gw.purchases(:from => start - 300, :to => Time.now + 300)
-		purchases.count.should >= 5
-	end
+	# 	purchases = @gw.purchases(:from => start - 300, :to => Time.now + 300)
+	# 	purchases.count.should >= 5
+	# end
 
 	it "should fetch purchases with a from date" do
 		start = Time.now

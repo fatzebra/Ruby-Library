@@ -3,7 +3,7 @@ module FatZebra
 		class Response
 			attr_accessor :successful, :result, :errors, :test, :raw
 			def initialize(response, type = :purchase)
-				self.raw = response.dup
+				self.raw = response.dup unless response.nil?
 				self.test = response["test"]
 				self.successful = response["successful"]
 				self.errors = response["errors"]
@@ -15,6 +15,9 @@ module FatZebra
 					when :refund
 						self.result = Refund.new(response["response"])
 						alias refund result
+					when :card
+						self.result = Card.new(response["response"])
+						alias card result
 				end
 			end
 

@@ -57,12 +57,19 @@ module FatZebra
 		#               includes: 
 		#                 - id (unique purchase ID)
 		#                 - reference (merchant reference)
+		# 				  - from (Date)
+		# 				  - to (Date)
 		#                 - offset (defaults to 0) - for pagination
 		#                 - limit (defaults to 10) for pagination
 		# @return [Array<Purchase>] array of purchases
 		def purchases(options = {})
 			id = options.delete(:id)
 			options.merge!({:offets => 0, :limit => 10})
+
+			# Format dates for the request
+			options[:from] = options[:from].strftime("%Y%m%dT%H%M") if options[:from]
+			options[:to] = options[:to].strftime("%Y%m%dT%H%M") if options[:to]
+
 
 			if id.nil?
 				response = make_request(:get, "purchases", options)
@@ -146,6 +153,26 @@ module FatZebra
 			end
 		end
 
+		# Public: Tokenizes a credit card
+		# 
+		# card_holder - the credit card holder name
+		# card_number - the card number
+		# expiry - the credit card expiry date (mm/yyyy)
+		# cvv - the card CVV
+		#
+		# Returns FatZebra::Models::Response
+		def tokenize(card_holder, card_number, expiry, cvv)
+			params = {
+				:card_holder => card_holder,
+				:card_number => card_number,
+				:card_expiry => expiry,
+				:cvv => cvv
+			}
+
+			response = make_request(:post, "credit_cards", params)
+			FatZebra::Models::Response.new(response, :card)
+		end
+
 
 		private
 		# Private: Extracts the date value from a Date/DateTime value
@@ -198,10 +225,10 @@ module FatZebra
 			end
 
 			unless data.nil?
-				url = url + "?"
-				data.each do |key, value|
-					url += "#{key}=#{value}" # TODO: URL Encode this
-				end
+				url = url + "?" + 
+				data.map do |key, value|
+					"#{key}=#{value}" # TODO: URL Encode this
+				end.join("&")
 			end
 
 			url
@@ -222,7 +249,13 @@ module FatZebra
   			} : {}
 
   			opts = {:user => self.username, :password => self.token}
-			RestClient::Resource.new(build_url(uri), opts.merge(ssl_options))
+			if method == :get
+				url = build_url(uri, data)
+			else
+				url = build_url(uri)
+			end
+
+			RestClient::Resource.new(url, opts.merge(ssl_options))
 		end
 
 		# Public: Performs the HTTP(s) request and returns a response object, handing errors etc
@@ -236,25 +269,35 @@ module FatZebra
 			resource = get_resource(resource, method, data)
 
 			payload = (method == :post) ? data.to_json : {}
+			headers = options[:headers] || {}
 
-			resource.send(method, payload) do |response, request, result, &block|
-				case response.code
-				when 201
-					JSON.parse(response)
-				when 200
-					JSON.parse(response)
-				when 400
-					raise RequestError, "Bad Data"
-				when 401
-					raise RequestError, "Unauthorized, please check your username and token"
-				when 404	
-					raise RequestError, "Requested URL not found"
-				when 500
-					raise RequestError, "Server Error, please check https://www.fatzebra.com.au"
-				when 501
-					raise RequestError, "Problem processing your request - please check your data"
+			if method == :get
+				resource.send(method, headers) do |response, request, result, &block|
+					handle_response(response)
 				end
+			else
+				resource.send(method, payload, headers) do |response, request, result, &block|
+					handle_response(response)
+				end
+			end
+		end
 
+		def handle_response(response)
+			case response.code
+			when 201
+				JSON.parse(response)
+			when 200
+				JSON.parse(response)
+			when 400
+				raise RequestError, "Bad Data"
+			when 401
+				raise RequestError, "Unauthorized, please check your username and token"
+			when 404	
+				raise RequestError, "Requested URL not found"
+			when 500
+				raise RequestError, "Server Error, please check https://www.fatzebra.com.au"
+			when 501
+				raise RequestError, "Problem processing your request - please check your data"
 			end
 		end
 	end

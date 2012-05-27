@@ -2,7 +2,7 @@ require 'spec_helper'
 
 TEST_USER = "TEST"
 TEST_TOKEN = "TEST"
-TEST_LOCAL = false
+TEST_LOCAL = ENV["TEST_LOCAL"] == "true" || false
 
 describe FatZebra::Gateway do
 	before :each do
@@ -35,7 +35,33 @@ describe FatZebra::Gateway do
 		purchase.id.should == result.purchase.id
 	end
 
-	it "should fetch a purchase within a date range"
+	it "should fetch a purchase via reference" do
+		ref = "TES#{rand}T"
+		result = @gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5555555555554444", :expiry => "05/2013", :cvv => 123}, ref, "1.2.3.4")
+
+		purchases = @gw.purchases(:reference => ref)
+		purchases.id.should == result.purchase.id
+	end
+
+	it "should fetch purchases within a date range" do
+		start = Time.now
+		5.times do |i|
+			@gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5555555555554444", :expiry => "05/2013", :cvv => 123}, "TEST#{rand(1000)}-#{i}", "1.2.3.4")
+		end
+
+		purchases = @gw.purchases(:from => start - 300, :to => Time.now + 300)
+		purchases.count.should >= 5
+	end
+
+	it "should fetch purchases with a from date" do
+		start = Time.now
+		5.times do |i|
+			@gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5555555555554444", :expiry => "05/2013", :cvv => 123}, "TEST#{rand(1000)}-#{i}", "1.2.3.4")
+		end
+
+		purchases = @gw.purchases(:from => start)
+		purchases.count.should >= 5
+	end
 
 	it "should refund a transaction" do
 		purchase = @gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5555555555554444", :expiry => "05/2013", :cvv => 123}, "TES#{rand}T", "1.2.3.4")
@@ -43,5 +69,11 @@ describe FatZebra::Gateway do
 
 		result.should be_successful
 		result.result.successful.should be_true
+	end
+
+	it "should tokenize a card" do
+		response = @gw.tokenize("M Smith", "5123456789012346", "05/2013", "123")
+		response.should be_successful
+		response.result.token.should_not be_nil
 	end
 end

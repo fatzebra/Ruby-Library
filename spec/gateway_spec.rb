@@ -49,7 +49,7 @@ describe FatZebra::Gateway do
 			@gw.purchase(10000, {:card_holder => "Matthew Savage", :number => "5555555555554444", :expiry => "05/2013", :cvv => 123}, "TEST#{rand(1000)}-#{i}", "1.2.3.4")
 		end
 
-		purchases = @gw.purchases(:from => start, :to => Time.now)
+		purchases = @gw.purchases(:from => start - 300, :to => Time.now + 300)
 		purchases.count.should >= 5
 	end
 

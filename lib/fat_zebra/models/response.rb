@@ -15,6 +15,9 @@ module FatZebra
 					when :refund
 						self.result = Refund.new(response["response"])
 						alias refund result
+					when :card
+						self.result = Card.new(response["response"])
+						alias card result
 				end
 			end
 

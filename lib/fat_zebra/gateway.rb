@@ -153,6 +153,26 @@ module FatZebra
 			end
 		end
 
+		# Public: Tokenizes a credit card
+		# 
+		# card_holder - the credit card holder name
+		# card_number - the card number
+		# expiry - the credit card expiry date (mm/yyyy)
+		# cvv - the card CVV
+		#
+		# Returns FatZebra::Models::Response
+		def tokenize(card_holder, card_number, expiry, cvv)
+			params = {
+				:card_holder => card_holder,
+				:card_number => card_number,
+				:card_expiry => expiry,
+				:cvv => cvv
+			}
+
+			response = make_request(:post, "credit_cards", params)
+			FatZebra::Models::Response.new(response, :card)
+		end
+
 
 		private
 		# Private: Extracts the date value from a Date/DateTime value

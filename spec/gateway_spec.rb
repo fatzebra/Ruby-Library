@@ -70,4 +70,10 @@ describe FatZebra::Gateway do
 		result.should be_successful
 		result.result.successful.should be_true
 	end
+
+	it "should tokenize a card" do
+		response = @gw.tokenize("M Smith", "5123456789012346", "05/2013", "123")
+		response.should be_successful
+		response.result.token.should_not be_nil
+	end
 end

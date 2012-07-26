@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FatZebra::Models::Purchase do
+describe FatZebra::Purchase do
 	it "should make the raw response available" do
 		response = {
 				"authorization" => "55355",
@@ -14,7 +14,7 @@ describe FatZebra::Models::Purchase do
 		        "reference" => "ABC123",
 		        "message" => "Approved"
 			}
-		r = FatZebra::Models::Purchase.new(response)
+		r = FatZebra::Purchase.new(response)
 		r.raw.should == response
 	end
 
@@ -31,7 +31,7 @@ describe FatZebra::Models::Purchase do
 		        "reference" => "ABC123",
 		        "message" => "Approved"
 			}
-		r = FatZebra::Models::Purchase.new(response)
+		r = FatZebra::Purchase.new(response)
 		r.card_token.should == "a1bhj98j"
 	end
 end

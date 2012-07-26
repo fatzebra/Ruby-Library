@@ -17,7 +17,7 @@ module FatZebra
   extend Forwardable
 
 	attr_accessor :config
-  attr_accessor :gateway
+  attr_accessor :_gateway
 
   # Configure the Fat Zebra gateway
   def configure(auth = nil, &block)
@@ -42,6 +42,11 @@ module FatZebra
 	end
 
   def configure_gateway
-    self.gateway = Gateway.configure(self.config)
+    self._gateway = Gateway.configure(self.config)
+  end
+
+  def gateway
+    raise GatewayError.new("Please configure the Gateway before use. See FatZebra.configure { }") if self.config.nil?
+    self._gateway
   end
 end	

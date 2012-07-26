@@ -101,7 +101,7 @@ module FatZebra
 		# @return [Refund] refund result object
 		# @deprecated Please use Refund.create or Purchase#refund instead
 		def refund(transaction_id, amount, reference)
-			warn "[DEPRECATED] Gateway#refund is deprecated, please use Refund.create or Purchase#refund instead" unless options[:silence]
+			warn "[DEPRECATED] Gateway#refund is deprecated, please use Refund.create or Purchase#refund instead`" unless options[:silence]
 			Refund.create(transaction_id, amount, reference)
 		end
 
@@ -121,24 +121,18 @@ module FatZebra
 			end
 		end
 
-		# Public: Tokenizes a credit card
+		# Tokenizes a credit card
 		# 
-		# card_holder - the credit card holder name
-		# card_number - the card number
-		# expiry - the credit card expiry date (mm/yyyy)
-		# cvv - the card CVV
+		# @param [String] the credit card holder name
+		# @param [String] the card number
+		# @param [String] the credit card expiry date (mm/yyyy)
+		# @param [String] the card CVV
 		#
-		# Returns FatZebra::Models::Response
+		# @return Response
+		# @deprecated Please use Card.create instead
 		def tokenize(card_holder, card_number, expiry, cvv)
-			params = {
-				:card_holder => card_holder,
-				:card_number => card_number,
-				:card_expiry => expiry,
-				:cvv => cvv
-			}
-
-			response = make_request(:post, "credit_cards", params)
-			Response.new(response, :card)
+			warn "[DEPRECATED] Gateway#tokenize is deprecated, please use Card.create instead" unless options[:silence]
+			Card.create(card_holder, card_number, expiry, cvv)
 		end
 
 		# Public: Performs the HTTP(s) request and returns a response object, handing errors etc

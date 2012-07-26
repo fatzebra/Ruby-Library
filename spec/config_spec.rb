@@ -29,4 +29,9 @@ describe FatZebra::Config do
 
     FatZebra.gateway.should_not be_nil
   end
+
+  it "should raise an error when trying to access the gateway before it is configured" do
+    FatZebra.config = nil
+    lambda { FatZebra.gateway }.should raise_exception(FatZebra::GatewayError)
+  end
 end	

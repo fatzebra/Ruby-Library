@@ -1,16 +1,40 @@
 module FatZebra
-	module Models
-		class Refund < Base
-			attribute :amount, :reference, :refunded, :id, :message, :transaction_id, :original_transaction_id, :raw
+	class Refund < Models::Base
+		attribute :amount, :reference, :refunded, :id, :message, :transaction_id, :original_transaction_id, :raw
 
-			def original_transaction
-				@original_transaction ||= Purchase.find(self.original_transaction_id)
-			end
+		# Returns the original transaction for this refund
+		#
+		# @return Purchase
+		def original_transaction
+			@original_transaction ||= Purchase.find(self.original_transaction_id)
+		end
 
-			def successful
-				self.refunded == "Approved"
+		# Indicates if the refund was successful or not
+		#
+		# @return Boolean
+		def successful
+			self.refunded == "Approved"
+		end
+		alias successful? successful
+
+		class << self
+			# Refunds a transaction
+			#
+			# @param [String] the ID of the original transaction to be refunded
+			# @param [Integer] the amount to be refunded, as an integer
+			# @param [String] the reference for the refund
+			#
+			# @return [Refund] refund result object
+			def create(transaction_id, amount, reference)
+				params = {
+					:transaction_id => transaction_id,
+					:amount => amount,
+					:reference => reference
+				}
+
+				response = FatZebra.gateway.make_request(:post, "refunds", params)
+				Response.new(response, :refund)
 			end
-			alias successful? successful
 		end
 	end
 end

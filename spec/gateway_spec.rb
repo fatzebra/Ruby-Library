@@ -8,7 +8,15 @@ describe FatZebra::Gateway do
 	before :each do
 		# Setup the gateway for testing
 		server = TEST_LOCAL == true ? "fatapi.dev" : "gateway.sandbox.fatzebra.com.au"
-		@gw = FatZebra::Gateway.new(TEST_USER, TEST_TOKEN, server, {:secure => !TEST_LOCAL})
+		FatZebra.configure do
+			username TEST_USER
+			token TEST_TOKEN
+			sandbox true
+			test_mode true
+			gateway server
+			options :secure => !TEST_LOCAL, :silence => true # Silence keeps the warnings quiet for testing (deprecation warnings)
+		end
+		@gw = FatZebra.gateway
 	end
 
 	it "should require username and token are provided" do

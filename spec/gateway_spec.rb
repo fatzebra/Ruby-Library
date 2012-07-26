@@ -14,7 +14,7 @@ describe FatZebra::Gateway do
 			sandbox true
 			test_mode true
 			gateway server
-			options :secure => !TEST_LOCAL
+			options :secure => !TEST_LOCAL, :silence => true # Silence keeps the warnings quiet for testing (deprecation warnings)
 		end
 		@gw = FatZebra.gateway
 	end

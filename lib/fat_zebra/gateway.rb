@@ -46,7 +46,7 @@ module FatZebra
 		# @return [Response] response (purchase) object
 		# @deprecated Please use Purchase.create(...) instead
 		def purchase(amount, card_data, reference, customer_ip)
-			warn "[DEPRECATED] Gateway#purchase is deprecated, please use Purchase.create(...) instead"
+			warn "[DEPRECATED] Gateway#purchase is deprecated, please use Purchase.create(...) instead" unless options[:silence]
 			Purchase.create(amount, card_data, reference, customer_ip)
 		end
 
@@ -63,7 +63,7 @@ module FatZebra
 		# @return [Array<Purchase>] array of purchases
 		# @deprecated Please use Purchase.find(options) instead
 		def purchases(options = {})
-			warn "[DEPRECATED] Gateway#purchases is deprecated, please use Purchase.find instead"
+			warn "[DEPRECATED] Gateway#purchases is deprecated, please use Purchase.find instead" unless options[:silence]
 			Purchase.find(options)
 		end
 
@@ -99,15 +99,10 @@ module FatZebra
 		# @param [String] the reference for the refund
 		#
 		# @return [Refund] refund result object
+		# @deprecated Please use Refund.create or Purchase#refund instead
 		def refund(transaction_id, amount, reference)
-			params = {
-				:transaction_id => transaction_id,
-				:amount => amount,
-				:reference => reference
-			}
-
-			response = make_request(:post, "refunds", params)
-			Response.new(response, :refund)
+			warn "[DEPRECATED] Gateway#refund is deprecated, please use Refund.create or Purchase#refund instead" unless options[:silence]
+			Refund.create(transaction_id, amount, reference)
 		end
 
 		# Pings the Fat Zebra service

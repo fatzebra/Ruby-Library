@@ -3,19 +3,29 @@ module FatZebra
 		attribute :id, :amount, :reference, :message, :authorization, :transaction_id, :card_number,
 				  :card_holder, :card_expiry, :authorized, :successful, :card_token, :raw
 	
+    # Refunds the current transaction
+    #
+    # @param [Integer] the amount to be refunded
+    # @param [String] the refund reference
+    #
+    # @return Response (Refund) object
+    def refund(amount, reference)
+      Refund.create(self.id, amount, reference)
+    end
+
     class << self
-      # Public: Performs a purchase transaction against the gateway
+      # Performs a purchase transaction against the gateway
       #
-      # amount - the amount as an integer e.g. (1.00 * 100).to_i
-      # card_data - a hash of the card data (example: {:card_holder => "John Smith", :number => "...", :expiry => "...", :cvv => "123"} or {:token => "abcdefg1"})
-      # card_holder - the card holders name
-      # card_number - the customers credit card number
-      # card_expiry - the customers card expiry date (as Date or string [mm/yyyy])
-      # cvv - the credit card verification value (cvv, cav, csc etc)
-      # reference - a reference for the purchase
-      # customer_ip - the customers IP address (for fraud prevention)
+      # @param [Integer] the amount as an integer e.g. (1.00 * 100).to_i
+      # @param [Hash] a hash of the card data (example: {:card_holder => "John Smith", :number => "...", :expiry => "...", :cvv => "123"} or {:token => "abcdefg1"})
+      # @param [String] the card holders name
+      # @param [String] the customers credit card number
+      # @param [Date] the customers card expiry date (as Date or string [mm/yyyy])
+      # @param [String] the credit card verification value (cvv, cav, csc etc)
+      # @param [String] a reference for the purchase
+      # @param [String] the customers IP address (for fraud prevention)
       #
-      # Returns a new FatZebra::Models::Response (purchase) object
+      # @return [Response] response (purchase) object
       def create(amount, card_data, reference, customer_ip)
         params = {
           :amount => amount,
@@ -55,7 +65,7 @@ module FatZebra
 
 
         if id.nil?
-          response = make_request(:get, "purchases", options)
+          response = FatZebra.gateway.make_request(:get, "purchases", options)
           if response["successful"]
             purchases = []
             response["response"].each do |purchase|
@@ -68,7 +78,7 @@ module FatZebra
             raise StandardError, "Unable to query purchases, #{response["errors"].inspect}"
           end
         else
-          response = make_request(:get, "purchases/#{id}.json")
+          response = FatZebra.gateway.make_request(:get, "purchases/#{id}.json")
           if response["successful"]
             Purchase.new(response["response"])
           else

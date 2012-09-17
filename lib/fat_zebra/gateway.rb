@@ -173,6 +173,34 @@ module FatZebra
 			FatZebra::Models::Response.new(response, :card)
 		end
 
+		# Public: Fetch a previously tokenized card
+		#
+		# token - the card token
+		#
+		# Returns FatZebra::Models::Response (Card)
+		def tokenized_card(token)
+			response = make_request(:get, "credit_cards/#{token}.json")
+			FatZebra::Models::Response.new(response, :card)
+		end
+
+		def tokenized_cards
+			records = []
+			options = {:offets => 0, :limit => 10}
+
+			# Format dates for the request
+			options[:from] = options[:from].strftime("%Y%m%dT%H%M") if options[:from]
+			options[:to] = options[:to].strftime("%Y%m%dT%H%M") if options[:to]
+
+			response = make_request(:get, "credit_cards.json", options)
+			if response["successful"]
+				response["response"].each do |record|
+					records << FatZebra::Models::Card.new(record)
+				end
+				records
+			else
+				raise StandardError, "Unable to query credit cards, #{response["errors"].inspect}"
+			end
+		end
 
 		private
 		# Private: Extracts the date value from a Date/DateTime value

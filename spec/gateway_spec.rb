@@ -76,4 +76,19 @@ describe FatZebra::Gateway do
 		response.should be_successful
 		response.result.token.should_not be_nil
 	end
+
+	it "should fetch a tokenized card" do
+		token = @gw.tokenize("M Smith", "5123456789012346", "05/2013", "123").result.token
+		card_response = @gw.tokenized_card(token)
+
+		card_response.should be_successful
+		card_response.result.token.should == token
+		card_response.result.card_number.should == "512345XXXXXX2346"
+	end
+
+	it "should fetch all cards" do
+		cards = @gw.tokenized_cards
+
+		cards.first.should be_instance_of(FatZebra::Models::Card)
+	end
 end

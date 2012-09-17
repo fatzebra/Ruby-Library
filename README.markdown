@@ -1,7 +1,7 @@
 Ruby API Library for Fat Zebra
 ==============================
 
-Release 1.0.0 for API version 1.0
+Release 1.1.2 for API version 1.0
 
 A Ruby client for the [Fat Zebra](https://www.fatzebra.com.au) Online Payment Gateway (for Australian Merchants)
 

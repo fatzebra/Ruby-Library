@@ -34,13 +34,29 @@ module FatZebra
 		#
 		# Returns a new FatZebra::Models::Response (purchase) object
 		def purchase(amount, card_data, reference, customer_ip)
+		
+			if card_data.keys.include?(:token)
+				warn "[DEPRECATED] please use {:card_token => \".....\"} instead of {:token => \".....\"}"
+				card_data[:card_token] ||= card_data.delete(:token)
+			end
+
+			if card_data.keys.include?(:number)
+				warn "[DEPRECATED] please use :card_number instead of :number"
+				card_data[:card_number] ||= card_data.delete(:number)
+			end
+
+			if card_data.keys.include?(:expiry)
+				warn "[DEPRECATED] please use :card_expiry instead of :expiry"
+				card_data[:card_expiry] ||= card_data.delete(:expiry)
+			end
+
 			params = {
 				:amount => amount,
 				:card_holder => card_data.delete(:card_holder),
-				:card_number => card_data.delete(:number),
-				:card_expiry => extract_date(card_data.delete(:expiry)),
+				:card_number => card_data.delete(:card_number),
+				:card_expiry => extract_date(card_data.delete(:card_expiry)),
 				:cvv => card_data.delete(:cvv),
-				:card_token => card_data.delete(:token),
+				:card_token => card_data.delete(:card_token),
 				:reference => reference,
 				:customer_ip => customer_ip
 			}
@@ -173,6 +189,34 @@ module FatZebra
 			FatZebra::Models::Response.new(response, :card)
 		end
 
+		# Public: Fetch a previously tokenized card
+		#
+		# token - the card token
+		#
+		# Returns FatZebra::Models::Response (Card)
+		def tokenized_card(token)
+			response = make_request(:get, "credit_cards/#{token}.json")
+			FatZebra::Models::Response.new(response, :card)
+		end
+
+		def tokenized_cards
+			records = []
+			options = {:offets => 0, :limit => 10}
+
+			# Format dates for the request
+			options[:from] = options[:from].strftime("%Y%m%dT%H%M") if options[:from]
+			options[:to] = options[:to].strftime("%Y%m%dT%H%M") if options[:to]
+
+			response = make_request(:get, "credit_cards.json", options)
+			if response["successful"]
+				response["response"].each do |record|
+					records << FatZebra::Models::Card.new(record)
+				end
+				records
+			else
+				raise StandardError, "Unable to query credit cards, #{response["errors"].inspect}"
+			end
+		end
 
 		private
 		# Private: Extracts the date value from a Date/DateTime value

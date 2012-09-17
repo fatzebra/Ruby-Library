@@ -91,4 +91,20 @@ describe FatZebra::Gateway do
 
 		cards.first.should be_instance_of(FatZebra::Models::Card)
 	end
+
+	it "should perform a purchase with a tokenized card (deprecated)" do
+		token = @gw.tokenize("M Smith", "5123456789012346", "05/2013", "123").result.token
+		purchase = @gw.purchase(10000, {:token => token}, "TEST#{rand}}", "127.0.0.1")
+
+		purchase.should be_successful
+		purchase.result.successful.should be_true
+	end
+
+	it "should perform a purchase with a tokenized card" do
+		token = @gw.tokenize("M Smith", "5123456789012346", "05/2013", "123").result.token
+		purchase = @gw.purchase(10000, {:card_token => token}, "TEST#{rand}}", "127.0.0.1")
+
+		purchase.should be_successful
+		purchase.result.successful.should be_true
+	end
 end

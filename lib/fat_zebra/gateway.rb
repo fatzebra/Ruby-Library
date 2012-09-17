@@ -34,13 +34,19 @@ module FatZebra
 		#
 		# Returns a new FatZebra::Models::Response (purchase) object
 		def purchase(amount, card_data, reference, customer_ip)
+		
+			if card_data.keys.include?(:token)
+				warn "[DEPRECATED] please use {:card_token => \".....\"} instead of {:token => \".....\"}"
+				card_data[:card_token] ||= card_data.delete(:token)
+			end
+
 			params = {
 				:amount => amount,
 				:card_holder => card_data.delete(:card_holder),
 				:card_number => card_data.delete(:number),
 				:card_expiry => extract_date(card_data.delete(:expiry)),
 				:cvv => card_data.delete(:cvv),
-				:card_token => card_data.delete(:token),
+				:card_token => card_data.delete(:card_token),
 				:reference => reference,
 				:customer_ip => customer_ip
 			}

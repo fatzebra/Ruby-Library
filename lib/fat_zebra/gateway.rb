@@ -40,11 +40,21 @@ module FatZebra
 				card_data[:card_token] ||= card_data.delete(:token)
 			end
 
+			if card_data.keys.include?(:number)
+				warn "[DEPRECATED] please use :card_number instead of :number"
+				card_data[:card_number] ||= card_data.delete(:number)
+			end
+
+			if card_data.keys.include?(:expiry)
+				warn "[DEPRECATED] please use :card_expiry instead of :expiry"
+				card_data[:card_expiry] ||= card_data.delete(:expiry)
+			end
+
 			params = {
 				:amount => amount,
 				:card_holder => card_data.delete(:card_holder),
-				:card_number => card_data.delete(:number),
-				:card_expiry => extract_date(card_data.delete(:expiry)),
+				:card_number => card_data.delete(:card_number),
+				:card_expiry => extract_date(card_data.delete(:card_expiry)),
 				:cvv => card_data.delete(:cvv),
 				:card_token => card_data.delete(:card_token),
 				:reference => reference,

@@ -34,20 +34,50 @@ module FatZebra
 
 		# Performs a purchase transaction against the gateway
 		#
-		# @param [Integer] the amount as an integer e.g. (1.00 * 100).to_i
-		# @param [Hash] a hash of the card data (example: {:card_holder => "John Smith", :number => "...", :expiry => "...", :cvv => "123"} or {:token => "abcdefg1"})
-		# @param [String] the card holders name
-		# @param [String] the customers credit card number
-		# @param [Date] the customers card expiry date (as Date or string [mm/yyyy])
-		# @param [String] the credit card verification value (cvv, cav, csc etc)
-		# @param [String] a reference for the purchase
-		# @param [String] the customers IP address (for fraud prevention)
+		# amount - the amount as an integer e.g. (1.00 * 100).to_i
+		# card_data - a hash of the card data (example: {:card_holder => "John Smith", :number => "...", :expiry => "...", :cvv => "123"} or {:token => "abcdefg1"})
+		# card_holder - the card holders name
+		# card_number - the customers credit card number
+		# card_expiry - the customers card expiry date (as Date or string [mm/yyyy])
+		# cvv - the credit card verification value (cvv, cav, csc etc)
+		# reference - a reference for the purchase
+		# customer_ip - the customers IP address (for fraud prevention)
+		# currency - the currency of the transaction, ISO 4217 code (http://en.wikipedia.org/wiki/ISO_4217)
 		#
-		# @return [Response] response (purchase) object
-		# @deprecated Please use Purchase.create(...) instead
-		def purchase(amount, card_data, reference, customer_ip)
-			warn "[DEPRECATED] Gateway#purchase is deprecated, please use Purchase.create(...) instead" unless options[:silence]
-			Purchase.create(amount, card_data, reference, customer_ip)
+		# Returns a new FatZebra::Models::Response (purchase) object
+		def purchase(amount, card_data, reference, customer_ip, currency = "AUD")
+		
+			if card_data.keys.include?(:token)
+				warn "[DEPRECATED] please use {:card_token => \".....\"} instead of {:token => \".....\"}"
+				card_data[:card_token] ||= card_data.delete(:token)
+			end
+
+			if card_data.keys.include?(:number)
+				warn "[DEPRECATED] please use :card_number instead of :number"
+				card_data[:card_number] ||= card_data.delete(:number)
+			end
+
+			if card_data.keys.include?(:expiry)
+				warn "[DEPRECATED] please use :card_expiry instead of :expiry"
+				card_data[:card_expiry] ||= card_data.delete(:expiry)
+			end
+
+			params = {
+				:amount => amount,
+				:card_holder => card_data.delete(:card_holder),
+				:card_number => card_data.delete(:card_number),
+				:card_expiry => extract_date(card_data.delete(:card_expiry)),
+				:cvv => card_data.delete(:cvv),
+				:card_token => card_data.delete(:card_token),
+				:reference => reference,
+				:customer_ip => customer_ip,
+				:currency => currency
+			}
+
+			params.delete_if {|key, value| value.nil? } # If token is nil, remove, otherwise, remove card values
+
+			response = make_request(:post, "purchases", params)
+			FatZebra::Models::Response.new(response)
 		end
 
 		# Retrieves purchases specified by the options hash

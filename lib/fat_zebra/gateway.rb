@@ -77,7 +77,7 @@ module FatZebra
 			params.delete_if {|key, value| value.nil? } # If token is nil, remove, otherwise, remove card values
 
 			response = make_request(:post, "purchases", params)
-			FatZebra::Models::Response.new(response)
+			Models::Response.new(response)
 		end
 
 		# Retrieves purchases specified by the options hash
@@ -94,7 +94,7 @@ module FatZebra
 		# @deprecated Please use Purchase.find(options) instead
 		def purchases(options = {})
 			warn "[DEPRECATED] Gateway#purchases is deprecated, please use Purchase.find instead" unless options[:silence]
-			Purchase.find(options)
+			Models::Purchase.find(options)
 		end
 
 		# Public: Performs an authorization transaction against the gateway
@@ -132,7 +132,7 @@ module FatZebra
 		# @deprecated Please use Refund.create or Purchase#refund instead
 		def refund(transaction_id, amount, reference)
 			warn "[DEPRECATED] Gateway#refund is deprecated, please use Refund.create or Purchase#refund instead`" unless options[:silence]
-			Refund.create(transaction_id, amount, reference)
+			Models::Refund.create(transaction_id, amount, reference)
 		end
 
 		# Pings the Fat Zebra service
@@ -162,7 +162,7 @@ module FatZebra
 		# @deprecated Please use Card.create instead
 		def tokenize(card_holder, card_number, expiry, cvv)
 			warn "[DEPRECATED] Gateway#tokenize is deprecated, please use Card.create instead" unless options[:silence]
-			Card.create(card_holder, card_number, expiry, cvv)
+			Models::Card.create(card_holder, card_number, expiry, cvv)
 		end
 
 		# Public: Performs the HTTP(s) request and returns a response object, handing errors etc

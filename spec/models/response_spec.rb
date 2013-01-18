@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe FatZebra::Response do
+describe FatZebra::Models::Response do
 	it "should make the raw response available" do
 		response = {
 			"successful" => true,
@@ -19,7 +19,7 @@ describe FatZebra::Response do
 		        "message" => "Approved"
 			}
 		}
-		r = FatZebra::Response.new(response)
+		r = FatZebra::Models::Response.new(response)
 		r.raw.should == response
 	end
 end

@@ -31,9 +31,10 @@ module FatZebra
 		# cvv - the credit card verification value (cvv, cav, csc etc)
 		# reference - a reference for the purchase
 		# customer_ip - the customers IP address (for fraud prevention)
+		# currency - the currency of the transaction, ISO 4217 code (http://en.wikipedia.org/wiki/ISO_4217)
 		#
 		# Returns a new FatZebra::Models::Response (purchase) object
-		def purchase(amount, card_data, reference, customer_ip)
+		def purchase(amount, card_data, reference, customer_ip, currency = "AUD")
 		
 			if card_data.keys.include?(:token)
 				warn "[DEPRECATED] please use {:card_token => \".....\"} instead of {:token => \".....\"}"
@@ -58,7 +59,8 @@ module FatZebra
 				:cvv => card_data.delete(:cvv),
 				:card_token => card_data.delete(:card_token),
 				:reference => reference,
-				:customer_ip => customer_ip
+				:customer_ip => customer_ip,
+				:currency => currency
 			}
 
 			params.delete_if {|key, value| value.nil? } # If token is nil, remove, otherwise, remove card values

@@ -3,6 +3,8 @@ module FatZebra
 		class Card < Base
 			attribute :token, :card_holder, :card_number, :card_expiry, :transaction_count, :raw
 
+      def successful; true; end
+
       class << self
         # Tokenizes a credit card
         # 

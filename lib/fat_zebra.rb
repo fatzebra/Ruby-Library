@@ -1,6 +1,8 @@
 require 'securerandom'
 require 'json'
 require 'rest_client'
+require 'active_support/core_ext'
+
 require 'fat_zebra/config'
 require 'fat_zebra/errors'
 require "fat_zebra/version"

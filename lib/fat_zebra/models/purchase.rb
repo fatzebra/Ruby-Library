@@ -42,7 +42,7 @@ module FatZebra
           }
 
           params.delete_if {|key, value| value.nil? } # If token is nil, remove, otherwise, remove card values
-
+          validate_params!(params)
           response = FatZebra.gateway.make_request(:post, "purchases", params)
           Response.new(response)
         end
@@ -106,6 +106,22 @@ module FatZebra
           end
         end
 
+        # Private: Validates the parameters provided meet the gateway requirements
+        #
+        # params - the parameter hash to be validated
+        #
+        # Returns nil
+        # Raises FatZebra::RequestError if errors are present.
+        def validate_params!(params)
+          @errors = []
+          @errors << "number or token must be provided" unless params[:card_number].present? || params[:card_token].present?
+          @errors << "amount must be provided or greater then 0" unless params[:amount].present? && params[:amount].to_f > 0
+          @errors << "expiry must be provided" unless params[:card_token].present? || params[:card_expiry].present?
+          @errors << "reference must be provided" unless params[:reference].present?
+          @errors << "customer_ip must be procided" unless params[:customer_ip].present?
+
+          raise FatZebra::RequestError.new("The following errors prevent the transaction from being submitted: #{@errors.to_sentence}") if @errors.any?
+        end
       end
   	end
   end

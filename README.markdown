@@ -8,7 +8,7 @@ A Ruby client for the [Fat Zebra](https://www.fatzebra.com.au) Online Payment Ga
 Dependencies
 ------------
 
- * Ruby (tested on 1.9.2, 1.9.3, 2.0.0)
+ * Ruby (tested on 1.9.3, 2.0.0)
  * Rest Client
  * JSON
 

@@ -4,14 +4,25 @@ module FatZebra
 		
 		DEFAULT_OPTIONS = {:secure => true, :version => API_VERSION}
 
-		# Public: initializes a new gateway object
+		class << self
+			def configure(config)
+				g = Gateway.new(config.username, config.token, config.gateway || GATEWAY_SERVER)
+				g.options ||= {}
+				g.options[:test_mode] = config.test_mode
+				g.options.merge!(config.options || {})
+
+				g
+			end
+		end
+
+		# Initializes a new gateway object
 		#
-		# username - merchants username
-		# token - merchants token for authentication
-		# gateway_server - the server for the gateway, defaults to 'gateway.fatzebra.com.au'
-		# options - the options for the gateway connection (e.g. secure, version etc)
+		# @param [String] merchants username
+		# @param [String] merchants token for authentication
+		# @param [String] the server for the gateway, defaults to 'gateway.fatzebra.com.au'
+		# @param [Hash] the options for the gateway connection (e.g. secure, version etc)
 		#
-		# Returns a new FatZebra::Gateway instance
+		# @return FatZebra::Gateway instance
 		def initialize(username, token, gateway_server = GATEWAY_SERVER, options = {})
 			self.username = username
 			self.token = token
@@ -21,7 +32,7 @@ module FatZebra
 			require_field :username, :token, :gateway_server
 		end
 
-		# Public: Performs a purchase transaction against the gateway
+		# Performs a purchase transaction against the gateway
 		#
 		# amount - the amount as an integer e.g. (1.00 * 100).to_i
 		# card_data - a hash of the card data (example: {:card_holder => "John Smith", :number => "...", :expiry => "...", :cvv => "123"} or {:token => "abcdefg1"})
@@ -35,38 +46,8 @@ module FatZebra
 		#
 		# Returns a new FatZebra::Models::Response (purchase) object
 		def purchase(amount, card_data, reference, customer_ip, currency = "AUD")
-		
-			if card_data.keys.include?(:token)
-				warn "[DEPRECATED] please use {:card_token => \".....\"} instead of {:token => \".....\"}"
-				card_data[:card_token] ||= card_data.delete(:token)
-			end
-
-			if card_data.keys.include?(:number)
-				warn "[DEPRECATED] please use :card_number instead of :number"
-				card_data[:card_number] ||= card_data.delete(:number)
-			end
-
-			if card_data.keys.include?(:expiry)
-				warn "[DEPRECATED] please use :card_expiry instead of :expiry"
-				card_data[:card_expiry] ||= card_data.delete(:expiry)
-			end
-
-			params = {
-				:amount => amount,
-				:card_holder => card_data.delete(:card_holder),
-				:card_number => card_data.delete(:card_number),
-				:card_expiry => extract_date(card_data.delete(:card_expiry)),
-				:cvv => card_data.delete(:cvv),
-				:card_token => card_data.delete(:card_token),
-				:reference => reference,
-				:customer_ip => customer_ip,
-				:currency => currency
-			}
-
-			params.delete_if {|key, value| value.nil? } # If token is nil, remove, otherwise, remove card values
-
-			response = make_request(:post, "purchases", params)
-			FatZebra::Models::Response.new(response)
+			warn "[DEPRECATED] Gateway#purchase is deprecated, please use Purchase.create instead" unless options[:silence]
+			Models::Purchase.create(amount, card_data, reference, customer_ip, currency)
 		end
 
 		# Retrieves purchases specified by the options hash
@@ -80,36 +61,10 @@ module FatZebra
 		#                 - offset (defaults to 0) - for pagination
 		#                 - limit (defaults to 10) for pagination
 		# @return [Array<Purchase>] array of purchases
+		# @deprecated Please use Purchase.find(options) instead
 		def purchases(options = {})
-			id = options.delete(:id)
-			options.merge!({:offets => 0, :limit => 10})
-
-			# Format dates for the request
-			options[:from] = options[:from].strftime("%Y%m%dT%H%M") if options[:from]
-			options[:to] = options[:to].strftime("%Y%m%dT%H%M") if options[:to]
-
-
-			if id.nil?
-				response = make_request(:get, "purchases", options)
-				if response["successful"]
-					purchases = []
-					response["response"].each do |purchase|
-						purchases << FatZebra::Models::Purchase.new(purchase)
-					end
-
-					purchases.size == 1 ? purchases.first : purchases
-				else
-					# TODO: This should raise a defined exception
-					raise StandardError, "Unable to query purchases, #{response["errors"].inspect}"
-				end
-			else
-				response = make_request(:get, "purchases/#{id}.json")
-				if response["successful"]
-					FatZebra::Models::Purchase.new(response["response"])
-				else
-					raise StandardError, "Unable to query purchases, #{response["errors"].inspect}"
-				end
-			end
+			warn "[DEPRECATED] Gateway#purchases is deprecated, please use Purchase.find instead" unless options[:silence]
+			Models::Purchase.find(options)
 		end
 
 		# Public: Performs an authorization transaction against the gateway
@@ -137,29 +92,24 @@ module FatZebra
 			raise "Sorry we haven't compelted this functionality yet."
 		end
 
-		# Public: Refunds a transaction
+		# Refunds a transaction
 		#
-		# transaction_id - the ID of the original transaction to be refunded
-		# amount - the amount to be refunded, as an integer
-		# reference - the reference for the refund
+		# @param [String] the ID of the original transaction to be refunded
+		# @param [Integer] the amount to be refunded, as an integer
+		# @param [String] the reference for the refund
 		#
-		# Returns a new FatZebra::Models::Refund object
+		# @return [Refund] refund result object
+		# @deprecated Please use Refund.create or Purchase#refund instead
 		def refund(transaction_id, amount, reference)
-			params = {
-				:transaction_id => transaction_id,
-				:amount => amount,
-				:reference => reference
-			}
-
-			response = make_request(:post, "refunds", params)
-			FatZebra::Models::Response.new(response, :refund)
+			warn "[DEPRECATED] Gateway#refund is deprecated, please use Refund.create or Purchase#refund instead`" unless options[:silence]
+			Models::Refund.create(transaction_id, amount, reference)
 		end
 
-		# Public: Pings the Fat Zebra service
+		# Pings the Fat Zebra service
 		# 
-		# nonce - the data to be echoed back
+		# @param [String] the data to be echoed back
 		#
-		# Returns true if reply is valid, false if times out or otherwise
+		# @return true if reply is valid, false if the request times out, or otherwise
 		def ping(nonce = SecureRandom.hex)	
 			begin
 				response = RestClient.get(build_url("ping") + "?echo=#{nonce}")
@@ -171,52 +121,48 @@ module FatZebra
 			end
 		end
 
-		# Public: Tokenizes a credit card
+		# Tokenizes a credit card
 		# 
-		# card_holder - the credit card holder name
-		# card_number - the card number
-		# expiry - the credit card expiry date (mm/yyyy)
-		# cvv - the card CVV
+		# @param [String] the credit card holder name
+		# @param [String] the card number
+		# @param [String] the credit card expiry date (mm/yyyy)
+		# @param [String] the card CVV
 		#
-		# Returns FatZebra::Models::Response
+		# @return Response
+		# @deprecated Please use Card.create instead
 		def tokenize(card_holder, card_number, expiry, cvv)
-			params = {
-				:card_holder => card_holder,
-				:card_number => card_number,
-				:card_expiry => expiry,
-				:cvv => cvv
-			}
-
-			response = make_request(:post, "credit_cards", params)
-			FatZebra::Models::Response.new(response, :card)
+			warn "[DEPRECATED] Gateway#tokenize is deprecated, please use Card.create instead" unless options[:silence]
+			Models::Card.create(card_holder, card_number, expiry, cvv)
 		end
 
-		# Public: Fetch a previously tokenized card
+		# Public: Performs the HTTP(s) request and returns a response object, handing errors etc
 		#
-		# token - the card token
+		# method - the request method (:post or :get)
+		# resource - the resource for the request
+		# data - a hash of the data for the request
 		#
-		# Returns FatZebra::Models::Response (Card)
-		def tokenized_card(token)
-			response = make_request(:get, "credit_cards/#{token}.json")
-			FatZebra::Models::Response.new(response, :card)
-		end
+		# Returns hash of response data
+		def make_request(method, resource, data = nil)
+			resource = get_resource(resource, method, data)
 
-		def tokenized_cards
-			records = []
-			options = {:offets => 0, :limit => 10}
-
-			# Format dates for the request
-			options[:from] = options[:from].strftime("%Y%m%dT%H%M") if options[:from]
-			options[:to] = options[:to].strftime("%Y%m%dT%H%M") if options[:to]
-
-			response = make_request(:get, "credit_cards.json", options)
-			if response["successful"]
-				response["response"].each do |record|
-					records << FatZebra::Models::Card.new(record)
-				end
-				records
+			if method == :post
+				data[:test] = options[:test_mode] if options[:test_mode]
+				payload = data.to_json
 			else
-				raise StandardError, "Unable to query credit cards, #{response["errors"].inspect}"
+				payload = {}
+			end
+
+			headers = options[:headers] || {}
+
+			if method == :get
+				resource.send(method, headers) do |response, request, result, &block|
+					handle_response(response)
+				end
+			else
+				# Add in test flag is test mode...
+				resource.send(method, payload, headers) do |response, request, result, &block|
+					handle_response(response)
+				end
 			end
 		end
 
@@ -302,30 +248,6 @@ module FatZebra
 			end
 
 			RestClient::Resource.new(url, opts.merge(ssl_options))
-		end
-
-		# Public: Performs the HTTP(s) request and returns a response object, handing errors etc
-		#
-		# method - the request method (:post or :get)
-		# resource - the resource for the request
-		# data - a hash of the data for the request
-		#
-		# Returns hash of response data
-		def make_request(method, resource, data = nil)
-			resource = get_resource(resource, method, data)
-
-			payload = (method == :post) ? data.to_json : {}
-			headers = options[:headers] || {}
-
-			if method == :get
-				resource.send(method, headers) do |response, request, result, &block|
-					handle_response(response)
-				end
-			else
-				resource.send(method, payload, headers) do |response, request, result, &block|
-					handle_response(response)
-				end
-			end
 		end
 
 		def handle_response(response)

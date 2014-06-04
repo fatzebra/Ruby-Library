@@ -1,7 +1,7 @@
 module FatZebra
-	module Models
-		class Card < Base
-			attribute :token, :card_holder, :card_number, :card_expiry, :transaction_count, :raw
+  module Models
+    class Card < Base
+      attribute :token, :card_holder, :card_number, :card_expiry, :transaction_count, :raw
 
       def successful; true; end
 
@@ -12,9 +12,10 @@ module FatZebra
         # @param [String] the card number
         # @param [String] the credit card expiry date (mm/yyyy)
         # @param [String] the card CVV
+        # @param [Hash] optional any additional data which should be merged into the request
         #
         # @return Response
-        def create(card_holder, card_number, expiry, cvv)
+        def create(card_holder, card_number, expiry, cvv, optional = {})
           params = {
             :card_holder => card_holder,
             :card_number => card_number,
@@ -22,10 +23,12 @@ module FatZebra
             :cvv => cvv
           }
 
+          params.merge!(optional)
+          
           response = FatZebra.gateway.make_request(:post, "credit_cards", params)
           Response.new(response, :card)
         end
       end
-  	end
+    end
   end
 end

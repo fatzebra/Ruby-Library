@@ -1,9 +1,10 @@
 module FatZebra
   module Models
-  	class Purchase < Base
-  		attribute :id, :amount, :reference, :message, :authorization, :transaction_id, :card_number,
-  				  :card_holder, :card_expiry, :authorized, :successful, :card_token, :currency, :raw
-  	
+    class Purchase < Base
+      attribute :id, :amount, :reference, :message, :authorization, :transaction_id, :card_number,
+            :card_holder, :card_expiry, :authorized, :successful, :card_token, :currency, :raw, :captured,
+            :response_code, :rrn, :cvv_match, :fraud_result, :fraud_messages
+  
       # Refunds the current transaction
       #
       # @param [Integer] the amount to be refunded
@@ -12,6 +13,32 @@ module FatZebra
       # @return Response (Refund) object
       def refund(amount, reference)
         Refund.create(self.id, amount, reference)
+      end
+
+      # Returns the record as a Hash
+      #
+      # @return [Hash]
+      def to_hash
+        {
+          id: self.id,
+          amount: self.amount,
+          reference: self.reference,
+          message: self.message,
+          authorization: self.authorization,
+          card_number: self.card_number,
+          card_holder: self.card_holder,
+          card_expiry: self.card_expiry,
+          card_token: self.card_token,
+          currency: self.currency,
+          authorized: self.authorized,
+          successful: self.successful,
+          captured: self.captured,
+          response_code: self.response_code,
+          cvv_match: self.cvv_match,
+          rrn: self.rrn,
+          fraud_result: self.fraud_result,
+          fraud_messages: self.fraud_messages
+        }
       end
 
       class << self
@@ -26,9 +53,10 @@ module FatZebra
         # @param [String] a reference for the purchase
         # @param [String] the customers IP address (for fraud prevention)
         # @param [String] currency code ("AUD", "USD", etc)
+        # @param [Hash] optional any optional parameters to be included in the payload
         #
         # @return [Response] response (purchase) object
-        def create(amount, card_data, reference, customer_ip, currency = "AUD")
+        def create(amount, card_data, reference, customer_ip, currency = "AUD", optional = {})
           params = {
             :amount => amount,
             :card_holder => card_data.delete(:card_holder),
@@ -43,6 +71,7 @@ module FatZebra
 
           params.delete_if {|key, value| value.nil? } # If token is nil, remove, otherwise, remove card values
           validate_params!(params)
+          params.merge!(optional)
           response = FatZebra.gateway.make_request(:post, "purchases", params)
           Response.new(response)
         end
@@ -50,13 +79,13 @@ module FatZebra
         # Retrieves purchases specified by the options hash
         #
         # @param [Hash] options for lookup
-        #               includes: 
-        #                 - id (unique purchase ID)
-        #                 - reference (merchant reference)
-        #           - from (Date)
-        #           - to (Date)
-        #                 - offset (defaults to 0) - for pagination
-        #                 - limit (defaults to 10) for pagination
+        # @option options [String] id the unique purchase ID
+        # @option options [String] reference the merchant reference
+        # @option options [DateTime] from the start date to search from
+        # @option options [DateTime] to the end date time to search to
+        # @option options [Integer] offset the start page for pagination
+        # @option options [Integer] limit the maximum number of records to return in the query. Maximum 10
+        #
         # @return [Array<Purchase>] array of purchases
         def find(options = {})
           id = options.delete(:id)
@@ -123,6 +152,6 @@ module FatZebra
           raise FatZebra::RequestError.new("The following errors prevent the transaction from being submitted: #{@errors.to_sentence}") if @errors.any?
         end
       end
-  	end
+    end
   end
 end

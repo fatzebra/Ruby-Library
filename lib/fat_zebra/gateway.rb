@@ -252,9 +252,7 @@ module FatZebra
 
 		def handle_response(response)
 			case response.code
-			when 201
-				JSON.parse(response)
-			when 200
+			when 200, 201, 422
 				JSON.parse(response)
 			when 400
 				raise RequestError, "Bad Data"
@@ -266,6 +264,8 @@ module FatZebra
 				raise RequestError, "Server Error, please check https://www.fatzebra.com.au"
 			when 501
 				raise RequestError, "Problem processing your request - please check your data"
+			else
+				raise RequestError, "Unknown response code: #{response.code}"
 			end
 		end
 	end

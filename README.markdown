@@ -40,15 +40,15 @@ card_data = {
 	number: "5123456789012346",
 	card_holder: "Bill Simpson",
 	expiry: "05/2023",
-	ccv: "123"
+	cvv: "123"
 }
 
-response = FatZebra::Purchase.create(10000, card_data, "ORDER-23", "203.99.87.4")
+response = FatZebra::Models::Purchase.create(10000, card_data, "ORDER-23", "203.99.87.4")
 
 if response.successful? && response.result.successful
 	puts "Transaction ID: #{response.result.id}"
 else
-	abort "Error in transaction: #{response.error_messages}"
+	abort "Error in transaction: #{response.errors}"
 end
 ```
 

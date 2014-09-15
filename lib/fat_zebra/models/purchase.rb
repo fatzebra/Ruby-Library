@@ -7,8 +7,8 @@ module FatZebra
   
       # Refunds the current transaction
       #
-      # @param [Integer] the amount to be refunded
-      # @param [String] the refund reference
+      # @param [Integer] amount the amount to be refunded
+      # @param [String] reference the refund reference
       #
       # @return Response (Refund) object
       def refund(amount, reference)
@@ -44,19 +44,19 @@ module FatZebra
       class << self
         # Performs a purchase transaction against the gateway
         #
-        # @param [Integer] the amount as an integer e.g. (1.00 * 100).to_i
-        # @param [Hash] a hash of the card data (example: {:card_holder => "John Smith", :number => "...", :expiry => "...", :cvv => "123"} or {:token => "abcdefg1"})
-        # @param [String] the card holders name
-        # @param [String] the customers credit card number
-        # @param [Date] the customers card expiry date (as Date or string [mm/yyyy])
-        # @param [String] the credit card verification value (cvv, cav, csc etc)
-        # @param [String] a reference for the purchase
-        # @param [String] the customers IP address (for fraud prevention)
-        # @param [String] currency code ("AUD", "USD", etc)
+        # @param [Integer] amount the amount as an integer e.g. (1.00 * 100).to_i
+        # @param [Hash] card_data a hash of the card data (example: {:card_holder => "John Smith", :number => "...", :expiry => "...", :cvv => "123"} or {:token => "abcdefg1"})
+        # @option card_data [String] card_holder the card holders name
+        # @option card_data [String] card_number the customers credit card number
+        # @option card_data [Date] expiry the customers card expiry date (as Date or string [mm/yyyy])
+        # @option card_data [String] cvv the credit card verification value (cvv, cav, csc etc)
+        # @param [String] reference a reference for the purchase
+        # @param [String] customer_ip the customers IP address (for fraud prevention)
+        # @param [String] currency currency code ("AUD", "USD", etc)
         # @param [Hash] optional any optional parameters to be included in the payload
         #
         # @return [Response] response (purchase) object
-        def create(amount, card_data, reference, customer_ip, currency = "AUD", optional = {})
+        def create(amount, card_data, reference, customer_ip, currency = 'AUD', optional = {})
           params = {
             :amount => amount,
             :card_holder => card_data.delete(:card_holder),
@@ -69,10 +69,10 @@ module FatZebra
             :currency => currency
           }
 
-          params.delete_if {|key, value| value.nil? } # If token is nil, remove, otherwise, remove card values
-          validate_params!(params)
+          params.delete_if {|_, value| value.nil? } # If token is nil, remove, otherwise, remove card values
           params.merge!(optional)
-          response = FatZebra.gateway.make_request(:post, "purchases", params)
+          validate_params!(params)
+          response = FatZebra.gateway.make_request(:post, 'purchases', params)
           Response.new(response)
         end
 
@@ -92,29 +92,29 @@ module FatZebra
           options.merge!({:offets => 0, :limit => 10})
 
           # Format dates for the request
-          options[:from] = options[:from].strftime("%Y%m%dT%H%M") if options[:from]
-          options[:to] = options[:to].strftime("%Y%m%dT%H%M") if options[:to]
+          options[:from] = options[:from].strftime('%Y%m%dT%H%M') if options[:from]
+          options[:to] = options[:to].strftime('%Y%m%dT%H%M') if options[:to]
 
 
           if id.nil?
-            response = FatZebra.gateway.make_request(:get, "purchases", options)
-            if response["successful"]
+            response = FatZebra.gateway.make_request(:get, 'purchases', options)
+            if response['successful']
               purchases = []
-              response["response"].each do |purchase|
+              response['response'].each do |purchase|
                 purchases << Purchase.new(purchase)
               end
 
               purchases.size == 1 ? purchases.first : purchases
             else
               # TODO: This should raise a defined exception
-              raise StandardError, "Unable to query purchases, #{response["errors"].inspect}"
+              raise StandardError, "Unable to query purchases, #{response['errors'].inspect}"
             end
           else
             response = FatZebra.gateway.make_request(:get, "purchases/#{id}.json")
-            if response["successful"]
-              Purchase.new(response["response"])
+            if response['successful']
+              Purchase.new(response['response'])
             else
-              raise StandardError, "Unable to query purchases, #{response["errors"].inspect}"
+              raise StandardError, "Unable to query purchases, #{response['errors'].inspect}"
             end
           end
         end
@@ -131,7 +131,7 @@ module FatZebra
           if value.is_a?(String)
             return value
           elsif value.respond_to?(:strftime)
-            return value.strftime("%m/%Y")
+            return value.strftime('%m/%Y')
           end
         end
 
@@ -143,11 +143,11 @@ module FatZebra
         # Raises FatZebra::RequestError if errors are present.
         def validate_params!(params)
           @errors = []
-          @errors << "number or token must be provided" unless params[:card_number].present? || params[:card_token].present?
-          @errors << "amount must be provided or greater then 0" unless params[:amount].present? && params[:amount].to_f > 0
-          @errors << "expiry must be provided" unless params[:card_token].present? || params[:card_expiry].present?
-          @errors << "reference must be provided" unless params[:reference].present?
-          @errors << "customer_ip must be procided" unless params[:customer_ip].present?
+          @errors << 'number or token must be provided' unless params[:card_number].present? || params[:card_token].present? || params[:wallet].present?
+          @errors << 'amount must be provided or greater then 0' unless params[:amount].present? && params[:amount].to_f > 0
+          @errors << 'expiry must be provided' unless params[:card_token].present? || params[:card_expiry].present? || params[:wallet].present?
+          @errors << 'reference must be provided' unless params[:reference].present?
+          @errors << 'customer_ip must be provided' unless params[:customer_ip].present?
 
           raise FatZebra::RequestError.new("The following errors prevent the transaction from being submitted: #{@errors.to_sentence}") if @errors.any?
         end

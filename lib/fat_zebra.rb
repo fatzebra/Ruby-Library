@@ -5,7 +5,7 @@ require 'active_support/core_ext'
 
 require 'fat_zebra/config'
 require 'fat_zebra/errors'
-require "fat_zebra/version"
+require 'fat_zebra/version'
 require 'fat_zebra/constants'
 require 'fat_zebra/gateway'
 require 'fat_zebra/models/base'

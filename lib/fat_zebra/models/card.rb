@@ -28,6 +28,21 @@ module FatZebra
           response = FatZebra.gateway.make_request(:post, "credit_cards", params)
           Response.new(response, :card)
         end
+
+        # Update the credit card expiry date
+        #
+        # @param [String] token the credit card token
+        # @param [String] expiry the new expiry date (format: mm/yyyy)
+        #
+        # @return [Response]
+        def update_expiry(token, expiry)
+          params = {
+                  card_expiry: expiry
+          }
+
+          response = FatZebra.gateway.make_request(:put, "credit_cards/#{token}", params)
+          Response.new(response, :card)
+        end
       end
     end
   end

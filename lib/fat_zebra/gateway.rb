@@ -145,7 +145,7 @@ module FatZebra
 		def make_request(method, resource, data = nil)
 			resource = get_resource(resource, method, data)
 
-			if method == :post
+			if [:post, :put, :patch].include?(method)
 				data[:test] = options[:test_mode] if options[:test_mode]
 				payload = data.to_json
 			else

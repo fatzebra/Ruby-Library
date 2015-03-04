@@ -256,14 +256,16 @@ module FatZebra
 				JSON.parse(response)
 			when 200
 				JSON.parse(response)
+			when 422
+				JSON.parse(response)
 			when 400
 				raise RequestError, "Bad Data"
 			when 401
 				raise RequestError, "Unauthorized, please check your username and token"
 			when 404	
-				raise RequestError, "Requested URL not found"
+				raise RequestError, "Requested Resource not found"
 			when 500
-				raise RequestError, "Server Error, please check https://www.fatzebra.com.au"
+				raise RequestError, "Server Error, please check with Gateway"
 			when 501
 				raise RequestError, "Problem processing your request - please check your data"
 			end

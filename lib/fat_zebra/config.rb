@@ -1,5 +1,5 @@
 module FatZebra
-	class Config
+  class Config
 
     # Returns the config values in a hash
     def config
@@ -34,5 +34,5 @@ module FatZebra
 
       c
     end
-	end
+  end
 end

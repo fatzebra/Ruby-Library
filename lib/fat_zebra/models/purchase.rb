@@ -2,8 +2,8 @@ module FatZebra
   module Models
     class Purchase < Base
       attribute :id, :amount, :reference, :message, :authorization, :transaction_id, :card_number,
-            :card_holder, :card_expiry, :authorized, :successful, :card_token, :currency, :raw, :captured,
-            :response_code, :rrn, :cvv_match, :fraud_result, :fraud_messages
+            :card_holder, :card_expiry, :authorized, :successful, :card_token, :currency, :raw, :captured, :captured_amount,
+            :response_code, :rrn, :cvv_match, :fraud_result, :fraud_messages, :metadata
   
       # Refunds the current transaction
       #
@@ -13,6 +13,30 @@ module FatZebra
       # @return Response (Refund) object
       def refund(amount, reference)
         Refund.create(self.id, amount, reference)
+      end
+
+      # Captures an authorization
+      #
+      # @param [Integer] amount the amount to capture. (Optional)
+      #
+      # @return [Response] Purchase response object
+      def capture(amount = nil)
+        if amount.nil?
+          params = {}
+        else
+          params = {
+            :amount => amount
+          }
+        end
+        response = FatZebra.gateway.make_request(:post, "purchases/#{self.id}/capture", params)
+        resp = Response.new(response)
+
+        if resp.successful && resp.purchase.successful
+          self.captured_amount = amount || self.amount
+          return true
+        else
+          raise StandardError, "Unable to capture purchase - #{resp.errors.join(',')}"
+        end
       end
 
       # Returns the record as a Hash
@@ -33,11 +57,13 @@ module FatZebra
           authorized: self.authorized,
           successful: self.successful,
           captured: self.captured,
+          captured_amount: self.captured_amount,
           response_code: self.response_code,
           cvv_match: self.cvv_match,
           rrn: self.rrn,
           fraud_result: self.fraud_result,
-          fraud_messages: self.fraud_messages
+          fraud_messages: self.fraud_messages,
+          metadata: self.metadata || {}
         }
       end
 
@@ -114,7 +140,7 @@ module FatZebra
             if response['successful']
               Purchase.new(response['response'])
             else
-              raise StandardError, "Unable to query purchases, #{response['errors'].inspect}"
+              raise StandardError, "Unable to query purchases - #{response['errors'].inspect}"
             end
           end
         end

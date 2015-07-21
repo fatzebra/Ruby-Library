@@ -24,14 +24,17 @@ module FatZebra
 				# @param [String] the ID of the original transaction to be refunded
 				# @param [Integer] the amount to be refunded, as an integer
 				# @param [String] the reference for the refund
+				# @param [Hash] optional optional parameters to be included in the request
 				#
 				# @return [Refund] refund result object
-				def create(transaction_id, amount, reference)
+				def create(transaction_id, amount, reference, optional = {})
 					params = {
 						:transaction_id => transaction_id,
 						:amount => amount,
 						:reference => reference
 					}
+
+					params.merge!(optional)
 
 					response = FatZebra.gateway.make_request(:post, "refunds", params)
 					Response.new(response, :refund)

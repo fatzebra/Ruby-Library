@@ -1,7 +1,8 @@
 module FatZebra
 	module Models
 		class Refund < Base
-			attribute :amount, :reference, :refunded, :id, :message, :transaction_id, :original_transaction_id, :raw
+			attribute :amount, :reference, :refunded, :id, :message, :transaction_id, :original_transaction_id, :transaction_date, :settlement_date,
+								:response_code, :message, :rrn, :authorisation, :raw
 
 			# Returns the original transaction for this refund
 			#

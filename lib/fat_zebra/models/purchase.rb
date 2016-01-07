@@ -3,7 +3,7 @@ module FatZebra
     class Purchase < Base
       attribute :id, :amount, :reference, :message, :authorization, :transaction_id, :card_number,
             :card_holder, :card_expiry, :authorized, :successful, :card_token, :currency, :raw, :captured, :captured_amount,
-            :response_code, :rrn, :cvv_match, :fraud_result, :fraud_messages, :metadata
+            :response_code, :rrn, :cvv_match, :fraud_result, :fraud_messages, :settlement_date, :transaction_date, :metadata
   
       # Refunds the current transaction
       #
@@ -63,6 +63,8 @@ module FatZebra
           rrn: self.rrn,
           fraud_result: self.fraud_result,
           fraud_messages: self.fraud_messages,
+          settlement_date: self.settlement_date,
+          transaction_date: self.transaction_date,
           metadata: self.metadata || {}
         }
       end

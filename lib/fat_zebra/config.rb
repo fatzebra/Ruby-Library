@@ -6,7 +6,7 @@ module FatZebra
       @config ||= {}
     end
 
-    [:username, :token, :test_mode, :sandbox, :options, :gateway].each do |attr|
+    [:username, :token, :test_mode, :sandbox, :options, :gateway, :proxy].each do |attr|
       define_method "#{attr}" do |value = nil|
         if value.nil?
           config[attr.to_s]

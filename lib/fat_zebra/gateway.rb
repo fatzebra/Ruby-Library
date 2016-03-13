@@ -10,6 +10,7 @@ module FatZebra
 				g.options ||= {}
 				g.options[:test_mode] = config.test_mode
 				g.options.merge!(config.options || {})
+				g.proxy = g.options[:proxy]
 
 				g
 			end
@@ -28,8 +29,25 @@ module FatZebra
 			self.token = token
 			self.gateway_server = gateway_server
 			self.options = DEFAULT_OPTIONS.merge(options)
+			self.proxy = self.options[:proxy]
 
 			require_field :username, :token, :gateway_server
+		end
+
+		# Set the proxy for RestClient
+		#
+		# @param [String] val the proxy
+		#
+		# @return Nil
+		def proxy=(val)
+			RestClient.proxy = val
+		end
+
+		# Get the proxy set for RestClient
+		#
+		# @return [String] the proxy set for RestClient
+		def proxy
+			RestClient.proxy
 		end
 
 		# Performs a purchase transaction against the gateway

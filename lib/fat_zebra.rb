@@ -5,6 +5,7 @@ require 'active_support'
 require 'active_support/core_ext'
 require 'forwardable'
 
+require_relative 'rest-client/request_ext'
 require_relative 'fat_zebra/config'
 require_relative 'fat_zebra/errors'
 require_relative 'fat_zebra/version'
@@ -15,6 +16,10 @@ require_relative 'fat_zebra/models/purchase'
 require_relative 'fat_zebra/models/refund'
 require_relative 'fat_zebra/models/card'
 require_relative 'fat_zebra/models/response'
+
+RestClient::Request.class_eval do
+  include RestClientExt::ProxyRequest
+end
 
 module FatZebra
   extend self

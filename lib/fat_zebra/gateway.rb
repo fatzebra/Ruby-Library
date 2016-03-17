@@ -40,14 +40,14 @@ module FatZebra
 		#
 		# @return Nil
 		def proxy=(val)
-			RestClient.proxy = val
+			self.options[:proxy] = val
 		end
 
 		# Get the proxy set for RestClient
 		#
 		# @return [String] the proxy set for RestClient
 		def proxy
-			RestClient.proxy
+			self.options[:proxy]
 		end
 
 		# Performs a purchase transaction against the gateway
@@ -258,7 +258,7 @@ module FatZebra
   				:verify_ssl => OpenSSL::SSL::VERIFY_PEER
   			} : {}
 
-  			opts = {:user => self.username, :password => self.token}
+  			opts = {:user => self.username, :password => self.token, proxy: self.options[:proxy]}
 			if method == :get
 				url = build_url(uri, data)
 			else

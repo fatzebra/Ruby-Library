@@ -172,7 +172,7 @@ module FatZebra
         def validate_params!(params)
           @errors = []
           @errors << 'number or token must be provided' unless params[:card_number].present? || params[:card_token].present? || params[:wallet].present?
-          @errors << 'amount must be provided or greater then 0' unless params[:amount].present? && params[:amount].to_f > 0
+          @errors << 'amount must be provided' unless params[:amount].present? && params[:amount].to_f >= 0
           @errors << 'expiry must be provided' unless params[:card_token].present? || params[:card_expiry].present? || params[:wallet].present?
           @errors << 'reference must be provided' unless params[:reference].present?
           @errors << 'customer_ip must be provided' unless params[:customer_ip].present?

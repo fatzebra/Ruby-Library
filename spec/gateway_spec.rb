@@ -10,7 +10,7 @@ describe FatZebra::Gateway do
 	
 	before :each do
 		# Setup the gateway for testing
-		server = TEST_LOCAL == true ? "fatapi.dev" : "gateway.sandbox.fatzebra.com.au"
+		server = TEST_LOCAL == true ? "fatapi.dev" : "gateway-sandbox.ipsi.com.au"
 		FatZebra.configure do
 			username TEST_USER
 			token TEST_TOKEN

@@ -10,7 +10,7 @@ describe FatZebra::Config do
 
     FatZebra.config.username.should == "TEST"
     FatZebra.config.token.should == "TEST"
-    FatZebra.config.sandbox.should be_true
+    FatZebra.config.sandbox.should be_truthy
   end
 
   it "should configure from a hash" do

@@ -31,7 +31,7 @@ describe FatZebra::Gateway do
 	end
 
 	it "should load a valid instance of the gateway" do
-		@gw.ping.should be_true
+		@gw.ping.should be_truthy
 	end
 
 	it "should perform a purchase" do
@@ -79,7 +79,7 @@ describe FatZebra::Gateway do
 		result = FatZebra::Models::Refund.create(purchase.result.id, 100, "REFUND-#{purchase.result.id}")
 
 		result.should be_successful
-		result.result.successful.should be_true
+		result.result.successful.should be_truthy
 	end
 
 	it "should tokenize a card" do
@@ -108,7 +108,7 @@ describe FatZebra::Gateway do
 		purchase = @gw.purchase(10000, {:token => token}, "TEST#{rand}}", "127.0.0.1")
 
 		purchase.should be_successful
-		purchase.result.successful.should be_true
+		purchase.result.successful.should be_truthy
 	end
 
 	it "should transact in USD" do

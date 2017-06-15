@@ -1,0 +1,105 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/credit_cards
+    body:
+      encoding: UTF-8
+      string: '{"card_holder":"Matthew Savage","card_number":"5123456789012346","card_expiry":"02/2030","cvv":123,"test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Jul 2017 05:53:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-store
+      X-Request-Version:
+      - 1.19.41
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 2d0b2c35464458c6132b3d6c5260336f
+      X-Runtime:
+      - '0.215553'
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"token":"fke86c5u","card_holder":"Matthew
+        Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28T23:59:59+11:00","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","authorized":true,"transaction_count":1013,"alias":null},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Wed, 05 Jul 2017 05:53:08 GMT
+- request:
+    method: put
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/credit_cards/fke86c5u
+    body:
+      encoding: UTF-8
+      string: '{"card_expiry":"02/2050","test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Jul 2017 05:53:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - no-store
+      X-Request-Version:
+      - 1.19.41
+      X-Runtime:
+      - '0.036106'
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 4bac34c9cc95f165c111d172cd66ef55
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"token":"fke86c5u","card_holder":"Matthew
+        Savage","card_number":"512345XXXXXX2346","card_expiry":"2050-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","authorized":true,"transaction_count":1013,"alias":null},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Wed, 05 Jul 2017 05:53:09 GMT
+recorded_with: VCR 3.0.3

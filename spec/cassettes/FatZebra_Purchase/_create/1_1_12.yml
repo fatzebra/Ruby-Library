@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/purchases
+    body:
+      encoding: UTF-8
+      string: '{"amount":10000,"card_holder":"Matthew Savage","card_number":"5123456789012346","card_expiry":"02/2030","cvv":123,"reference":"5cfd1c23d49c9906ed38467b7f3b90e3","customer_ip":"1.2.3.4","currency":"AUD","test":true}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '214'
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 21 Jun 2017 05:02:51 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - no-store
+      X-Request-Version:
+      - 1.19.41
+      X-Runtime:
+      - '0.305364'
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - ad561c6fe77302365c5a67835e5a76a8
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"authorization":"668186","id":"071-P-OIB3EX09","card_number":"512345XXXXXX2346","card_holder":"Matthew
+        Savage","card_expiry":"2030-02-28","card_token":"fke86c5u","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","amount":10000,"decimal_amount":100.0,"successful":true,"message":"Approved","reference":"5cfd1c23d49c9906ed38467b7f3b90e3","currency":"AUD","transaction_id":"071-P-OIB3EX09","settlement_date":"2017-06-21","transaction_date":"2017-06-21T15:02:51+10:00","response_code":"00","captured":true,"captured_amount":10000,"rrn":"071POIB3EX09","cvv_match":"M","metadata":{},"addendum_data":{}},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Wed, 21 Jun 2017 05:02:51 GMT
+recorded_with: VCR 3.0.3

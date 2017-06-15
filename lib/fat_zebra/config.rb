@@ -1,38 +1,91 @@
 module FatZebra
+  ##
+  # == FatZebra \Config
+  #
+  # Represent the FatZebra configuration for the API
   class Config
 
-    # Returns the config values in a hash
-    def config
-      @config ||= {}
+    GATEWAY_URLS = {
+      production: 'gateway.fatzebra.com.au',
+      sandbox:    'gateway.sandbox.fatzebra.com.au'
+    }.freeze
+
+    ##
+    # @return [String] Username
+    attr_accessor :username
+
+    ##
+    # @return [String] Token
+    attr_accessor :token
+
+    ##
+    # @return [String] Test mode
+    attr_accessor :test_mode
+
+    ##
+    # @return [String] Gateway url
+    attr_accessor :gateway
+
+    ##
+    # @return [String] Proxy url
+    attr_accessor :proxy
+
+    ##
+    # @return [String] http secure
+    attr_accessor :http_secure
+
+    ##
+    # @return [String] api version
+    attr_accessor :api_version
+
+    ##
+    # @return [String] global request options
+    attr_accessor :global_options
+
+    ##
+    # @param [Hash{Symbol=>Object}]
+    # Initialize and validate the configuration
+    def initialize(options = {})
+      self.token          = options[:token]
+      self.username       = options[:username]
+      self.gateway        = options[:gateway] || :production
+      self.test_mode      = options[:test_mode] || false
+      self.http_secure    = options[:http_secure] || true
+      self.api_version    = options[:api_version] || 'v1.0'
+      self.proxy          = options[:proxy]
+      self.global_options = options[:global_options] || {}
+
+      valid! unless options.empty?
     end
 
-    [:username, :token, :test_mode, :sandbox, :options, :gateway, :proxy].each do |attr|
-      define_method "#{attr}" do |value = nil|
-        if value.nil?
-          config[attr.to_s]
-        else
-          config[attr.to_s] = value
-        end
+    ##
+    # validate the configuration
+    # Raise when configuration is not valid
+    # Remove "http://" or "https://" from urls
+    #
+    # @return [Boolean] true
+    def valid!
+      format!
+
+      %i[username token gateway api_version].each do |field|
+        validate_presence(field)
       end
+
+      true
     end
 
-    # Validates the configuration
-    def validate!
-      @errors = []
+    private
 
-      @errors << "Username is required" if self.username.nil?
-      @errors << "Token is required" if self.token.nil?
+    def format!
+      self.gateway = GATEWAY_URLS[gateway] if gateway.is_a?(Symbol)
 
-      raise "The following errors were raised during configuration: #{@errors.join(", ")}}" unless @errors.empty?
+      self.gateway = Util.cleanup_host(gateway)
+      self.proxy   = Util.cleanup_host(proxy) if proxy
     end
 
-    def self.from_hash(hash)
-      c = new
-      hash.each do |key, value|
-        c.send key, value
-      end
-
-      c
+    def validate_presence(field)
+      raise FatZebra::ConfigurationError, "#{field} can't be blank" if send(field).nil? || send(field).empty?
     end
+
   end
 end

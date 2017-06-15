@@ -1,0 +1,118 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches
+    body:
+      encoding: UTF-8
+      string: "------FatZebraMultipartPost\r\nContent-Disposition: form-data; name=\"BATCH-v1-PURCHASE-TEST-20170705-084a65b79f5908142324dd6c717a17a8.csv\";
+        filename=\"BATCH-v1-PURCHASE-TEST-20170705-084a65b79f5908142324dd6c717a17a8.csv\"\r\nContent-Length:
+        \r\nContent-Type: text/csv\r\nContent-Transfer-Encoding: binary\r\n\r\n1000,AUD,Order12345,John
+        Doe 1,4444333322221111,12/2020,,Gizmo ABC 1\n2051,AUD,Order22345,John Doe
+        2,4444333322221111,12/2020,,Gizmo ABC 2\n3000,AUD,Order32345,John Doe 3,4444333322221111,12/2020,,Gizmo
+        ABC 3\n4000,AUD,Order42345,John Doe 4,4444333322221111,12/2020,,Gizmo ABC
+        4\n\r\n------FatZebraMultipartPost\r\nContent-Disposition: form-data; name=\"filename\"\r\n\r\nBATCH-v1-PURCHASE-TEST-20170705-084a65b79f5908142324dd6c717a17a8.csv------FatZebraMultipartPost\r\nContent-Disposition:
+        form-data; name=\"test\"\r\n\r\ntrue------FatZebraMultipartPost--\r\n"
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Length:
+      - '835'
+      Content-Type:
+      - multipart/form-data; boundary=----FatZebraMultipartPost
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 05 Jul 2017 05:53:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - no-store
+      X-Request-Version:
+      - 1.19.41
+      X-Runtime:
+      - '0.056840'
+      Pragma:
+      - no-cache
+      X-Purge-File:
+      - 'false'
+      X-Request-Id:
+      - 603050a83c2d676c05fc051657306765
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-BF-JJKU6GK2","filename":"BATCH-v1-PURCHASE-TEST-20170705-084a65b79f5908142324dd6c717a17a8.csv","created_at":"2017-07-05T15:53:08+10:00","process_date":"2017-07-05","start_date":null,"completed_date":null,"status":"New","type":"PURCHASE","reference":"084a65b79f5908142324dd6c717a17a8"},"errors":[],"test":false}'
+    http_version: 
+  recorded_at: Wed, 05 Jul 2017 05:53:08 GMT
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/084a65b79f5908142324dd6c717a17a8?test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Jul 2017 05:53:08 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-store, private
+      X-Request-Version:
+      - 1.19.41
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 8d9f493e024e693a84daa3c4237b0d45
+      X-Runtime:
+      - '0.023834'
+      X-Rack-Cache:
+      - miss
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-BF-JJKU6GK2","filename":"BATCH-v1-PURCHASE-TEST-20170705-084a65b79f5908142324dd6c717a17a8.csv","created_at":"2017-07-05T15:53:08+10:00","process_date":"2017-07-05","start_date":null,"completed_date":null,"status":"IngestError","type":"PURCHASE","reference":"084a65b79f5908142324dd6c717a17a8"},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Wed, 05 Jul 2017 05:53:08 GMT
+recorded_with: VCR 3.0.3

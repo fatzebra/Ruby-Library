@@ -1,0 +1,109 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches
+    body:
+      encoding: UTF-8
+      string: '{"file":"#<File:0x007fdd6f633248>","filename":"BATCH-v1-PURCHASE-TEST-20170628-1729c64edb4087485af7834695d1c39d.csv","multipart":true,"test":true}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '146'
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 28 Jun 2017 01:37:21 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Cache-Control:
+      - no-store
+      X-Request-Version:
+      - 1.19.41
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - fa5578a9d3e9f335f23290653d6aade2
+      X-Runtime:
+      - '0.035365'
+      X-Purge-File:
+      - 'false'
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-BF-GS01B39D","filename":"BATCH-v1-PURCHASE-TEST-20170628-1729c64edb4087485af7834695d1c39d.csv","created_at":"2017-06-28T11:37:21+10:00","process_date":"2017-06-28","start_date":null,"completed_date":null,"status":"New","type":"PURCHASE","reference":"1729c64edb4087485af7834695d1c39d"},"errors":[],"test":false}'
+    http_version: 
+  recorded_at: Wed, 28 Jun 2017 01:37:21 GMT
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/1729c64edb4087485af7834695d1c39d?test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 28 Jun 2017 01:37:21 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-store, private
+      X-Request-Version:
+      - 1.19.41
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 3746838e05d3a993d4ef2765e3475720
+      X-Runtime:
+      - '0.018446'
+      X-Rack-Cache:
+      - miss
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-BF-GS01B39D","filename":"BATCH-v1-PURCHASE-TEST-20170628-1729c64edb4087485af7834695d1c39d.csv","created_at":"2017-06-28T11:37:21+10:00","process_date":"2017-06-28","start_date":null,"completed_date":null,"status":"IngestError","type":"PURCHASE","reference":"1729c64edb4087485af7834695d1c39d"},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Wed, 28 Jun 2017 01:37:21 GMT
+recorded_with: VCR 3.0.3

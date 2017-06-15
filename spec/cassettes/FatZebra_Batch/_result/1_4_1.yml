@@ -1,0 +1,160 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches
+    body:
+      encoding: UTF-8
+      string: '{"file":"#<File:0x007fdd70a4b280>","filename":"BATCH-v1-PURCHASE-TEST-20170628-9fd693551488156e30b52830605a57b5.csv","multipart":true,"test":true}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '146'
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Wed, 28 Jun 2017 01:37:21 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Cache-Control:
+      - no-store
+      X-Request-Version:
+      - 1.19.41
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 0425cb78e037288b7874e5a9ee468345
+      X-Runtime:
+      - '0.035336'
+      X-Purge-File:
+      - 'false'
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-BF-4G4RPYTX","filename":"BATCH-v1-PURCHASE-TEST-20170628-9fd693551488156e30b52830605a57b5.csv","created_at":"2017-06-28T11:37:21+10:00","process_date":"2017-06-28","start_date":null,"completed_date":null,"status":"New","type":"PURCHASE","reference":"9fd693551488156e30b52830605a57b5"},"errors":[],"test":false}'
+    http_version: 
+  recorded_at: Wed, 28 Jun 2017 01:37:21 GMT
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/9fd693551488156e30b52830605a57b5?test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 28 Jun 2017 01:37:21 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-store, private
+      X-Request-Version:
+      - 1.19.41
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 69c779e97c597e54f8407041e8ac1915
+      X-Runtime:
+      - '0.019113'
+      X-Rack-Cache:
+      - miss
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-BF-4G4RPYTX","filename":"BATCH-v1-PURCHASE-TEST-20170628-9fd693551488156e30b52830605a57b5.csv","created_at":"2017-06-28T11:37:21+10:00","process_date":"2017-06-28","start_date":null,"completed_date":null,"status":"IngestError","type":"PURCHASE","reference":"9fd693551488156e30b52830605a57b5"},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Wed, 28 Jun 2017 01:37:21 GMT
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/071-BF-4G4RPYTX/result.csv?test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Wed, 28 Jun 2017 01:37:22 GMT
+      Content-Type:
+      - text/csv; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-store, private
+      X-Request-Version:
+      - 1.19.41
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 5b9bd934db4aa65a8c9896c1bbbdc6f8
+      X-Runtime:
+      - '0.019433'
+      X-Rack-Cache:
+      - miss
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: Batch is not yet completed
+    http_version: 
+  recorded_at: Wed, 28 Jun 2017 01:37:22 GMT
+recorded_with: VCR 3.0.3

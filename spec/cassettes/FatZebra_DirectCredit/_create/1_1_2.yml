@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/direct_credits
+    body:
+      encoding: UTF-8
+      string: '{"description":"Confirmation","amount":42,"bsb":"123-123","account_name":"Test","account_number":"012345678","test":true}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '121'
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Tue, 27 Jun 2017 00:05:00 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - no-store
+      X-Request-Version:
+      - 1.19.41
+      X-Runtime:
+      - '0.048025'
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 5646a8dfa8b065a09df7123cbe9909d9
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-DC-25NI6AB9","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-25NI6AB9","date":"2017-06-27","process_date":null,"status":"New","result":null,"metadata":{}},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Tue, 27 Jun 2017 00:05:00 GMT
+recorded_with: VCR 3.0.3

@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/purchases
+    body:
+      encoding: UTF-8
+      string: '{"amount":10000,"card_holder":"Matthew Savage","card_number":"5123456789012346","card_expiry":"02/2030","cvv":123,"reference":"da5d16122b831b468090a7adaf68758e","customer_ip":"1.2.3.4","currency":"XXX","test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Jul 2017 05:45:10 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-store
+      X-Request-Version:
+      - 1.19.41
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 8cfaaaa019bb509c9f3b5531a78a0a90
+      X-Runtime:
+      - '0.261157'
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":false,"response":{"authorization":null,"id":"071-P-QE2I2PCW","card_number":"512345XXXXXX2346","card_holder":"Matthew
+        Savage","card_expiry":"2030-02-28","card_token":"fke86c5u","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","amount":10000,"decimal_amount":100.0,"successful":false,"message":null,"reference":"da5d16122b831b468090a7adaf68758e","currency":"XXX","transaction_id":"071-P-QE2I2PCW","settlement_date":null,"transaction_date":null,"response_code":"99","captured":false,"captured_amount":null,"rrn":null,"cvv_match":"U","metadata":{},"addendum_data":null},"errors":["Currency
+        XXX is not valid for this merchant. Permitted currencies: USD, AUD, NZD, GBP,
+        EUR, JPY, CHF, CAD, HKD, and SGD"],"test":true}'
+    http_version: 
+  recorded_at: Wed, 05 Jul 2017 05:45:10 GMT
+recorded_with: VCR 3.0.3

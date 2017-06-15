@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/purchases?limit=10&offets=0&test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 27 Jun 2017 06:42:47 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-store, private
+      X-Request-Version:
+      - 1.19.41
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 590fb7c79002189627a4ce12a2919195
+      X-Runtime:
+      - '0.105438'
+      X-Rack-Cache:
+      - miss
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":[{"authorization":"475157","id":"071-P-2RRRHB94","card_number":"555555XXXXXX4444","card_holder":"123","card_expiry":"2019-12-31","card_token":"fke80mny","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Credit","amount":100,"decimal_amount":1.0,"successful":true,"message":"Approved","reference":"68fc1a05-9a49-4d55-8ae3-901fade0fae3","currency":"AUD","transaction_id":"071-P-2RRRHB94","settlement_date":null,"transaction_date":"2017-06-27T16:41:56+10:00","response_code":"00","captured":false,"captured_amount":0,"rrn":"071P2RRRHB94","cvv_match":"M","metadata":{},"addendum_data":{}},{"authorization":"949055","id":"071-P-9Y2PQF6C","card_number":"555555XXXXXX4444","card_holder":"123","card_expiry":"2019-12-31","card_token":"fke80mny","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Credit","amount":100,"decimal_amount":1.0,"successful":true,"message":"Approved","reference":"df09f969-7c8f-4503-8052-03c2873d3fcc","currency":"AUD","transaction_id":"071-P-9Y2PQF6C","settlement_date":null,"transaction_date":"2017-06-27T16:37:45+10:00","response_code":"00","captured":false,"captured_amount":0,"rrn":"071P9Y2PQF6C","cvv_match":"M","metadata":{},"addendum_data":{}},{"authorization":"287183","id":"071-P-LH5T5TJP","card_number":"400555XXXXXX0001","card_holder":"Nick","card_expiry":"2023-07-31","card_token":"fke8jxhg","card_type":"VISA","card_category":"Credit","card_subcategory":"Standard","amount":3178,"decimal_amount":31.78,"successful":true,"message":"Approved","reference":"c2a7461cd0994d3dbb55279a1bfceb87","currency":"AUD","transaction_id":"071-P-LH5T5TJP","settlement_date":null,"transaction_date":"2017-06-27T16:36:38+10:00","response_code":"00","captured":false,"captured_amount":0,"rrn":"071PLH5T5TJP","cvv_match":"M","metadata":{},"addendum_data":{}},{"authorization":null,"id":"071-P-NULEQX3Q","card_number":"455701XXXXXX8902","card_holder":"Jasmine
+        Harding","card_expiry":"2029-05-31","card_token":"fke8pt7j","card_type":"VISA","card_category":"Credit","card_subcategory":"Premium","amount":3178,"decimal_amount":31.78,"successful":false,"message":"Declined","reference":"00ab881c306a4ca8b2ccae9a84157177","currency":"AUD","transaction_id":"071-P-NULEQX3Q","settlement_date":null,"transaction_date":"2017-06-27T16:36:26+10:00","response_code":"05","captured":false,"captured_amount":0,"rrn":null,"cvv_match":"M","metadata":{},"addendum_data":{}},{"authorization":"645552","id":"071-P-TN1GB1OK","card_number":"555555XXXXXX4444","card_holder":"123","card_expiry":"2019-12-31","card_token":"fke80mny","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Credit","amount":100,"decimal_amount":1.0,"successful":true,"message":"Approved","reference":"acd97b67-c41c-4fdf-994f-42aecf8256c3","currency":"AUD","transaction_id":"071-P-TN1GB1OK","settlement_date":null,"transaction_date":"2017-06-27T16:35:34+10:00","response_code":"00","captured":false,"captured_amount":0,"rrn":"071PTN1GB1OK","cvv_match":"M","metadata":{},"addendum_data":{}},{"authorization":"259306","id":"071-P-HXE1VR6P","card_number":"555555XXXXXX4444","card_holder":"123","card_expiry":"2019-12-31","card_token":"fke80mny","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Credit","amount":100,"decimal_amount":1.0,"successful":true,"message":"Approved","reference":"091aac6e-80b6-48aa-baaf-b32e7ac1ba3e","currency":"AUD","transaction_id":"071-P-HXE1VR6P","settlement_date":null,"transaction_date":"2017-06-27T16:34:23+10:00","response_code":"00","captured":false,"captured_amount":0,"rrn":"071PHXE1VR6P","cvv_match":"M","metadata":{},"addendum_data":{}},{"authorization":"294170","id":"071-P-PWLK7MRY","card_number":"555555XXXXXX4444","card_holder":"123","card_expiry":"2019-12-31","card_token":"fke80mny","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Credit","amount":100,"decimal_amount":1.0,"successful":true,"message":"Approved","reference":"d70678c7-75c3-4ec9-af05-e1130fb231d7","currency":"AUD","transaction_id":"071-P-PWLK7MRY","settlement_date":null,"transaction_date":"2017-06-27T16:31:10+10:00","response_code":"00","captured":false,"captured_amount":0,"rrn":"071PPWLK7MRY","cvv_match":"M","metadata":{},"addendum_data":{}},{"authorization":"711598","id":"071-P-HQILPESC","card_number":"555555XXXXXX4444","card_holder":"123","card_expiry":"2019-12-31","card_token":"fke80mny","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Credit","amount":100,"decimal_amount":1.0,"successful":true,"message":"Approved","reference":"0447bac0-bd60-4b2b-80eb-c7826baea0d2","currency":"AUD","transaction_id":"071-P-HQILPESC","settlement_date":"2017-06-27","transaction_date":"2017-06-27T16:30:19+10:00","response_code":"00","captured":true,"captured_amount":100,"rrn":"071PHQILPESC","cvv_match":"M","metadata":{},"addendum_data":{}},{"authorization":"810318","id":"071-P-U8D2TGQP","card_number":"555555XXXXXX4444","card_holder":"123","card_expiry":"2019-12-31","card_token":"fke80mny","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Credit","amount":100,"decimal_amount":1.0,"successful":true,"message":"Approved","reference":"fc140f28-cf77-4a30-9697-519aa02b9030","currency":"AUD","transaction_id":"071-P-U8D2TGQP","settlement_date":null,"transaction_date":"2017-06-27T16:30:14+10:00","response_code":"00","captured":false,"captured_amount":0,"rrn":"071PU8D2TGQP","cvv_match":"M","metadata":{},"addendum_data":{}},{"authorization":"880024","id":"071-P-BOX6MN6I","card_number":"512345XXXXXX2346","card_holder":"Matthew
+        Savage","card_expiry":"2030-02-28","card_token":"fke86c5u","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","amount":10000,"decimal_amount":100.0,"successful":true,"message":"Approved","reference":"54241e0da2a7a87d5e8ef93e3d2baf22","currency":"AUD","transaction_id":"071-P-BOX6MN6I","settlement_date":"2017-06-27","transaction_date":"2017-06-27T16:14:23+10:00","response_code":"00","captured":true,"captured_amount":10000,"rrn":"071PBOX6MN6I","cvv_match":"M","metadata":{},"addendum_data":{}}],"errors":[],"test":true,"records":10,"total_records":366549,"page":1,"total_pages":36655}'
+    http_version: 
+  recorded_at: Tue, 27 Jun 2017 06:42:47 GMT
+recorded_with: VCR 3.0.3

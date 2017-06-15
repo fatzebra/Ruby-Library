@@ -1,0 +1,42 @@
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+Style/MethodMissing:
+  Enabled: false
+Style/NumericPredicate:
+  Enabled: false
+
+Metrics/AbcSize:
+  # The ABC size is a calculated magnitude, so this number can be a Fixnum or
+  # a Float.
+  Max: 25
+Metrics/LineLength:
+  Max: 200
+Metrics/ClassLength:
+  CountComments: false
+  Max: 200
+Metrics/MethodLength:
+  CountComments: false
+  Max: 25
+Metrics/ModuleLength:
+  CountComments: false
+  Max: 200
+
+Documentation:
+  Enabled: false
+
+AllCops:
+  TargetRubyVersion: 2.2
+  Include:
+    - Gemfile
+    - Rakefile
+    - Capfile
+  Exclude:
+    - bin/**/*
+    - vendor/**/*
+    - tmp/**/*
+    - spec/**/*

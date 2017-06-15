@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/credit_cards
+    body:
+      encoding: UTF-8
+      string: '{"test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 422
+      message: Unprocessable Entity
+    headers:
+      Date:
+      - Mon, 03 Jul 2017 04:16:09 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 422 Unprocessable Entity
+      Cache-Control:
+      - no-store
+      X-Request-Version:
+      - 1.19.41
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 33b75b8b2e97a9a6af9416c3ccd9aa19
+      X-Runtime:
+      - '0.238130'
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":false,"response":{"token":"fke860ti","card_holder":"","card_number":null,"card_expiry":null,"card_type":null,"card_category":null,"card_subcategory":null,"authorized":false,"transaction_count":0,"alias":null},"errors":["Card
+        holder can''t be blank","Card number can''t be blank","Expiry date is missing
+        or invalid.","CVV is required"," is not an accepted card type"],"test":true}'
+    http_version: 
+  recorded_at: Mon, 03 Jul 2017 04:16:09 GMT
+recorded_with: VCR 3.0.3

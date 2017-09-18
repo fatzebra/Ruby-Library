@@ -22,6 +22,7 @@ module FatZebra
       #
       # @return [Hash] response
       # @raise [FatZebra::RequestError] if the request is invalid
+      # rubocop:disable Metrics/AbcSize
       def request(method, path, payload = {}, options = {})
         payload[:test] = true if configurations.test_mode
         payload        = Util.format_dates_in_hash(payload)
@@ -36,10 +37,12 @@ module FatZebra
           use_ssl: configurations.http_secure
         ).merge(authentication).merge(default_headers).merge(configurations.global_options).merge(options)
 
-        request = Request.execute(request_options)
-
-        request.body
+        Request.execute(request_options).body
+      rescue FatZebra::RequestError => error
+        return error.http_body if error.http_status == 422
+        raise
       end
+      # rubocop:enable Metrics/AbcSize
 
       private
 

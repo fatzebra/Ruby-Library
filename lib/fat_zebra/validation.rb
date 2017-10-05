@@ -39,8 +39,24 @@ module FatZebra
       errors << "'#{field}' is required" if params[field].nil? || params[field] == ''
     end
 
-    def validate_class_type(field, options, params)
-      errors << "'#{field}' is not a '#{options}'" unless params[field].is_a?(options)
+    def validate_type(field, options, params)
+      regexp =
+        case options
+        when :positive_numeric
+          /\A\d*\.?\d+\z/
+        when :positive_integer
+          /\A\d*\z/
+        when :batch_filename
+          /\ABATCH-(?<version>v\d)-(?<type>[A-Z]*)-((?<merchant_username>[A-Z0-9]*\-?[A-Z0-9]*)-)?(?<process_date>\d{8})-(?<reference>[a-zA-Z0-9\-_]*).csv\z/i
+        when :file_type
+          /\A\#\<File\:.*\z/
+        when :boolean
+          /\Atrue|false\z/
+        else
+          raise RequestValidationError, "Unknown type #{options} for #{field}"
+        end
+
+      errors << "'#{field}' is not a '#{options}'" unless params[field].to_s =~ regexp
     end
 
   end

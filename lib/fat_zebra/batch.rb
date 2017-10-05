@@ -17,9 +17,9 @@ module FatZebra
     include FatZebra::APIOperation::Save
     include FatZebra::APIOperation::Delete
 
-    validates :filename, required: true, class_type: String, on: :create
-    validates :file, required: true, class_type: File, on: :create
-    validates :multipart, required: true, class_type: TrueClass, on: :create
+    validates :filename, required: true, type: :batch_filename, on: :create
+    validates :file, required: true, type: :file_type, on: :create
+    validates :multipart, required: true, type: :boolean, on: :create
 
     class << self
 

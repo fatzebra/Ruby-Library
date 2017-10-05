@@ -19,9 +19,17 @@ describe FatZebra::DirectCredit do
     it { expect(direct_credit.id).to_not be_empty }
 
     context 'validations' do
-      let(:valid_direct_credit_payload) {{}}
+      context 'valid' do
+        before { valid_direct_credit_payload[:amount] = 42.42 }
 
-      it { expect{ direct_credit }.to raise_error(FatZebra::RequestValidationError) }
+        it { is_expected.to be_accepted }
+      end
+
+      context 'failed' do
+        let(:valid_direct_credit_payload) {{}}
+
+        it { expect{ direct_credit }.to raise_error(FatZebra::RequestValidationError) }
+      end
     end
   end
 

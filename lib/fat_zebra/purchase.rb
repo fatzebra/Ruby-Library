@@ -22,7 +22,7 @@ module FatZebra
     validates :card_number, required: { unless: %i[card_token wallet] }, on: :create
     validates :card_token, required: { unless: %i[card_number wallet] }, on: :create
     validates :card_expiry, required: { unless: %i[card_token wallet] }, on: :create
-    validates :amount, required: true, class_type: Integer, on: :create
+    validates :amount, required: true, type: :positive_integer, on: :create
     validates :reference, required: true, on: :create
     validates :customer_ip, required: true, on: :create
 

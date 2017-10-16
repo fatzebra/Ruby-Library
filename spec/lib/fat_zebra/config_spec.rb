@@ -63,7 +63,6 @@ describe FatZebra::Config do
       }}
 
       it { expect(config.gateway).to eq('my-gateway') }
-      it { expect(config.proxy).to eq('my-proxy') }
     end
 
   end

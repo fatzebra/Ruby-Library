@@ -80,7 +80,6 @@ module FatZebra
       self.gateway = GATEWAY_URLS[gateway] if gateway.is_a?(Symbol)
 
       self.gateway = Util.cleanup_host(gateway)
-      self.proxy   = Util.cleanup_host(proxy) if proxy
     end
 
     def validate_presence(field)

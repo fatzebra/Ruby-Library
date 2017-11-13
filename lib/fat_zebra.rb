@@ -1,5 +1,8 @@
 # Libraries
 require 'securerandom'
+require 'json'
+require 'ostruct'
+require 'net/http'
 
 require 'fat_zebra/version'
 require 'fat_zebra/util'

@@ -18,10 +18,10 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {spec}/*`.split("\n")
   s.require_paths = %w[lib]
 
-  s.add_development_dependency 'rspec', '~> 3.6'
-  s.add_development_dependency 'rake'
   s.add_development_dependency 'pry'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'rspec', '~> 3.6'
+  s.add_development_dependency 'rubocop', '~> 0.49'
   s.add_development_dependency 'vcr', '~> 3.0'
   s.add_development_dependency 'webmock', '~> 3.0'
-  s.add_development_dependency 'rubocop', '~> 0.49'
 end

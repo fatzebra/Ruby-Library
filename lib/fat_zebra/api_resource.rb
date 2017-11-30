@@ -39,7 +39,7 @@ module FatZebra
 
         Request.execute(request_options).body
       rescue FatZebra::RequestError => error
-        return error.http_body if error.http_status == 422
+        return error.http_body if [400, 404, 422].include?(error.http_status)
         raise
       end
       # rubocop:enable Metrics/AbcSize

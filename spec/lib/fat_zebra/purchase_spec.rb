@@ -34,13 +34,22 @@ describe FatZebra::Purchase do
   end
 
   describe '.find', :vcr do
-    let!(:create) { FatZebra::Purchase.create(valid_purchase_payload) }
-    subject(:purchase) { FatZebra::Purchase.find(create.reference) }
+    context 'success' do
+      let!(:create) { FatZebra::Purchase.create(valid_purchase_payload) }
+      subject(:purchase) { FatZebra::Purchase.find(create.reference) }
 
-    it { is_expected.to be_accepted }
-    it { is_expected.to be_successful }
-    it { expect(purchase.reference).to eq(create.reference) }
-    it { expect(purchase.transaction_id).to eq(create.transaction_id) }
+      it { is_expected.to be_accepted }
+      it { is_expected.to be_successful }
+      it { expect(purchase.reference).to eq(create.reference) }
+      it { expect(purchase.transaction_id).to eq(create.transaction_id) }
+    end
+
+    context '404 error' do
+      subject(:purchase) { FatZebra::Purchase.find('unknown') }
+
+      it { is_expected.to_not be_accepted }
+      it { expect(purchase.errors).to include('Could not find Purchase') }
+    end
   end
 
   describe '.search', :vcr do
@@ -65,11 +74,21 @@ describe FatZebra::Purchase do
 
   describe '#capture', :vcr do
     let(:purchase) { FatZebra::Purchase.create(valid_purchase_payload.merge(capture: false)) }
-    subject(:capture) { purchase.capture }
 
-    it { is_expected.to be_accepted }
-    it { is_expected.to be_successful }
-    it { expect(capture).to be_a(FatZebra::Purchase) }
+    context 'success' do
+      subject(:capture) { purchase.capture }
+
+      it { is_expected.to be_accepted }
+      it { is_expected.to be_successful }
+      it { expect(capture).to be_a(FatZebra::Purchase) }
+    end
+
+    context '200 error' do
+      subject(:capture) { purchase.capture(amount: 1_000_000_000) }
+
+      it { is_expected.to_not be_accepted }
+      it { expect(capture.errors).to include('Capture amount cannot be greater then the original authorised amount') }
+    end
   end
 
   describe '.void', :vcr do

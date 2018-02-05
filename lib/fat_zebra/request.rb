@@ -154,14 +154,5 @@ module FatZebra
       @uri ||= URI(params[:url])
     end
 
-    def uri_proxy
-      @uri_proxy ||=
-        if params[:proxy]
-          URI(params[:proxy])
-        else
-          OpenStruct.new
-        end
-    end
-
   end
 end

@@ -1,6 +1,6 @@
 module FatZebra
   ##
-  # == FatZebra \Request \Multipart \Steam
+  # == FatZebra \Request \Multipart \Stream
   #
   # Steam the multipart
   class Request
@@ -37,6 +37,8 @@ module FatZebra
 
           !got_result && length ? nil : outbuf
         end
+        # rubocop:enable Metrics/CyclomaticComplexity
+        # rubocop:enable Metrics/PerceivedComplexity
 
         private
 

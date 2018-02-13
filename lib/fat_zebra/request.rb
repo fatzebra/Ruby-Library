@@ -80,7 +80,7 @@ module FatZebra
     end
 
     def get
-      @request = Net::HTTP::Get.new(uri)
+      @request = Net::HTTP::Get.new(uri.path)
 
       setup_auth_basic if params[:basic_auth]
       set_header

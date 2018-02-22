@@ -4,6 +4,7 @@ require 'json'
 require 'ostruct'
 require 'net/http'
 require 'cgi'
+require 'date'
 
 require 'fat_zebra/version'
 require 'fat_zebra/util'

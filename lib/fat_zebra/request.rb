@@ -49,7 +49,10 @@ module FatZebra
 
     def initialize(params = {})
       @params = params
-      @http   = Net::HTTP.new(uri.host, uri.port, uri_proxy.host, uri_proxy.port)
+      @http   = Net::HTTP.new(uri.host,
+                              uri.port,
+                              proxy_host,
+                              uri_proxy.port)
 
       setup_ssl if params[:use_ssl]
     end
@@ -73,14 +76,13 @@ module FatZebra
       @request = Net::HTTP::Put.new(uri.path)
 
       setup_auth_basic if params[:basic_auth]
-      set_header
       request.body = params[:payload].to_json
 
       handle_request
     end
 
     def get
-      @request = Net::HTTP::Get.new(uri.path)
+      @request = Net::HTTP::Get.new(uri)
 
       setup_auth_basic if params[:basic_auth]
       set_header
@@ -154,5 +156,18 @@ module FatZebra
       @uri ||= URI(params[:url])
     end
 
+    def uri_proxy
+      @uri_proxy ||=
+        if params[:proxy]
+          URI(params[:proxy])
+        else
+          OpenStruct.new
+        end
+    end
+    def proxy_host
+      !uri_proxy.host.nil? ?
+        uri_proxy.host :
+        :ENV
+    end
   end
 end

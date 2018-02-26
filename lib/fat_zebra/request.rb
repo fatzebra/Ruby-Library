@@ -164,10 +164,13 @@ module FatZebra
           OpenStruct.new
         end
     end
+
     def proxy_host
-      !uri_proxy.host.nil? ?
-        uri_proxy.host :
+      if !uri_proxy.host.nil?
+        uri_proxy.host
+      else
         :ENV
+      end
     end
   end
 end

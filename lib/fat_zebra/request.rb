@@ -49,7 +49,10 @@ module FatZebra
 
     def initialize(params = {})
       @params = params
-      @http   = Net::HTTP.new(uri.host, uri.port, uri_proxy.host, uri_proxy.port)
+      @http   = Net::HTTP.new(uri.host,
+                              uri.port,
+                              proxy_host,
+                              uri_proxy.port)
 
       setup_ssl if params[:use_ssl]
     end
@@ -163,5 +166,12 @@ module FatZebra
         end
     end
 
+    def proxy_host
+      if !uri_proxy.host.nil?
+        uri_proxy.host
+      else
+        :ENV
+      end
+    end
   end
 end

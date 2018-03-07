@@ -44,7 +44,7 @@ describe FatZebra::Purchase do
   end
 
   describe '.search', :vcr do
-    let!(:start) { Time.now }
+    let!(:start) { Date.parse('2017-07-03') }
     subject(:purchases) { FatZebra::Purchase.search(from: start) }
 
     before { 2.times { |i| FatZebra::Purchase.create(valid_purchase_payload.merge(reference: "#{SecureRandom.hex}-#{i}")) } }
@@ -95,7 +95,7 @@ describe FatZebra::Purchase do
   describe '.settlement', :vcr do
     before { 2.times { |i| FatZebra::Purchase.create(valid_purchase_payload.merge(reference: "#{SecureRandom.hex}-#{i}")) } }
 
-    subject(:settlement) { FatZebra::Purchase.settlement(from: Time.now - (86400 * 5), to: Time.now) }
+    subject(:settlement) { FatZebra::Purchase.settlement(from: Date.parse('2017/06/22'), to: Date.parse('2017-06-27')) }
 
     it { is_expected.to be_accepted }
     it { expect(settlement.data.count).to be >= 2 }

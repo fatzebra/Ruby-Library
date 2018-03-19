@@ -1,0 +1,108 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/purchases
+    body:
+      encoding: UTF-8
+      string: '{"amount":10000,"card_holder":"Matthew Savage","card_number":"5123456789012346","card_expiry":"02/2030","cvv":123,"reference":"73b4e791ded3737cabaae68ba90020d4","customer_ip":"1.2.3.4","capture":false,"currency":"AUD","test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 30 Nov 2017 01:07:34 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-store
+      X-Request-Version:
+      - 1.20.11
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 8df65e23c4f10515025f63c9f801d294
+      X-Runtime:
+      - '5.453834'
+      X-Rack-Cache:
+      - invalidate, pass
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"authorization":"831238","id":"071-P-HZY28O30","card_number":"512345XXXXXX2346","card_holder":"Matthew
+        Savage","card_expiry":"2030-02-28","card_token":"fke8n73t","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","amount":10000,"decimal_amount":100.0,"successful":true,"message":"Approved","reference":"73b4e791ded3737cabaae68ba90020d4","currency":"AUD","transaction_id":"071-P-HZY28O30","settlement_date":null,"transaction_date":"2017-11-30T12:07:33+11:00","response_code":"00","captured":false,"captured_amount":0,"rrn":"071PHZY28O30","cvv_match":"M","metadata":{},"addendum_data":{}},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Thu, 30 Nov 2017 01:07:34 GMT
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/purchases/071-P-HZY28O30/capture
+    body:
+      encoding: UTF-8
+      string: '{"amount":1000000000,"test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 30 Nov 2017 01:07:35 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      X-Rack-Cache:
+      - invalidate, pass
+      Cache-Control:
+      - no-store
+      X-Request-Version:
+      - 1.20.11
+      X-Runtime:
+      - '0.268277'
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - fe5091b146d5efa278b9bfe97d59c301
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: '{"successful":false,"response":{"authorization":"831238","id":"071-P-HZY28O30","card_number":"512345XXXXXX2346","card_holder":"Matthew
+        Savage","card_expiry":"2030-02-28","card_token":"fke8n73t","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","amount":10000,"decimal_amount":100.0,"successful":true,"message":"Approved","reference":"73b4e791ded3737cabaae68ba90020d4","currency":"AUD","transaction_id":"071-P-HZY28O30","settlement_date":null,"transaction_date":"2017-11-30T12:07:33+11:00","response_code":"00","captured":false,"captured_amount":0,"rrn":"071PHZY28O30","cvv_match":"M","metadata":{},"addendum_data":{}},"errors":["Capture
+        amount cannot be greater then the original authorised amount"],"test":true}'
+    http_version: 
+  recorded_at: Thu, 30 Nov 2017 01:07:35 GMT
+recorded_with: VCR 3.0.3

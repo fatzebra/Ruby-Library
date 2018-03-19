@@ -15,7 +15,7 @@ describe FatZebra::APIResource do
       end
 
       context 'with Net::HTTPBadRequest' do
-        let(:response) { double('response', code: '400', code_type: Net::HTTPBadRequest, body: {}.to_json, message: 'failed') }
+        let(:response) { double('response', code: '500', code_type: Net::HTTPInternalServerError, body: {}.to_json, message: 'failed') }
 
         it { expect { resource }.to raise_error(FatZebra::RequestError) }
       end

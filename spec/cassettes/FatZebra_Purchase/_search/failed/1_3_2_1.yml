@@ -1,0 +1,98 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/purchases?from=wrong-value&limit=10&offets=0&test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 500
+      message: Internal Server Error
+    headers:
+      Date:
+      - Thu, 30 Nov 2017 00:09:55 GMT
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '1170'
+      Connection:
+      - keep-alive
+      Status:
+      - 500 Internal Server Error
+      Cache-Control:
+      - private
+      X-Request-Version:
+      - 1.20.11
+      X-Request-Id:
+      - dc8db7e7057a67a46f1050d398b3669f
+      X-Runtime:
+      - '0.437353'
+      X-Rack-Cache:
+      - miss
+      X-Backend:
+      - sbox-priv-gateway-a
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE html>
+        <html>
+            <head>
+                <title>We're sorry, but something went wrong</title>
+                <style type="text/css">
+                    body {
+                        background-color: #fff;
+                        color: #666;
+                        text-align: center;
+                        font-family: arial, sans-serif;
+                    }
+
+                    div.dialog {
+                        width: 25em;
+                        padding: 0 4em;
+                        margin: 4em auto 0 auto;
+                        border: 1px solid #ccc;
+                        border-right-color: #999;
+                        border-bottom-color: #999;
+                    }
+
+                    h1 {
+                        font-size: 100%;
+                        color: #f00;
+                        line-height: 1.5em;
+                    }
+
+                    .logo {
+                        width: 200px;
+                        margin: 0 auto;
+                    }
+                </style>
+            </head>
+
+            <body>
+                <!-- This file lives in public/500.html -->
+                <div class="dialog">
+                    <h1>We're sorry, but something went wrong attempting to process this transaction.</h1>
+
+                    <p>Please contact the website owner for support. <!-- AIRBRAKE ERROR --></p>
+                    </p>
+                </div>
+            </body>
+        </html>
+    http_version: 
+  recorded_at: Thu, 30 Nov 2017 00:09:55 GMT
+recorded_with: VCR 3.0.3

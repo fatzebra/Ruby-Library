@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/direct_credits
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/direct_debits
     body:
       encoding: UTF-8
-      string: '{"description":"Confirmation","amount":42.42,"bsb":"123-123","account_name":"Test","account_number":"012345678","test":true}'
+      string: '{"description":"Confirmation","amount":42,"bsb":"1","account_name":"Test","account_number":"01","bank_account":"unknown","test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -19,11 +19,11 @@ http_interactions:
       - application/json
   response:
     status:
-      code: 201
-      message: Created
+      code: 422
+      message: Unprocessable Entity
     headers:
       Date:
-      - Thu, 05 Oct 2017 04:32:57 GMT
+      - Thu, 30 Nov 2017 01:16:48 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -31,24 +31,25 @@ http_interactions:
       Connection:
       - keep-alive
       Status:
-      - 201 Created
+      - 422 Unprocessable Entity
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.20.4
+      - 1.20.11
       Pragma:
       - no-cache
       X-Request-Id:
-      - 304387854316f4399af6ecf6f8bb7eb3
+      - 60d03ddef7effd2b02cb64f52c56d0d8
       X-Runtime:
-      - '0.037728'
+      - '0.203164'
       X-Rack-Cache:
       - invalidate, pass
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-DC-XVIW0KJG","amount":42.42,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-XVIW0KJG","date":"2017-10-05","process_date":null,"status":"New","result":null,"metadata":{}},"errors":[],"test":true}'
+      string: '{"successful":false,"response":{},"errors":["Could not find bank account
+        unknown"],"test":true}'
     http_version: 
-  recorded_at: Thu, 05 Oct 2017 04:32:57 GMT
+  recorded_at: Thu, 30 Nov 2017 01:16:48 GMT
 recorded_with: VCR 3.0.3

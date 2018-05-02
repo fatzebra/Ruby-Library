@@ -5,29 +5,27 @@ http_interactions:
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/customers
     body:
       encoding: UTF-8
-      string: '{"first_name":"Harrold","last_name":"Humphries","reference":"9251a3d8f4fd111d6ac564569346bbcf","email":"hhump@test.com","ip_address":"180.200.33.181","card":{"card_holder":"Harrold
+      string: '{"first_name":"Harrold","last_name":"Humphries","reference":"4652a801359a3c63e7e73c685719d95e","email":"hhump@test.com","ip_address":"180.200.33.181","card":{"card_holder":"Harrold
         Humphries Senior","card_number":"5123456789012346","expiry_date":"05/2023","cvv":"123"},"address":{"address":"1
         Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"test":true}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '394'
       User-Agent:
       - Ruby
       Authorization:
       - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Mon, 26 Jun 2017 06:15:52 GMT
+      - Wed, 02 May 2018 23:12:16 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -41,47 +39,45 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
       X-Runtime:
-      - '0.250882'
+      - '0.475981'
       Pragma:
       - no-cache
       X-Request-Id:
-      - 07dcd2d03be7f32150a81c3b69c6650b
+      - 4c8144c02a5135409de02f00
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-C-BLIJ3IB3","email":null,"reference":"9251a3d8f4fd111d6ac564569346bbcf","first_name":"Harrold","last_name":"Humphries","created_at":"2017-06-26T16:15:52+10:00","address":{"address":"1
-        Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"card_token":"fke86c5u","card_number":"512345XXXXXX2346","bank_account":null,"metadata":{}},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-C-ANGIV6N6","email":null,"reference":"4652a801359a3c63e7e73c685719d95e","first_name":"Harrold","last_name":"Humphries","created_at":"2018-05-03T09:12:16+10:00","address":{"address":"1
+        Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"card_token":"fke86ajf","card_number":"512345XXXXXX2346","bank_account":null,"metadata":{}},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Mon, 26 Jun 2017 06:15:52 GMT
+  recorded_at: Wed, 02 May 2018 23:12:15 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/payment_plans
     body:
       encoding: UTF-8
-      string: '{"payment_method":"Credit Card","customer":"071-C-BLIJ3IB3","reference":"f34b0d0e63cc07f6fe08c7b54aa54ec4","setup_fee":0,"amount":100,"start_date":"2015-07-16","frequency":"Weekly","anniversary":5,"total_count":5,"total_amount":500,"currency":"AUD","test":true}'
+      string: '{"payment_method":"Credit Card","customer":"071-C-ANGIV6N6","reference":"f71f6b4f74474ef659435e91d22f45b4","setup_fee":0,"amount":100,"start_date":"2015-07-16","frequency":"Weekly","anniversary":5,"total_count":5,"total_amount":500,"test":true}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '261'
       User-Agent:
       - Ruby
       Authorization:
       - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
   response:
     status:
       code: 201
       message: Created
     headers:
       Date:
-      - Mon, 26 Jun 2017 06:15:52 GMT
+      - Wed, 02 May 2018 23:12:17 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -90,57 +86,55 @@ http_interactions:
       - keep-alive
       Status:
       - 201 Created
+      X-Rack-Cache:
+      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
+      X-Runtime:
+      - '0.219042'
       Pragma:
       - no-cache
       X-Request-Id:
-      - 54d295d97eee2d870610a7b68fdeafa0
-      X-Runtime:
-      - '0.204603'
-      X-Rack-Cache:
-      - invalidate, pass
+      - 6c8dea2b83cf93285ce886a4
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-PP-72XX5E8U","customer":"071-C-BLIJ3IB3","amount":100,"currency":"AUD","setup_fee":0,"frequency":"Weekly","anniversary":5,"start_date":"2015-07-16","end_date":null,"total_count":5,"total_amount":500,"payment_method":"Credit
-        Card","reference":"f34b0d0e63cc07f6fe08c7b54aa54ec4","description":null,"status":"Active","status_reason":"None","created_at":"2017-06-26T16:15:52+10:00","failed_payment_fee":0,"retry_interval":3,"status_change_date":null,"payments":[{"id":"071-PT-CRW2RW99","payment_plan":"071-PP-72XX5E8U","reference":"f34b0d0e63cc07f6fe08c7b54aa54ec4-0001","amount":100,"currency":"AUD","scheduled_date":"2017-06-30","payment_method":"Credit
-        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-OBI5FEIQ","payment_plan":"071-PP-72XX5E8U","reference":"f34b0d0e63cc07f6fe08c7b54aa54ec4-0002","amount":100,"currency":"AUD","scheduled_date":"2017-07-07","payment_method":"Credit
-        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-L6P8S68A","payment_plan":"071-PP-72XX5E8U","reference":"f34b0d0e63cc07f6fe08c7b54aa54ec4-0003","amount":100,"currency":"AUD","scheduled_date":"2017-07-14","payment_method":"Credit
-        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-5SBXU09F","payment_plan":"071-PP-72XX5E8U","reference":"f34b0d0e63cc07f6fe08c7b54aa54ec4-0004","amount":100,"currency":"AUD","scheduled_date":"2017-07-21","payment_method":"Credit
-        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-FJMGZAOT","payment_plan":"071-PP-72XX5E8U","reference":"f34b0d0e63cc07f6fe08c7b54aa54ec4-0005","amount":100,"currency":"AUD","scheduled_date":"2017-07-28","payment_method":"Credit
+      string: '{"successful":true,"response":{"id":"071-PP-7T5JUKA","customer":"071-C-ANGIV6N6","amount":100,"currency":null,"setup_fee":0,"frequency":"Weekly","anniversary":5,"start_date":"2015-07-16","end_date":null,"total_count":5,"total_amount":500,"payment_method":"Credit
+        Card","reference":"f71f6b4f74474ef659435e91d22f45b4","description":null,"status":"Active","status_reason":"None","created_at":"2018-05-03T09:12:17+10:00","failed_payment_fee":0,"retry_interval":3,"status_change_date":null,"payments":[{"id":"071-PT-IOW3HNOX","payment_plan":"071-PP-7T5JUKA","reference":"f71f6b4f74474ef659435e91d22f45b4-0001","amount":100,"currency":null,"scheduled_date":"2018-05-04","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-2E06996K","payment_plan":"071-PP-7T5JUKA","reference":"f71f6b4f74474ef659435e91d22f45b4-0002","amount":100,"currency":null,"scheduled_date":"2018-05-11","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-WXPW1NZJ","payment_plan":"071-PP-7T5JUKA","reference":"f71f6b4f74474ef659435e91d22f45b4-0003","amount":100,"currency":null,"scheduled_date":"2018-05-18","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-JBOCDYGK","payment_plan":"071-PP-7T5JUKA","reference":"f71f6b4f74474ef659435e91d22f45b4-0004","amount":100,"currency":null,"scheduled_date":"2018-05-25","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-I5J4E55A","payment_plan":"071-PP-7T5JUKA","reference":"f71f6b4f74474ef659435e91d22f45b4-0005","amount":100,"currency":null,"scheduled_date":"2018-06-01","payment_method":"Credit
         Card","status":"Scheduled","result":null,"records":[]}]},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Mon, 26 Jun 2017 06:15:52 GMT
+  recorded_at: Wed, 02 May 2018 23:12:16 GMT
 - request:
     method: put
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/payment_plans/071-PP-72XX5E8U
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/payment_plans/071-PP-7T5JUKA
     body:
       encoding: UTF-8
       string: '{"new_status":"Suspended","test":true}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '38'
       User-Agent:
       - Ruby
       Authorization:
       - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Mon, 26 Jun 2017 06:15:52 GMT
+      - Wed, 02 May 2018 23:12:17 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -154,19 +148,19 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
       X-Runtime:
-      - '0.091246'
+      - '0.083611'
       Pragma:
       - no-cache
       X-Request-Id:
-      - dfba1c2e9c3b022c5a5d51318a69d45b
+      - 4fda6cd7dbecd0508758bbe6
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-PP-72XX5E8U","customer":"071-C-BLIJ3IB3","amount":100,"currency":"AUD","setup_fee":0,"frequency":"Weekly","anniversary":5,"start_date":"2015-07-16","end_date":null,"total_count":5,"total_amount":500,"payment_method":"Credit
-        Card","reference":"f34b0d0e63cc07f6fe08c7b54aa54ec4","description":null,"status":"Suspended","status_reason":"Other","created_at":"2017-06-26T16:15:52+10:00","failed_payment_fee":0,"retry_interval":3,"status_change_date":null,"payments":[]},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-PP-7T5JUKA","customer":"071-C-ANGIV6N6","amount":100,"currency":null,"setup_fee":0,"frequency":"Weekly","anniversary":5,"start_date":"2015-07-16","end_date":null,"total_count":5,"total_amount":500,"payment_method":"Credit
+        Card","reference":"f71f6b4f74474ef659435e91d22f45b4","description":null,"status":"Suspended","status_reason":"Other","created_at":"2018-05-03T09:12:17+10:00","failed_payment_fee":0,"retry_interval":3,"status_change_date":null,"payments":[]},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Mon, 26 Jun 2017 06:15:52 GMT
+  recorded_at: Wed, 02 May 2018 23:12:16 GMT
 recorded_with: VCR 3.0.3

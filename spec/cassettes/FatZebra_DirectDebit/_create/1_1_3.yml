@@ -7,25 +7,23 @@ http_interactions:
       encoding: UTF-8
       string: '{"description":"Confirmation","amount":42,"bsb":"123-123","account_name":"Test","account_number":"012345678","test":true}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '121'
       User-Agent:
       - Ruby
       Authorization:
       - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
   response:
     status:
       code: 201
       message: Created
     headers:
       Date:
-      - Tue, 27 Jun 2017 00:01:43 GMT
+      - Wed, 02 May 2018 23:12:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -34,23 +32,23 @@ http_interactions:
       - keep-alive
       Status:
       - 201 Created
+      X-Rack-Cache:
+      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
+      X-Runtime:
+      - '0.043592'
       Pragma:
       - no-cache
       X-Request-Id:
-      - a8e0861535322cd65a64360d68072af4
-      X-Runtime:
-      - '0.036707'
-      X-Rack-Cache:
-      - invalidate, pass
+      - ec723031003f526c9476ab75
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-DD-3S6GT0F3","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DD-3S6GT0F3","date":"2017-06-27","process_date":null,"status":"New","result":null,"metadata":{}},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-DD-WY9QNV26","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DD-WY9QNV26","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 27 Jun 2017 00:01:43 GMT
+  recorded_at: Wed, 02 May 2018 23:12:08 GMT
 recorded_with: VCR 3.0.3

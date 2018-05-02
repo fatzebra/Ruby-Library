@@ -7,25 +7,23 @@ http_interactions:
       encoding: UTF-8
       string: '{"bsb":"123-123","account_name":"Test name","account_number":"012345678","test":true}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '85'
       User-Agent:
       - Ruby
       Authorization:
       - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
   response:
     status:
       code: 201
       message: Created
     headers:
       Date:
-      - Tue, 27 Jun 2017 06:03:13 GMT
+      - Wed, 02 May 2018 23:11:53 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -34,24 +32,24 @@ http_interactions:
       - keep-alive
       Status:
       - 201 Created
+      X-Rack-Cache:
+      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
+      X-Runtime:
+      - '0.030250'
       Pragma:
       - no-cache
       X-Request-Id:
-      - de3cf0db3bb8c6a56e6e9ad1614a2558
-      X-Runtime:
-      - '0.042060'
-      X-Rack-Cache:
-      - invalidate, pass
+      - 8591ca7fbfe4c7a22dd65c0c
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-B-A3LWXEL7","account_name":"Test
-        name","account_number":"012345678","bsb":"123-123","created_at":"2017-06-27T16:03:13+10:00"},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-B-34X7WCFH","account_name":"Test
+        name","account_number":"012345678","bsb":"123-123","created_at":"2018-05-03T09:11:53+10:00"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 27 Jun 2017 06:03:13 GMT
+  recorded_at: Wed, 02 May 2018 23:11:51 GMT
 recorded_with: VCR 3.0.3

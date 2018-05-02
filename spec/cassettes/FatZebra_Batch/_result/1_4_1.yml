@@ -5,27 +5,34 @@ http_interactions:
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches
     body:
       encoding: UTF-8
-      string: '{"file":"#<File:0x007fdd70a4b280>","filename":"BATCH-v1-PURCHASE-TEST-20170628-9fd693551488156e30b52830605a57b5.csv","multipart":true,"test":true}'
+      string: "------FatZebraMultipartPost\r\nContent-Disposition: form-data; name=\"BATCH-v1-PURCHASE-TEST-20180503-89159736702f22ffb436bb97ca98b20d.csv\";
+        filename=\"BATCH-v1-PURCHASE-TEST-20180503-89159736702f22ffb436bb97ca98b20d.csv\"\r\nContent-Length:
+        \r\nContent-Type: text/csv\r\nContent-Transfer-Encoding: binary\r\n\r\n1000,AUD,Order12345,John
+        Doe 1,4444333322221111,12/2020,,Gizmo ABC 1\n2051,AUD,Order22345,John Doe
+        2,4444333322221111,12/2020,,Gizmo ABC 2\n3000,AUD,Order32345,John Doe 3,4444333322221111,12/2020,,Gizmo
+        ABC 3\n4000,AUD,Order42345,John Doe 4,4444333322221111,12/2020,,Gizmo ABC
+        4\n\r\n------FatZebraMultipartPost\r\nContent-Disposition: form-data; name=\"filename\"\r\n\r\nBATCH-v1-PURCHASE-TEST-20180503-89159736702f22ffb436bb97ca98b20d.csv------FatZebraMultipartPost\r\nContent-Disposition:
+        form-data; name=\"test\"\r\n\r\ntrue------FatZebraMultipartPost--\r\n"
     headers:
-      Accept:
-      - application/json
       Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '146'
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
       - Ruby
       Authorization:
       - Basic VEVTVDpURVNU
+      Content-Length:
+      - '835'
+      Content-Type:
+      - multipart/form-data; boundary=----FatZebraMultipartPost
   response:
     status:
       code: 201
       message: Created
     headers:
       Date:
-      - Wed, 28 Jun 2017 01:37:21 GMT
+      - Wed, 02 May 2018 23:11:54 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -34,51 +41,53 @@ http_interactions:
       - keep-alive
       Status:
       - 201 Created
+      X-Rack-Cache:
+      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
+      X-Runtime:
+      - '0.027064'
       Pragma:
       - no-cache
-      X-Request-Id:
-      - 0425cb78e037288b7874e5a9ee468345
-      X-Runtime:
-      - '0.035336'
       X-Purge-File:
       - 'false'
-      X-Rack-Cache:
-      - invalidate, pass
+      X-Request-Id:
+      - 566978a042f858e0ff9112a0
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-BF-4G4RPYTX","filename":"BATCH-v1-PURCHASE-TEST-20170628-9fd693551488156e30b52830605a57b5.csv","created_at":"2017-06-28T11:37:21+10:00","process_date":"2017-06-28","start_date":null,"completed_date":null,"status":"New","type":"PURCHASE","reference":"9fd693551488156e30b52830605a57b5"},"errors":[],"test":false}'
+      string: '{"successful":true,"response":{"id":"071-BF-TYVZ986W","filename":"BATCH-v1-PURCHASE-TEST-20180503-89159736702f22ffb436bb97ca98b20d.csv","created_at":"2018-05-03T09:11:54+10:00","process_date":"2018-05-03","start_date":null,"completed_date":null,"status":"New","type":"PURCHASE","reference":"89159736702f22ffb436bb97ca98b20d"},"errors":[],"test":false}'
     http_version: 
-  recorded_at: Wed, 28 Jun 2017 01:37:21 GMT
+  recorded_at: Wed, 02 May 2018 23:11:53 GMT
 - request:
     method: get
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/9fd693551488156e30b52830605a57b5?test=true
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/89159736702f22ffb436bb97ca98b20d?test=true
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept:
-      - application/json
       Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
       - application/json
       User-Agent:
       - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
       Authorization:
       - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 28 Jun 2017 01:37:21 GMT
+      - Wed, 02 May 2018 23:11:54 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -87,49 +96,51 @@ http_interactions:
       - keep-alive
       Status:
       - 200 OK
+      X-Rack-Cache:
+      - miss
       Cache-Control:
       - no-store, private
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
+      X-Runtime:
+      - '0.026937'
       Pragma:
       - no-cache
       X-Request-Id:
-      - 69c779e97c597e54f8407041e8ac1915
-      X-Runtime:
-      - '0.019113'
-      X-Rack-Cache:
-      - miss
+      - 6a5c6e2d74adfaa07b0bfa16
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-BF-4G4RPYTX","filename":"BATCH-v1-PURCHASE-TEST-20170628-9fd693551488156e30b52830605a57b5.csv","created_at":"2017-06-28T11:37:21+10:00","process_date":"2017-06-28","start_date":null,"completed_date":null,"status":"IngestError","type":"PURCHASE","reference":"9fd693551488156e30b52830605a57b5"},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-BF-TYVZ986W","filename":"BATCH-v1-PURCHASE-TEST-20180503-89159736702f22ffb436bb97ca98b20d.csv","created_at":"2018-05-03T09:11:54+10:00","process_date":"2018-05-03","start_date":null,"completed_date":null,"status":"IngestError","type":"PURCHASE","reference":"89159736702f22ffb436bb97ca98b20d"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 28 Jun 2017 01:37:21 GMT
+  recorded_at: Wed, 02 May 2018 23:11:53 GMT
 - request:
     method: get
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/071-BF-4G4RPYTX/result.csv?test=true
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/071-BF-TYVZ986W/result.csv?test=true
     body:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept:
-      - application/json
       Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
       - application/json
       User-Agent:
       - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
       Authorization:
       - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
   response:
     status:
       code: 422
       message: Unprocessable Entity
     headers:
       Date:
-      - Wed, 28 Jun 2017 01:37:22 GMT
+      - Wed, 02 May 2018 23:11:55 GMT
       Content-Type:
       - text/csv; charset=utf-8
       Transfer-Encoding:
@@ -138,23 +149,23 @@ http_interactions:
       - keep-alive
       Status:
       - 422 Unprocessable Entity
+      X-Rack-Cache:
+      - miss
       Cache-Control:
       - no-store, private
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
+      X-Runtime:
+      - '0.017241'
       Pragma:
       - no-cache
       X-Request-Id:
-      - 5b9bd934db4aa65a8c9896c1bbbdc6f8
-      X-Runtime:
-      - '0.019433'
-      X-Rack-Cache:
-      - miss
+      - 5a939500b31e02c0311954e0
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
       string: Batch is not yet completed
     http_version: 
-  recorded_at: Wed, 28 Jun 2017 01:37:22 GMT
+  recorded_at: Wed, 02 May 2018 23:11:53 GMT
 recorded_with: VCR 3.0.3

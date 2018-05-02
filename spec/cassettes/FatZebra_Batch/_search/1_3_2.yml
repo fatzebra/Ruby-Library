@@ -7,23 +7,25 @@ http_interactions:
       encoding: US-ASCII
       string: ''
     headers:
-      Accept:
-      - application/json
       Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
       - application/json
       User-Agent:
       - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
       Authorization:
       - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Wed, 28 Jun 2017 01:37:21 GMT
+      - Wed, 02 May 2018 23:11:54 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -32,23 +34,23 @@ http_interactions:
       - keep-alive
       Status:
       - 200 OK
+      X-Rack-Cache:
+      - miss
       Cache-Control:
       - no-store, private
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
+      X-Runtime:
+      - '0.015363'
       Pragma:
       - no-cache
       X-Request-Id:
-      - 2eb8a5d621badaaf5dc441c06305373d
-      X-Runtime:
-      - '0.024315'
-      X-Rack-Cache:
-      - miss
+      - 0b60533924f5008190b50cb1
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":[{"id":"071-BF-98WQLCO5","filename":"BATCH-v1-PURCHASE-TEST-20160601-LARGETEST001.csv","created_at":"2016-06-01T00:43:48+10:00","process_date":"2016-06-01","start_date":"2016-06-01","completed_date":null,"status":"Completed","type":"PURCHASE","reference":"LARGETEST001"},{"id":"071-BF-4VKDBOCI","filename":"BATCH-v1-PURCHASE-TEST-19000101-00009640223.csv","created_at":"2016-11-04T12:10:25+11:00","process_date":"1900-01-01","start_date":"2016-11-04","completed_date":"2016-11-04","status":"Completed","type":"PURCHASE","reference":"00009640223"},{"id":"071-BF-XGA5M3WH","filename":"BATCH-v1-PURCHASE-TEST-20160707-1000014.csv","created_at":"2016-07-08T12:16:48+10:00","process_date":"2016-07-07","start_date":"2016-07-08","completed_date":"2016-07-08","status":"Completed","type":"PURCHASE","reference":"1000014"},{"id":"071-BF-GAOKSS5W","filename":"BATCH-v1-PURCHASE-TEST-20160707-1000017.csv","created_at":"2016-07-09T20:35:01+10:00","process_date":"2016-07-07","start_date":"2016-07-09","completed_date":"2016-07-09","status":"Completed","type":"PURCHASE","reference":"1000017"},{"id":"071-BF-DC67YB5","filename":"BATCH-v1-PURCHASE-TEST-20160707-1000009.csv","created_at":"2016-07-08T09:14:07+10:00","process_date":"2016-07-07","start_date":"2016-07-07","completed_date":"2016-07-07","status":"Completed","type":"PURCHASE","reference":"1000009"},{"id":"071-BF-SEWVYJI","filename":"BATCH-v1-PURCHASE-TEST-20160715-46046.csv","created_at":"2016-07-15T12:47:47+10:00","process_date":"2016-07-15","start_date":"2016-07-15","completed_date":"2016-07-15","status":"Completed","type":"PURCHASE","reference":"46046"},{"id":"071-BF-VAWM9TRK","filename":"BATCH-v1-PURCHASE-TEST-20160203-BatchData.csv","created_at":"2016-07-07T11:14:00+10:00","process_date":"2016-02-03","start_date":"2016-07-07","completed_date":"2016-07-07","status":"Completed","type":"PURCHASE","reference":"BatchData"},{"id":"071-BF-KFB7TE7W","filename":"BATCH-v1-PURCHASE-TEST-20160707-1000012.csv","created_at":"2016-07-08T12:12:25+10:00","process_date":"2016-07-07","start_date":"2016-07-08","completed_date":"2016-07-08","status":"Completed","type":"PURCHASE","reference":"1000012"},{"id":"071-BF-8D9R40DJ","filename":"BATCH-v1-PURCHASE-TEST-20160707-1000013.csv","created_at":"2016-07-08T12:15:20+10:00","process_date":"2016-07-07","start_date":"2016-07-08","completed_date":"2016-07-08","status":"Completed","type":"PURCHASE","reference":"1000013"},{"id":"071-BF-VF3PHIFW","filename":"BATCH-v1-PURCHASE-TEST-20160707-1000008.csv","created_at":"2016-07-08T09:05:45+10:00","process_date":"2016-07-07","start_date":"2016-07-07","completed_date":"2016-07-07","status":"Completed","type":"PURCHASE","reference":"1000008"}],"errors":[],"test":true,"records":10,"total_records":10,"page":1,"total_pages":1}'
+      string: '{"successful":true,"response":[{"id":"071-BF-PGGSPBF1","filename":"BATCH-v1-PURCHASE-TEST-20180101-test4.csv","created_at":"2018-01-30T01:58:52+11:00","process_date":"2018-01-01","start_date":null,"completed_date":null,"status":"Error","type":"PURCHASE","reference":"test4"},{"id":"071-BF-68TU3VJM","filename":"BATCH-v1-PURCHASE-20170712-123456789012348.csv","created_at":"2017-07-12T15:49:49+10:00","process_date":"2017-07-12","start_date":"2017-07-12","completed_date":"2017-07-12","status":"Completed","type":"PURCHASE","reference":"123456789012348"},{"id":"071-BF-K6GJ83S8","filename":"BATCH-v1-PURCHASE-TEST-20180101-test4.csv","created_at":"2018-01-30T17:03:03+11:00","process_date":"2018-01-01","start_date":null,"completed_date":null,"status":"Error","type":"PURCHASE","reference":"test4"},{"id":"071-BF-DBLTEHWC","filename":"BATCH-v1-PURCHASE-TEST-20180101-test4.csv","created_at":"2018-01-30T17:19:48+11:00","process_date":"2018-01-01","start_date":null,"completed_date":null,"status":"Error","type":"PURCHASE","reference":"test4"},{"id":"071-BF-Q0TVWI7K","filename":"BATCH-v1-PURCHASE-20170714-123456789012347.csv","created_at":"2017-07-14T10:42:55+10:00","process_date":"2017-07-14","start_date":"2017-07-14","completed_date":"2017-07-14","status":"Completed","type":"PURCHASE","reference":"123456789012347"},{"id":"071-BF-IX8LXHTQ","filename":"BATCH-v1-PURCHASE-TEST-20180419-260418121819.csv","created_at":"2018-04-26T12:18:20+10:00","process_date":"2018-04-19","start_date":"2018-04-26","completed_date":"2018-04-26","status":"Completed","type":"PURCHASE","reference":"260418121819"},{"id":"071-BF-S6XLIU6T","filename":"BATCH-v1-PURCHASE-TEST-20170904-be1daf085df093e9d528cc2f411c89dc.csv","created_at":"2017-09-04T12:15:40+10:00","process_date":"2017-09-04","start_date":null,"completed_date":null,"status":"Error","type":"PURCHASE","reference":"be1daf085df093e9d528cc2f411c89dc"},{"id":"071-BF-5VS9XO3D","filename":"BATCH-v1-PURCHASE-TEST-20170904-866b354006832e029b63b1d14d4c8c45.csv","created_at":"2017-09-04T12:15:40+10:00","process_date":"2017-09-04","start_date":null,"completed_date":null,"status":"Error","type":"PURCHASE","reference":"866b354006832e029b63b1d14d4c8c45"},{"id":"071-BF-OGKT1JOY","filename":"BATCH-v1-PURCHASE-TEST-20170904-36f791948f5f4d4f355bdf7afdbb6c4f.csv","created_at":"2017-09-04T12:15:40+10:00","process_date":"2017-09-04","start_date":null,"completed_date":null,"status":"Error","type":"PURCHASE","reference":"36f791948f5f4d4f355bdf7afdbb6c4f"},{"id":"071-BF-PVPKXZUC","filename":"BATCH-v1-PURCHASE-TEST-20180101-test4.csv","created_at":"2018-01-30T18:40:36+11:00","process_date":"2018-01-01","start_date":null,"completed_date":null,"status":"Error","type":"PURCHASE","reference":"test4"}],"errors":[],"test":true,"records":10,"total_records":1887,"page":1,"total_pages":189}'
     http_version: 
-  recorded_at: Wed, 28 Jun 2017 01:37:21 GMT
+  recorded_at: Wed, 02 May 2018 23:11:53 GMT
 recorded_with: VCR 3.0.3

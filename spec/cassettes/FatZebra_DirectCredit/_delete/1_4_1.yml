@@ -7,25 +7,23 @@ http_interactions:
       encoding: UTF-8
       string: '{"description":"Confirmation","amount":42,"bsb":"123-123","account_name":"Test","account_number":"012345678","test":true}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '121'
       User-Agent:
       - Ruby
       Authorization:
       - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
   response:
     status:
       code: 201
       message: Created
     headers:
       Date:
-      - Tue, 27 Jun 2017 00:05:01 GMT
+      - Wed, 02 May 2018 23:12:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -34,40 +32,36 @@ http_interactions:
       - keep-alive
       Status:
       - 201 Created
+      X-Rack-Cache:
+      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
+      X-Runtime:
+      - '0.037959'
       Pragma:
       - no-cache
       X-Request-Id:
-      - a57c3c4042f2034d6c9a662f694d93f9
-      X-Runtime:
-      - '0.043692'
-      X-Rack-Cache:
-      - invalidate, pass
+      - 50a0401d9bb7055a878c7428
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-DC-Y9DQS8ZW","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-Y9DQS8ZW","date":"2017-06-27","process_date":null,"status":"New","result":null,"metadata":{}},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-DC-PU3UFYXG","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-PU3UFYXG","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 27 Jun 2017 00:05:01 GMT
+  recorded_at: Wed, 02 May 2018 23:12:07 GMT
 - request:
     method: delete
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/direct_credits/071-DC-Y9DQS8ZW
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/direct_credits/071-DC-PU3UFYXG
     body:
       encoding: UTF-8
       string: '{"test":true}'
     headers:
-      Accept:
-      - application/json
       Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '13'
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
       - Ruby
       Authorization:
@@ -78,7 +72,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 27 Jun 2017 00:05:01 GMT
+      - Wed, 02 May 2018 23:12:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -92,18 +86,18 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
       X-Runtime:
-      - '0.038873'
+      - '0.035337'
       Pragma:
       - no-cache
       X-Request-Id:
-      - ddedb2d65597dd43077a6f020df4cba2
+      - d0f891601a122760840d06a0
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-DC-Y9DQS8ZW","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-Y9DQS8ZW","date":"2017-06-27","process_date":null,"status":"Deleted","result":null,"metadata":{}},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-DC-PU3UFYXG","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-PU3UFYXG","date":"2018-05-03","process_date":null,"status":"Deleted","result":null,"metadata":{}},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 27 Jun 2017 00:05:01 GMT
+  recorded_at: Wed, 02 May 2018 23:12:07 GMT
 recorded_with: VCR 3.0.3

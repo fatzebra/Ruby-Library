@@ -51,7 +51,7 @@ module FatZebra
         params_for_save = to_hash.merge(params)
 
         # Remove the id from the params to save, it should not be updated.
-        params_for_save.delete("id")
+        params_for_save.delete('id')
 
         response = request(method, path, params_for_save, options)
         update_from(response)

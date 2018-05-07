@@ -7,25 +7,23 @@ http_interactions:
       encoding: UTF-8
       string: '{"events":"*","mode":"Test","name":"test hook","address":"http://stage.example.com.au/v1/api/hook_listener","test":true}'
     headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
       - application/json
-      Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '120'
       User-Agent:
       - Ruby
       Authorization:
       - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
   response:
     status:
       code: 200
       message: OK
     headers:
       Date:
-      - Tue, 27 Jun 2017 06:22:39 GMT
+      - Wed, 02 May 2018 23:13:40 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -39,36 +37,32 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
       X-Runtime:
-      - '0.045362'
+      - '0.025146'
       Pragma:
       - no-cache
       X-Request-Id:
-      - d82198d9e454456c3e8c944c76505182
+      - a1787f9cf4d03a2a19e35034
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
       string: '{"successful":true,"response":{"address":"http://stage.example.com.au/v1/api/hook_listener","events":"*","mode":"Test","authentication_username":null,"authentication_password":"","is_active":null,"name":"test
-        hook","id":"071-WH-BS60OHSL"},"errors":[],"test":true}'
+        hook","id":"071-WH-ZZL5KHM1"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 27 Jun 2017 06:22:39 GMT
+  recorded_at: Wed, 02 May 2018 23:13:39 GMT
 - request:
     method: delete
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/web_hooks/071-WH-BS60OHSL
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/web_hooks/071-WH-ZZL5KHM1
     body:
       encoding: UTF-8
       string: '{"test":true}'
     headers:
-      Accept:
-      - application/json
       Accept-Encoding:
-      - gzip, deflate
-      Content-Type:
-      - application/json
-      Content-Length:
-      - '13'
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
       User-Agent:
       - Ruby
       Authorization:
@@ -79,7 +73,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 27 Jun 2017 06:22:39 GMT
+      - Wed, 02 May 2018 23:13:40 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -88,24 +82,24 @@ http_interactions:
       - keep-alive
       Status:
       - 200 OK
+      X-Rack-Cache:
+      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
+      X-Runtime:
+      - '0.014171'
       Pragma:
       - no-cache
       X-Request-Id:
-      - 1a079c865e059ce2473f13655b0a17bc
-      X-Runtime:
-      - '0.021911'
-      X-Rack-Cache:
-      - invalidate, pass
+      - a6f7125ae83190e0d0ec4078
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
       string: '{"successful":true,"response":{"address":"http://stage.example.com.au/v1/api/hook_listener","events":"*","mode":"Test","authentication_username":null,"authentication_password":"","is_active":null,"name":"test
-        hook","id":"071-WH-BS60OHSL"},"errors":[],"test":true}'
+        hook","id":"071-WH-ZZL5KHM1"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 27 Jun 2017 06:22:39 GMT
+  recorded_at: Wed, 02 May 2018 23:13:39 GMT
 recorded_with: VCR 3.0.3

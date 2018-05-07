@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 03 Jul 2017 03:23:19 GMT
+      - Wed, 02 May 2018 23:11:56 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -37,19 +37,20 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.19.41
+      - 1.16.9-3156@6c1a40b
       X-Runtime:
-      - '0.218512'
+      - '0.436209'
       Pragma:
       - no-cache
       X-Request-Id:
-      - bbda71ded3a3a237a3351eb6da9b1b0a
+      - 1a82dce0e3a4a760f8c72b40
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"fke86c5u","card_holder":"Matthew
-        Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28T23:59:59+11:00","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","authorized":true,"transaction_count":935,"alias":null},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"token":"fke80qsf","card_holder":"Matthew
+        Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28T23:59:59+11:00","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
+        Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Mon, 03 Jul 2017 03:23:19 GMT
+  recorded_at: Wed, 02 May 2018 23:11:55 GMT
 recorded_with: VCR 3.0.3

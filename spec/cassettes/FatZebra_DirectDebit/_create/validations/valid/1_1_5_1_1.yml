@@ -23,7 +23,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Thu, 05 Oct 2017 04:28:44 GMT
+      - Wed, 02 May 2018 23:12:09 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -32,23 +32,23 @@ http_interactions:
       - keep-alive
       Status:
       - 201 Created
+      X-Rack-Cache:
+      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.20.4
+      - 1.16.9-3156@6c1a40b
+      X-Runtime:
+      - '0.039492'
       Pragma:
       - no-cache
       X-Request-Id:
-      - 2b5ea6816467df484d4649cc7a56932e
-      X-Runtime:
-      - '0.035993'
-      X-Rack-Cache:
-      - invalidate, pass
+      - e78c00207b5a63e0815a8f20
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-DD-551C0W7W","amount":42.42,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DD-551C0W7W","date":"2017-10-05","process_date":null,"status":"New","result":null,"metadata":{}},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-DD-44FEE1BQ","amount":42.42,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DD-44FEE1BQ","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Thu, 05 Oct 2017 04:28:44 GMT
+  recorded_at: Wed, 02 May 2018 23:12:08 GMT
 recorded_with: VCR 3.0.3

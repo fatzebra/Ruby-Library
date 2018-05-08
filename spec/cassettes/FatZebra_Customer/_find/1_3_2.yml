@@ -5,7 +5,7 @@ http_interactions:
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/customers
     body:
       encoding: UTF-8
-      string: '{"first_name":"Harrold","last_name":"Humphries","reference":"67cb6781de0e1cf8ed39157e0645dfd4","email":"hhump@test.com","ip_address":"180.200.33.181","card":{"card_holder":"Harrold
+      string: '{"first_name":"Harrold","last_name":"Humphries","reference":"9623f0eb41339209b58c952ece6361b8","email":"hhump@test.com","ip_address":"180.200.33.181","card":{"card_holder":"Harrold
         Humphries Senior","card_number":"5123456789012346","expiry_date":"05/2023","cvv":"123"},"address":{"address":"1
         Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"test":true}'
     headers:
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 02 May 2018 23:12:05 GMT
+      - Tue, 08 May 2018 11:06:45 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -34,29 +34,33 @@ http_interactions:
       - keep-alive
       Status:
       - 200 OK
-      X-Rack-Cache:
-      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3156@6c1a40b
-      X-Runtime:
-      - '0.491001'
+      - 1.16.9-3186@7b619da
       Pragma:
       - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - 0c5b65402abe6680fb10cf60
+      - 67bbbce080df3bdeeda3b320
+      X-Runtime:
+      - '0.428047'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-C-8RC5KMDC","email":null,"reference":"67cb6781de0e1cf8ed39157e0645dfd4","first_name":"Harrold","last_name":"Humphries","created_at":"2018-05-03T09:12:05+10:00","address":{"address":"1
-        Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"card_token":"fke8gc9t","card_number":"512345XXXXXX2346","bank_account":null,"metadata":{}},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-C-BMKCT7X6","email":null,"reference":"9623f0eb41339209b58c952ece6361b8","first_name":"Harrold","last_name":"Humphries","created_at":"2018-05-08T21:06:45.324+10:00","address":{"address":"1
+        Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"card_token":"fke8pv5j","card_number":"512345XXXXXX2346","bank_account":null,"metadata":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 23:12:04 GMT
+  recorded_at: Tue, 08 May 2018 11:06:45 GMT
 - request:
     method: get
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/customers/67cb6781de0e1cf8ed39157e0645dfd4?test=true
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/customers/9623f0eb41339209b58c952ece6361b8?test=true
     body:
       encoding: US-ASCII
       string: ''
@@ -79,7 +83,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 02 May 2018 23:12:05 GMT
+      - Tue, 08 May 2018 11:06:45 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -88,24 +92,28 @@ http_interactions:
       - keep-alive
       Status:
       - 200 OK
-      X-Rack-Cache:
-      - miss
       Cache-Control:
-      - no-store, private
+      - no-store
       X-Request-Version:
-      - 1.16.9-3156@6c1a40b
-      X-Runtime:
-      - '0.046486'
+      - 1.16.9-3186@7b619da
       Pragma:
       - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - 8be402a04d9ee62005c2f5a0
+      - 312ec588ceba49d14c4104bc
+      X-Runtime:
+      - '0.027174'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-C-8RC5KMDC","email":null,"reference":"67cb6781de0e1cf8ed39157e0645dfd4","first_name":"Harrold","last_name":"Humphries","created_at":"2018-05-03T09:12:05+10:00","address":{"address":"1
-        Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"card_token":"fke8gc9t","card_number":"512345XXXXXX2346","bank_account":null,"metadata":{}},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-C-BMKCT7X6","email":null,"reference":"9623f0eb41339209b58c952ece6361b8","first_name":"Harrold","last_name":"Humphries","created_at":"2018-05-08T21:06:45.324+10:00","address":{"address":"1
+        Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"card_token":"fke8pv5j","card_number":"512345XXXXXX2346","bank_account":null,"metadata":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 23:12:04 GMT
+  recorded_at: Tue, 08 May 2018 11:06:45 GMT
 recorded_with: VCR 3.0.3

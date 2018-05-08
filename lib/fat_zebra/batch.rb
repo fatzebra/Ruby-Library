@@ -34,8 +34,10 @@ module FatZebra
         params[:multipart] = true
         params[:content_type] = 'text/csv'
         params[:file] = File.new(params.delete(:path)) if params.key?(:path)
-
+        @resource_name = "batches/#{params[:filename]}"
         super(params, options)
+      ensure
+        @resource_name = 'batches'
       end
 
     end

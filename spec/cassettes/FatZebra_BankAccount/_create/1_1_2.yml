@@ -23,7 +23,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 02 May 2018 23:11:53 GMT
+      - Tue, 08 May 2018 11:06:31 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -32,24 +32,28 @@ http_interactions:
       - keep-alive
       Status:
       - 201 Created
-      X-Rack-Cache:
-      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3156@6c1a40b
-      X-Runtime:
-      - '0.026745'
+      - 1.16.9-3186@7b619da
       Pragma:
       - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - ad2fabe04d06f1205ef04640
+      - d0cdace4a7ff889e3e003596
+      X-Runtime:
+      - '0.051524'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-B-OY28Q663","account_name":"Test
-        name","account_number":"012345678","bsb":"123-123","created_at":"2018-05-03T09:11:53+10:00"},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-B-DUOBBRII","account_name":"Test
+        name","account_number":"012345678","bsb":"123-123","created_at":"2018-05-08T21:06:31.659+10:00"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 23:11:51 GMT
+  recorded_at: Tue, 08 May 2018 11:06:31 GMT
 recorded_with: VCR 3.0.3

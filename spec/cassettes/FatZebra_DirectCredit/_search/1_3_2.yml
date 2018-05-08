@@ -23,7 +23,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 02 May 2018 23:12:08 GMT
+      - Tue, 08 May 2018 11:06:49 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -32,25 +32,29 @@ http_interactions:
       - keep-alive
       Status:
       - 201 Created
-      X-Rack-Cache:
-      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3156@6c1a40b
-      X-Runtime:
-      - '0.035871'
+      - 1.16.9-3186@7b619da
       Pragma:
       - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - efc78e7225e70151d789aa44
+      - f3294d16563cdec4f8a880e4
+      X-Runtime:
+      - '0.035381'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-DC-JTQFWWYR","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-JTQFWWYR","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-DC-P92XWSS1","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-P92XWSS1","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 23:12:07 GMT
+  recorded_at: Tue, 08 May 2018 11:06:49 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/direct_credits
@@ -74,7 +78,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 02 May 2018 23:12:09 GMT
+      - Tue, 08 May 2018 11:06:49 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -83,25 +87,29 @@ http_interactions:
       - keep-alive
       Status:
       - 201 Created
-      X-Rack-Cache:
-      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3156@6c1a40b
-      X-Runtime:
-      - '0.043715'
+      - 1.16.9-3186@7b619da
       Pragma:
       - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - ca7125928083dbcb4adfab1b
+      - 721a3ade09df57d8770c5e3d
+      X-Runtime:
+      - '0.035153'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-DC-KDF1H5FU","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-KDF1H5FU","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-DC-NQ5WQVX6","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-NQ5WQVX6","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 23:12:07 GMT
+  recorded_at: Tue, 08 May 2018 11:06:49 GMT
 - request:
     method: get
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/direct_credits?limit=10&offets=0&test=true
@@ -127,7 +135,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 02 May 2018 23:12:09 GMT
+      - Tue, 08 May 2018 11:06:49 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -136,23 +144,27 @@ http_interactions:
       - keep-alive
       Status:
       - 200 OK
-      X-Rack-Cache:
-      - miss
       Cache-Control:
-      - no-store, private
+      - no-store
       X-Request-Version:
-      - 1.16.9-3156@6c1a40b
-      X-Runtime:
-      - '0.021741'
+      - 1.16.9-3186@7b619da
       Pragma:
       - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - f827e21c7353807e2e5ac39d
+      - 7b28ed0b60c40cb9dafd2575
+      X-Runtime:
+      - '0.016152'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":[{"id":"071-DC-KDF1H5FU","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-KDF1H5FU","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},{"id":"071-DC-JTQFWWYR","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-JTQFWWYR","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},{"id":"071-DC-EGU2S4PN","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-EGU2S4PN","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},{"id":"071-DC-SAYOKMSA","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-SAYOKMSA","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},{"id":"071-DC-X3D2LSZ1","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-X3D2LSZ1","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},{"id":"071-DC-I5SYBTWL","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-I5SYBTWL","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},{"id":"071-DC-IRF5UFH0","amount":42.42,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-IRF5UFH0","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},{"id":"071-DC-GPOJGUAG","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-GPOJGUAG","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},{"id":"071-DC-QCSEKB0L","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-QCSEKB0L","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}},{"id":"071-DC-SP8F3D9B","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-SP8F3D9B","date":"2018-05-03","process_date":null,"status":"New","result":null,"metadata":{}}],"errors":[],"test":true,"records":10,"total_records":408,"page":1,"total_pages":41}'
+      string: '{"successful":true,"response":[{"id":"071-DC-NQ5WQVX6","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-NQ5WQVX6","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null},{"id":"071-DC-P92XWSS1","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-P92XWSS1","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null},{"id":"071-DC-JATOPKWY","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-JATOPKWY","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null},{"id":"071-DC-CC6LX8M6","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-CC6LX8M6","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null},{"id":"071-DC-F4ZD1A5E","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-F4ZD1A5E","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null},{"id":"071-DC-583FN5H0","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-583FN5H0","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null},{"id":"071-DC-VY7HU6VS","amount":42.42,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-VY7HU6VS","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null},{"id":"071-DC-89EQIIB","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-89EQIIB","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null},{"id":"071-DC-R3X93BMI","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-R3X93BMI","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null},{"id":"071-DC-CSLWU2JW","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DC-CSLWU2JW","date":"2018-05-09","process_date":null,"status":"New","result":null,"metadata":null}],"errors":[],"test":true,"records":10,"total_records":486,"page":1,"total_pages":49}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 23:12:07 GMT
+  recorded_at: Tue, 08 May 2018 11:06:49 GMT
 recorded_with: VCR 3.0.3

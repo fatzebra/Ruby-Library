@@ -5,7 +5,7 @@ http_interactions:
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/customers
     body:
       encoding: UTF-8
-      string: '{"first_name":"Harrold","last_name":"Humphries","reference":"c22b7252afb3c8ef6161a5ae5db2d104","email":"hhump@test.com","ip_address":"180.200.33.181","card":{"card_holder":"Harrold
+      string: '{"first_name":"Harrold","last_name":"Humphries","reference":"72c0fe89982ea96c9b22afbe2d45c0ef","email":"hhump@test.com","ip_address":"180.200.33.181","card":{"card_holder":"Harrold
         Humphries Senior","card_number":"5123456789012346","expiry_date":"05/2023","cvv":"123"},"address":{"address":"1
         Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"test":true}'
     headers:
@@ -25,7 +25,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 02 May 2018 23:12:22 GMT
+      - Tue, 08 May 2018 11:07:04 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -34,32 +34,36 @@ http_interactions:
       - keep-alive
       Status:
       - 200 OK
-      X-Rack-Cache:
-      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3156@6c1a40b
-      X-Runtime:
-      - '0.461603'
+      - 1.16.9-3186@7b619da
       Pragma:
       - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - 0dde9b00dbc1fe4089834b60
+      - 159d4912aa0ecbb210c783d6
+      X-Runtime:
+      - '0.454908'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-C-6WWYY6IM","email":null,"reference":"c22b7252afb3c8ef6161a5ae5db2d104","first_name":"Harrold","last_name":"Humphries","created_at":"2018-05-03T09:12:21+10:00","address":{"address":"1
-        Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"card_token":"fke8t1pf","card_number":"512345XXXXXX2346","bank_account":null,"metadata":{}},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-C-4T089N75","email":null,"reference":"72c0fe89982ea96c9b22afbe2d45c0ef","first_name":"Harrold","last_name":"Humphries","created_at":"2018-05-08T21:07:03.649+10:00","address":{"address":"1
+        Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"card_token":"fke8bxio","card_number":"512345XXXXXX2346","bank_account":null,"metadata":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 23:12:20 GMT
+  recorded_at: Tue, 08 May 2018 11:07:04 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/payment_plans
     body:
       encoding: UTF-8
-      string: '{"payment_method":"Credit Card","customer":"071-C-6WWYY6IM","reference":"fd8ebbc03ef1ecc5d66ec35533e3997d","setup_fee":0,"amount":100,"start_date":"2015-07-16","frequency":"Weekly","anniversary":5,"total_count":5,"total_amount":500,"test":true}'
+      string: '{"payment_method":"Credit Card","customer":"071-C-4T089N75","reference":"dc1858c18fb6d8138016e6cd1d5ff6d6","setup_fee":0,"amount":100,"start_date":"2015-07-16","frequency":"Weekly","anniversary":5,"total_count":5,"total_amount":500,"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -77,7 +81,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 02 May 2018 23:12:22 GMT
+      - Tue, 08 May 2018 11:07:04 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -86,34 +90,38 @@ http_interactions:
       - keep-alive
       Status:
       - 201 Created
-      X-Rack-Cache:
-      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3156@6c1a40b
-      X-Runtime:
-      - '0.202229'
+      - 1.16.9-3186@7b619da
       Pragma:
       - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - 7d49362023acf820d2df77c0
+      - 08682d02b0020616c3c10e11
+      X-Runtime:
+      - '0.216792'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-PP-T82RT58T","customer":"071-C-6WWYY6IM","amount":100,"currency":null,"setup_fee":0,"frequency":"Weekly","anniversary":5,"start_date":"2015-07-16","end_date":null,"total_count":5,"total_amount":500,"payment_method":"Credit
-        Card","reference":"fd8ebbc03ef1ecc5d66ec35533e3997d","description":null,"status":"Active","status_reason":"None","created_at":"2018-05-03T09:12:22+10:00","failed_payment_fee":0,"retry_interval":3,"status_change_date":null,"payments":[{"id":"071-PT-BYRB38KK","payment_plan":"071-PP-T82RT58T","reference":"fd8ebbc03ef1ecc5d66ec35533e3997d-0001","amount":100,"currency":null,"scheduled_date":"2018-05-04","payment_method":"Credit
-        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-LR7BX5UE","payment_plan":"071-PP-T82RT58T","reference":"fd8ebbc03ef1ecc5d66ec35533e3997d-0002","amount":100,"currency":null,"scheduled_date":"2018-05-11","payment_method":"Credit
-        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-EMH3C7JI","payment_plan":"071-PP-T82RT58T","reference":"fd8ebbc03ef1ecc5d66ec35533e3997d-0003","amount":100,"currency":null,"scheduled_date":"2018-05-18","payment_method":"Credit
-        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-5HNJOH10","payment_plan":"071-PP-T82RT58T","reference":"fd8ebbc03ef1ecc5d66ec35533e3997d-0004","amount":100,"currency":null,"scheduled_date":"2018-05-25","payment_method":"Credit
-        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-X2FXLNRN","payment_plan":"071-PP-T82RT58T","reference":"fd8ebbc03ef1ecc5d66ec35533e3997d-0005","amount":100,"currency":null,"scheduled_date":"2018-06-01","payment_method":"Credit
+      string: '{"successful":true,"response":{"id":"071-PP-YTJW1CYE","customer":"071-C-4T089N75","amount":100,"currency":null,"setup_fee":0,"frequency":"Weekly","anniversary":5,"start_date":"2015-07-16","end_date":null,"total_count":5,"total_amount":500,"payment_method":"Credit
+        Card","reference":"dc1858c18fb6d8138016e6cd1d5ff6d6","description":null,"status":"Active","status_reason":"None","created_at":"2018-05-08T21:07:04.189+10:00","failed_payment_fee":0,"retry_interval":3,"status_change_date":null,"payments":[{"id":"071-PT-KUB508L1","payment_plan":"071-PP-YTJW1CYE","reference":"dc1858c18fb6d8138016e6cd1d5ff6d6-0001","amount":100,"currency":null,"scheduled_date":"2018-05-11","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-P0O7YKYC","payment_plan":"071-PP-YTJW1CYE","reference":"dc1858c18fb6d8138016e6cd1d5ff6d6-0002","amount":100,"currency":null,"scheduled_date":"2018-05-18","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-JTMUXZAC","payment_plan":"071-PP-YTJW1CYE","reference":"dc1858c18fb6d8138016e6cd1d5ff6d6-0003","amount":100,"currency":null,"scheduled_date":"2018-05-25","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-JNHT6L6Z","payment_plan":"071-PP-YTJW1CYE","reference":"dc1858c18fb6d8138016e6cd1d5ff6d6-0004","amount":100,"currency":null,"scheduled_date":"2018-06-01","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-X9ASZCKG","payment_plan":"071-PP-YTJW1CYE","reference":"dc1858c18fb6d8138016e6cd1d5ff6d6-0005","amount":100,"currency":null,"scheduled_date":"2018-06-08","payment_method":"Credit
         Card","status":"Scheduled","result":null,"records":[]}]},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 23:12:21 GMT
+  recorded_at: Tue, 08 May 2018 11:07:04 GMT
 - request:
     method: delete
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/payment_plans/071-PP-T82RT58T
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/payment_plans/071-PP-YTJW1CYE
     body:
       encoding: UTF-8
       string: '{"test":true}'
@@ -132,7 +140,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 02 May 2018 23:12:22 GMT
+      - Tue, 08 May 2018 11:07:04 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -141,24 +149,28 @@ http_interactions:
       - keep-alive
       Status:
       - 200 OK
-      X-Rack-Cache:
-      - invalidate, pass
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3156@6c1a40b
-      X-Runtime:
-      - '0.097748'
+      - 1.16.9-3186@7b619da
       Pragma:
       - no-cache
+      X-Xss-Protection:
+      - 1; mode=block
       X-Request-Id:
-      - 013e87c049a042e0587877c0
+      - ca6a395252d5297033886d10
+      X-Runtime:
+      - '0.103581'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Content-Type-Options:
+      - nosniff
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-PP-T82RT58T","customer":"071-C-6WWYY6IM","amount":100,"currency":null,"setup_fee":0,"frequency":"Weekly","anniversary":5,"start_date":"2015-07-16","end_date":null,"total_count":5,"total_amount":500,"payment_method":"Credit
-        Card","reference":"fd8ebbc03ef1ecc5d66ec35533e3997d","description":null,"status":"Cancelled","status_reason":"Other","created_at":"2018-05-03T09:12:22+10:00","failed_payment_fee":0,"retry_interval":3,"status_change_date":null,"payments":[]},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-PP-YTJW1CYE","customer":"071-C-4T089N75","amount":100,"currency":null,"setup_fee":0,"frequency":"Weekly","anniversary":5,"start_date":"2015-07-16","end_date":null,"total_count":5,"total_amount":500,"payment_method":"Credit
+        Card","reference":"dc1858c18fb6d8138016e6cd1d5ff6d6","description":null,"status":"Cancelled","status_reason":"Other","created_at":"2018-05-08T21:07:04.189+10:00","failed_payment_fee":0,"retry_interval":3,"status_change_date":null,"payments":[]},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 02 May 2018 23:12:21 GMT
+  recorded_at: Tue, 08 May 2018 11:07:04 GMT
 recorded_with: VCR 3.0.3

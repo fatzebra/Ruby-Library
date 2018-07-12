@@ -9,7 +9,7 @@ describe FatZebra::PaymentPlan do
     reference:      SecureRandom.hex,
     setup_fee:      0,
     amount:         100,
-    start_date:     '2015-07-16',
+    start_date:     (Date.today + 90).strftime('%Y-%m-%d'),
     frequency:      'Weekly',
     anniversary:    5,
     total_count:    5,

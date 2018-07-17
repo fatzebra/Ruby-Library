@@ -5,7 +5,9 @@ Layout/EmptyLinesAroundModuleBody:
 Layout/EmptyLinesAroundBlockBody:
   Enabled: false
 
-Style/MethodMissing:
+Style/MissingRespondToMissing:
+  Enabled: false
+Style/MethodMissingSuper:
   Enabled: false
 Style/NumericPredicate:
   Enabled: false
@@ -33,10 +35,6 @@ Documentation:
 
 AllCops:
   TargetRubyVersion: 2.2
-  Include:
-    - Gemfile
-    - Rakefile
-    - Capfile
   Exclude:
     - bin/**/*
     - vendor/**/*

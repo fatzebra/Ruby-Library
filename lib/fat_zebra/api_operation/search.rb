@@ -8,7 +8,7 @@ module FatZebra
       ##
       # Default params for the API
       DEFAULT_PARAMS = {
-        offets: 0,
+        offset: 0,
         limit: 10
       }.freeze
 

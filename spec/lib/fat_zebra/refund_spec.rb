@@ -65,17 +65,16 @@ describe FatZebra::Refund do
   end
 
   describe '#void', :vcr do
-    subject(:voided_refund) { refund.void }
+    subject(:refund) { FatZebra::Refund.create(valid_refund_payload).void }
 
-    let(:refund) { FatZebra::Refund.create(valid_refund_payload) }
     let(:purchase) { FatZebra::Purchase.create(valid_purchase_payload) }
     let(:transaction_id) { purchase.transaction_id }
     let(:reference) { purchase.reference }
 
     it { is_expected.to be_accepted }
     it { is_expected.to_not be_successful }
-    it { expect(voided_refund.message).to eq('Voided') }
-    it { expect(voided_refund).to be_a(FatZebra::Refund) }
+    it { expect(refund.message).to eq('Voided') }
+    it { expect(refund).to be_a(FatZebra::Refund) }
   end
 
   describe '#declined?' do

@@ -19,5 +19,9 @@ module FatZebra
     validates :amount, required: true, on: :create
     validates :reference, required: true, on: :create
 
+    def declined?
+      refunded == 'Declined'
+    end
+
   end
 end

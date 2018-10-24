@@ -39,9 +39,12 @@ module FatZebra
       errors << "'#{field}' is required" if params[field].nil? || params[field] == ''
     end
 
+    # rubocop:disable Metrics/CyclomaticComplexity
     def validate_type(field, options, params)
       regexp =
         case options
+        when :positive_float
+          /\A\d*\.\d+\z/
         when :positive_numeric
           /\A\d*\.?\d+\z/
         when :positive_integer
@@ -58,6 +61,7 @@ module FatZebra
 
       errors << "'#{field}' is not a '#{options}'" unless params[field].to_s =~ regexp
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
 
   end
 end

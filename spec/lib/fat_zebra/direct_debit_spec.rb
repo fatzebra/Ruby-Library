@@ -51,6 +51,7 @@ describe FatZebra::DirectDebit do
 
     it { is_expected.to be_accepted }
     it { expect(direct_debit.reference).to eq(create.reference) }
+    it { expect(direct_debit.amount).to be_instance_of(Float) }
   end
 
   describe '.search', :vcr do

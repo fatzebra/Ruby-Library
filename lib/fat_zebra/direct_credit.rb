@@ -17,7 +17,7 @@ module FatZebra
     include FatZebra::APIOperation::Delete
 
     validates :description, required: true, on: :create
-    validates :amount, required: true, type: :positive_numeric, on: :create
+    validates :amount, required: true, type: :positive_float, on: :create
     validates :bsb, required: true, on: :create
     validates :account_name, required: true, on: :create
     validates :account_number, required: true, on: :create

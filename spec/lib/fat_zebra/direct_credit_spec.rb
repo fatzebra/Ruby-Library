@@ -4,7 +4,7 @@ describe FatZebra::DirectCredit do
 
   let(:valid_direct_credit_payload) {{
     description:    'Confirmation',
-    amount:         42,
+    amount:         42.0,
     bsb:            '123-123',
     account_name:   'Test',
     account_number: '012345678'
@@ -27,6 +27,18 @@ describe FatZebra::DirectCredit do
 
       context 'failed' do
         let(:valid_direct_credit_payload) {{}}
+
+        it { expect{ direct_credit }.to raise_error(FatZebra::RequestValidationError) }
+      end
+
+      context 'failed with non-float' do
+        let(:valid_direct_credit_payload) {{
+          description:    'Confirmation',
+          amount:         123,
+          bsb:            '123-123',
+          account_name:   'Test',
+          account_number: '012345678'
+        }}
 
         it { expect{ direct_credit }.to raise_error(FatZebra::RequestValidationError) }
       end

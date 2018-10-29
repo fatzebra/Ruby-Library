@@ -4,7 +4,7 @@ describe FatZebra::DirectDebit do
 
   let(:valid_direct_debit_payload) {{
     description:    'Confirmation',
-    amount:         42,
+    amount:         42.0,
     bsb:            '123-123',
     account_name:   'Test',
     account_number: '012345678'
@@ -30,6 +30,18 @@ describe FatZebra::DirectDebit do
 
         it { expect{ direct_debit }.to raise_error(FatZebra::RequestValidationError) }
       end
+
+      context 'failed with non-float' do
+        let(:valid_direct_debit_payload) {{
+          description:    'Confirmation',
+          amount:         123,
+          bsb:            '123-123',
+          account_name:   'Test',
+          account_number: '012345678'
+        }}
+
+        it { expect{ direct_debit }.to raise_error(FatZebra::RequestValidationError) }
+      end
     end
   end
 
@@ -39,6 +51,7 @@ describe FatZebra::DirectDebit do
 
     it { is_expected.to be_accepted }
     it { expect(direct_debit.reference).to eq(create.reference) }
+    it { expect(direct_debit.amount).to be_instance_of(Float) }
   end
 
   describe '.search', :vcr do

@@ -64,6 +64,8 @@ module FatZebra
 
       if params[:payload] && params[:payload][:multipart]
         build_multipart_post
+      elsif params[:payload] && params[:payload][:raw]
+        build_raw_file_post
       else
         set_header
         request.body = params[:payload].to_json
@@ -133,6 +135,10 @@ module FatZebra
       request.content_length = parts.inject(0) { |sum, part| sum + part.length }
       request.content_type = 'multipart/form-data; boundary=' + parts.first.boundary
       request.body_stream = Multipart::Stream.new(parts.map(&:to_io))
+    end
+
+    def build_raw_file_post
+      request.body = File.read(params[:payload][:file])
     end
 
     def setup_auth_basic

@@ -19,6 +19,15 @@ describe FatZebra::Card do
     end
   end
 
+  describe '.find', :vcr do
+    let!(:create) { FatZebra::Card.create(valid_credit_card_payload) }
+    subject(:card) { FatZebra::Card.find(create.token) }
+
+    it { is_expected.to be_accepted }
+    it { expect(card.token).to eq(create.token) }
+    it { expect(card.card_number).to eq(create.card_number) }
+  end
+
   describe '.update', :vcr do
     let(:valid_credit_card_update_payload) {{
       card_expiry: DateTime.new(2050, 2, 3).strftime('%m/%Y'),

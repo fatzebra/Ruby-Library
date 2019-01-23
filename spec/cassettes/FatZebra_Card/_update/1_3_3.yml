@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 May 2018 11:06:38 GMT
+      - Tue, 12 Feb 2019 04:54:13 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,31 +35,25 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3186@7b619da
+      - 1.16.9-3750@a5e3fa4
+      X-Runtime:
+      - '0.430616'
       Pragma:
       - no-cache
-      X-Xss-Protection:
-      - 1; mode=block
       X-Request-Id:
-      - 51a15e88ab160a760a3025f4
-      X-Runtime:
-      - '0.422145'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
+      - 12a80852d1ee51f9cf9753ce
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"fke8oeaz","card_holder":"Matthew
+      string: '{"successful":true,"response":{"token":"jn1hpkwzw28o32i5l6b9","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
         Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 08 May 2018 11:06:38 GMT
+  recorded_at: Tue, 12 Feb 2019 04:54:14 GMT
 - request:
     method: put
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/credit_cards/fke8oeaz
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/credit_cards/jn1hpkwzw28o32i5l6b9
     body:
       encoding: UTF-8
       string: '{"card_expiry":"02/2050","test":true}'
@@ -80,7 +74,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 May 2018 11:06:38 GMT
+      - Tue, 12 Feb 2019 04:54:14 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -92,26 +86,20 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3186@7b619da
+      - 1.16.9-3750@a5e3fa4
+      X-Runtime:
+      - '0.041241'
       Pragma:
       - no-cache
-      X-Xss-Protection:
-      - 1; mode=block
       X-Request-Id:
-      - 39c35b98f0d31288008ee7e8
-      X-Runtime:
-      - '0.030853'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
+      - 36894e283c74ebe04aadf224
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"fke8oeaz","card_holder":"Matthew
+      string: '{"successful":true,"response":{"token":"jn1hpkwzw28o32i5l6b9","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2050-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
         Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 08 May 2018 11:06:38 GMT
+  recorded_at: Tue, 12 Feb 2019 04:54:14 GMT
 recorded_with: VCR 3.0.3

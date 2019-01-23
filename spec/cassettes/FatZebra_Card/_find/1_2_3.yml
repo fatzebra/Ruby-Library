@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 May 2018 11:06:39 GMT
+      - Tue, 12 Feb 2019 04:54:12 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,34 +35,28 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3186@7b619da
+      - 1.16.9-3750@a5e3fa4
+      X-Runtime:
+      - '0.426844'
       Pragma:
       - no-cache
-      X-Xss-Protection:
-      - 1; mode=block
       X-Request-Id:
-      - b95db6c86d371f7e0fc32d06
-      X-Runtime:
-      - '0.409022'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
+      - 4d279346b8d3b2d8538dbb56
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"fke8rc2p","card_holder":"Matthew
+      string: '{"successful":true,"response":{"token":"cfkgstns2wdyyo731qnk","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
         Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 08 May 2018 11:06:39 GMT
+  recorded_at: Tue, 12 Feb 2019 04:54:12 GMT
 - request:
-    method: put
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/credit_cards/fke8rc2p
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/credit_cards/cfkgstns2wdyyo731qnk?test=true
     body:
-      encoding: UTF-8
-      string: '{"card_expiry":"02/2050","test":true}'
+      encoding: US-ASCII
+      string: ''
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -70,6 +64,8 @@ http_interactions:
       - application/json
       User-Agent:
       - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
       Authorization:
       - Basic VEVTVDpURVNU
       Content-Type:
@@ -80,7 +76,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 May 2018 11:06:39 GMT
+      - Tue, 12 Feb 2019 04:54:12 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -92,26 +88,20 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3186@7b619da
+      - 1.16.9-3750@a5e3fa4
+      X-Runtime:
+      - '0.022461'
       Pragma:
       - no-cache
-      X-Xss-Protection:
-      - 1; mode=block
       X-Request-Id:
-      - 9e3831ecdc2d522e64e321ea
-      X-Runtime:
-      - '0.031269'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
+      - 5309ef0a34124c9cddbf2ed4
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"fke8rc2p","card_holder":"Matthew
-        Savage","card_number":"512345XXXXXX2346","card_expiry":"2050-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
+      string: '{"successful":true,"response":{"token":"cfkgstns2wdyyo731qnk","card_holder":"Matthew
+        Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
         Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 08 May 2018 11:06:39 GMT
+  recorded_at: Tue, 12 Feb 2019 04:54:12 GMT
 recorded_with: VCR 3.0.3

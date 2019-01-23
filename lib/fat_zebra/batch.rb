@@ -19,7 +19,6 @@ module FatZebra
 
     validates :filename, required: true, type: :batch_filename, on: :create
     validates :file, required: true, type: :file_type, on: :create
-    validates :multipart, required: true, type: :boolean, on: :create
 
     class << self
 
@@ -31,7 +30,7 @@ module FatZebra
       #
       # @return [FatZebra::Batch] response from the API
       def create(params, options = {})
-        params[:multipart] = true
+        params[:raw] = true
         params[:content_type] = 'text/csv'
         params[:file] = File.new(params.delete(:path)) if params.key?(:path)
         @resource_name = "batches/#{params[:filename]}"

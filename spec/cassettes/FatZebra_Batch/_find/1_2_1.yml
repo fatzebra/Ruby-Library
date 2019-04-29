@@ -2,16 +2,16 @@
 http_interactions:
 - request:
     method: post
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/BATCH-v1-PURCHASE-TEST-20180508-f8d94980653f479d98357d8c08274927.csv
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/BATCH-v1-PURCHASE-TEST-20190429-8b1e43145aff17bfd876abb8f676bb6c.csv
     body:
       encoding: UTF-8
-      string: "------FatZebraMultipartPost\r\nContent-Disposition: form-data; name=\"BATCH-v1-PURCHASE-TEST-20180508-f8d94980653f479d98357d8c08274927.csv\";
-        filename=\"BATCH-v1-PURCHASE-TEST-20180508-f8d94980653f479d98357d8c08274927.csv\"\r\nContent-Length:
+      string: "------FatZebraMultipartPost\r\nContent-Disposition: form-data; name=\"BATCH-v1-PURCHASE-TEST-20190429-8b1e43145aff17bfd876abb8f676bb6c.csv\";
+        filename=\"BATCH-v1-PURCHASE-TEST-20190429-8b1e43145aff17bfd876abb8f676bb6c.csv\"\r\nContent-Length:
         \r\nContent-Type: text/csv\r\nContent-Transfer-Encoding: binary\r\n\r\n1000,AUD,Order12345,John
         Doe 1,4444333322221111,12/2020,,Gizmo ABC 1\n2051,AUD,Order22345,John Doe
         2,4444333322221111,12/2020,,Gizmo ABC 2\n3000,AUD,Order32345,John Doe 3,4444333322221111,12/2020,,Gizmo
         ABC 3\n4000,AUD,Order42345,John Doe 4,4444333322221111,12/2020,,Gizmo ABC
-        4\n\r\n------FatZebraMultipartPost\r\nContent-Disposition: form-data; name=\"filename\"\r\n\r\nBATCH-v1-PURCHASE-TEST-20180508-f8d94980653f479d98357d8c08274927.csv------FatZebraMultipartPost\r\nContent-Disposition:
+        4\n\r\n------FatZebraMultipartPost\r\nContent-Disposition: form-data; name=\"filename\"\r\n\r\nBATCH-v1-PURCHASE-TEST-20190429-8b1e43145aff17bfd876abb8f676bb6c.csv------FatZebraMultipartPost\r\nContent-Disposition:
         form-data; name=\"test\"\r\n\r\ntrue------FatZebraMultipartPost--\r\n"
     headers:
       Accept-Encoding:
@@ -32,7 +32,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Tue, 08 May 2018 11:06:33 GMT
+      - Mon, 29 Apr 2019 09:16:38 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -44,29 +44,23 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3186@7b619da
+      - 1.16.9-3941@c1d8236
+      X-Runtime:
+      - '0.094179'
       Pragma:
       - no-cache
-      X-Xss-Protection:
-      - 1; mode=block
       X-Request-Id:
-      - 0f34451ee821fd1045bc9828
-      X-Runtime:
-      - '0.072719'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
+      - 616099b298d57f59d4e000ec
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-BF-Y066TVBF","filename":"BATCH-v1-PURCHASE-TEST-20180508-f8d94980653f479d98357d8c08274927.csv","created_at":"2018-05-08T21:06:33.795+10:00","process_date":"2018-05-08","start_date":null,"completed_date":null,"status":"New","type":"PURCHASE","reference":"f8d94980653f479d98357d8c08274927"},"errors":[],"test":false}'
+      string: '{"successful":true,"response":{"id":"071-BF-1YWLB49L","filename":"BATCH-v1-PURCHASE-TEST-20190429-8b1e43145aff17bfd876abb8f676bb6c.csv","created_at":"2019-04-29T19:16:38+10:00","process_date":"2019-04-29","start_date":null,"completed_date":null,"status":"New","type":"PURCHASE","reference":"8b1e43145aff17bfd876abb8f676bb6c"},"errors":[],"test":false}'
     http_version: 
-  recorded_at: Tue, 08 May 2018 11:06:33 GMT
+  recorded_at: Mon, 29 Apr 2019 09:16:38 GMT
 - request:
     method: get
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/f8d94980653f479d98357d8c08274927?test=true
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/batches/8b1e43145aff17bfd876abb8f676bb6c?test=true
     body:
       encoding: US-ASCII
       string: ''
@@ -89,7 +83,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 May 2018 11:06:33 GMT
+      - Mon, 29 Apr 2019 09:16:38 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -101,24 +95,18 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3186@7b619da
+      - 1.16.9-3941@c1d8236
+      X-Runtime:
+      - '0.016571'
       Pragma:
       - no-cache
-      X-Xss-Protection:
-      - 1; mode=block
       X-Request-Id:
-      - d68ffe2e7f99eb467c640cf6
-      X-Runtime:
-      - '0.014937'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
+      - a5b06e572efbd1ebbf7e7cc4
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-BF-Y066TVBF","filename":"BATCH-v1-PURCHASE-TEST-20180508-f8d94980653f479d98357d8c08274927.csv","created_at":"2018-05-08T21:06:33.795+10:00","process_date":"2018-05-08","start_date":null,"completed_date":null,"status":"Error","type":"PURCHASE","reference":"f8d94980653f479d98357d8c08274927"},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-BF-1YWLB49L","filename":"BATCH-v1-PURCHASE-TEST-20190429-8b1e43145aff17bfd876abb8f676bb6c.csv","created_at":"2019-04-29T19:16:38+10:00","process_date":"2019-04-29","start_date":null,"completed_date":null,"status":"Ingesting","type":"PURCHASE","reference":"8b1e43145aff17bfd876abb8f676bb6c"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 08 May 2018 11:06:33 GMT
+  recorded_at: Mon, 29 Apr 2019 09:16:38 GMT
 recorded_with: VCR 3.0.3

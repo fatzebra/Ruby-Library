@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 May 2018 11:08:19 GMT
+      - Mon, 29 Apr 2019 09:20:37 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,25 +35,19 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3186@7b619da
+      - 1.16.9-3941@c1d8236
+      X-Runtime:
+      - '0.034957'
       Pragma:
       - no-cache
-      X-Xss-Protection:
-      - 1; mode=block
       X-Request-Id:
-      - 7c44272a12092635570a1f38
-      X-Runtime:
-      - '0.028864'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
+      - fb82c94488db127453df2334
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
       string: '{"successful":true,"response":{"address":"http://stage.example.com.au/v1/api/hook_listener","events":"*","mode":"Test","authentication_username":null,"authentication_password":"","is_active":null,"name":"test
-        hook","id":"071-WH-UI4DDPAV"},"errors":[],"test":true}'
+        hook","id":"071-WH-VTOHWEW3"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 08 May 2018 11:08:19 GMT
+  recorded_at: Mon, 29 Apr 2019 09:20:37 GMT
 recorded_with: VCR 3.0.3

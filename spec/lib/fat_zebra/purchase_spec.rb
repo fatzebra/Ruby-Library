@@ -16,7 +16,7 @@ describe FatZebra::Purchase do
     it { expect(purchase.card_category).to eq('Credit') }
     it { expect(purchase.card_token).to_not be_empty }
     it { expect(purchase.addendum_data).to eq({}) }
-    it { expect(purchase.metadata).to eq({}) }
+    it { expect(purchase.metadata).to eq({ "authorization_tracking_id" => "", "original_transaction_reference" => "" }) }
     it { expect(purchase.response_code).to eq('00') }
 
     context 'bad request' do
@@ -77,7 +77,7 @@ describe FatZebra::Purchase do
     subject(:void) { FatZebra::Purchase.void(purchase.id) }
 
     it { is_expected.to be_accepted }
-    it { is_expected.to_not be_successful }
+    it { is_expected.to be_successful }
     it { expect(void.message).to eq('Voided') }
     it { expect(void).to be_a(FatZebra::Purchase) }
   end
@@ -87,7 +87,7 @@ describe FatZebra::Purchase do
     before { expect(purchase.void).to be_truthy }
 
     it { is_expected.to be_accepted }
-    it { is_expected.to_not be_successful }
+    it { is_expected.to be_successful }
     it { expect(purchase.message).to eq('Voided') }
     it { expect(purchase).to be_a(FatZebra::Purchase) }
   end

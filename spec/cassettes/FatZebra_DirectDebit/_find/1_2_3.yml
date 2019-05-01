@@ -23,7 +23,7 @@ http_interactions:
       message: Created
     headers:
       Date:
-      - Wed, 24 Oct 2018 01:03:29 GMT
+      - Mon, 29 Apr 2019 09:16:55 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,23 +35,23 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3627@3b72f16
+      - 1.16.9-3941@c1d8236
       X-Runtime:
-      - '0.043132'
+      - '0.038845'
       Pragma:
       - no-cache
       X-Request-Id:
-      - 4fd3db08dbdb1a6c6f912bc8
+      - 9e302b64cc4654a409f76464
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-DD-5M1TDSVX","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DD-5M1TDSVX","date":"2018-10-24","process_date":null,"status":"New","result":null,"metadata":null},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-DD-GOOH7XBB","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DD-GOOH7XBB","date":"2019-04-30","process_date":null,"status":"New","result":null,"metadata":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 24 Oct 2018 01:03:29 GMT
+  recorded_at: Mon, 29 Apr 2019 09:16:55 GMT
 - request:
     method: get
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/direct_debits/071-DD-5M1TDSVX?test=true
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/direct_debits/071-DD-GOOH7XBB?test=true
     body:
       encoding: US-ASCII
       string: ''
@@ -74,7 +74,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Wed, 24 Oct 2018 01:03:29 GMT
+      - Mon, 29 Apr 2019 09:16:55 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -86,18 +86,18 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3627@3b72f16
+      - 1.16.9-3941@c1d8236
       X-Runtime:
-      - '0.015420'
+      - '0.018240'
       Pragma:
       - no-cache
       X-Request-Id:
-      - 531343808d0ee26096fc2938
+      - c0b326407812174852f31074
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"id":"071-DD-5M1TDSVX","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DD-5M1TDSVX","date":"2018-10-24","process_date":null,"status":"New","result":null,"metadata":null},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"id":"071-DD-GOOH7XBB","amount":42.0,"bsb":"123-123","account_number":"012345678","account_name":"Test","description":"Confirmation","reference":"071-DD-GOOH7XBB","date":"2019-04-30","process_date":null,"status":"New","result":null,"metadata":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 24 Oct 2018 01:03:29 GMT
+  recorded_at: Mon, 29 Apr 2019 09:16:55 GMT
 recorded_with: VCR 3.0.3

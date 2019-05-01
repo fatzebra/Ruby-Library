@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 May 2018 11:08:20 GMT
+      - Mon, 29 Apr 2019 09:20:38 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,30 +35,24 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3186@7b619da
+      - 1.16.9-3941@c1d8236
+      X-Runtime:
+      - '0.030886'
       Pragma:
       - no-cache
-      X-Xss-Protection:
-      - 1; mode=block
       X-Request-Id:
-      - f036676f5d59d8ce28caf7db
-      X-Runtime:
-      - '0.028663'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
+      - 1d1740ccf6ae9e943b19214c
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
       string: '{"successful":true,"response":{"address":"http://stage.example.com.au/v1/api/hook_listener","events":"*","mode":"Test","authentication_username":null,"authentication_password":"","is_active":null,"name":"test
-        hook","id":"071-WH-1H7L5ZCI"},"errors":[],"test":true}'
+        hook","id":"071-WH-Q5W5NSU9"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 08 May 2018 11:08:20 GMT
+  recorded_at: Mon, 29 Apr 2019 09:20:38 GMT
 - request:
     method: put
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/web_hooks/071-WH-1H7L5ZCI
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/web_hooks/071-WH-Q5W5NSU9
     body:
       encoding: UTF-8
       string: '{"address":"http://stage.example.com.au/v1/api/hook_listener","events":"*","mode":"Test","authentication_username":null,"authentication_password":"","is_active":null,"name":"test
@@ -80,7 +74,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 08 May 2018 11:08:20 GMT
+      - Mon, 29 Apr 2019 09:20:38 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -92,25 +86,19 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3186@7b619da
+      - 1.16.9-3941@c1d8236
+      X-Runtime:
+      - '0.034236'
       Pragma:
       - no-cache
-      X-Xss-Protection:
-      - 1; mode=block
       X-Request-Id:
-      - a8c5edf2ac586652e4c0b818
-      X-Runtime:
-      - '0.029149'
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-Content-Type-Options:
-      - nosniff
+      - 0ca930a64c9287f6466e0332
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
       string: '{"successful":true,"response":{"address":"http://stage.example.com.au/v1/api/hook_listener","events":"*","mode":"Test","authentication_username":null,"authentication_password":"","is_active":null,"name":"New
-        Test hook","id":"071-WH-1H7L5ZCI"},"errors":[],"test":true}'
+        Test hook","id":"071-WH-Q5W5NSU9"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 08 May 2018 11:08:20 GMT
+  recorded_at: Mon, 29 Apr 2019 09:20:38 GMT
 recorded_with: VCR 3.0.3

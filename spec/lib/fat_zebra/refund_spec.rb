@@ -72,7 +72,7 @@ describe FatZebra::Refund do
     let(:reference) { purchase.reference }
 
     it { is_expected.to be_accepted }
-    it { is_expected.to_not be_successful }
+    it { is_expected.to be_successful }
     it { expect(refund.message).to eq('Voided') }
     it { expect(refund).to be_a(FatZebra::Refund) }
   end

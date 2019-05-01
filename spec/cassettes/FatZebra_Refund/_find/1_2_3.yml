@@ -5,7 +5,7 @@ http_interactions:
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/purchases
     body:
       encoding: UTF-8
-      string: '{"amount":10000,"card_holder":"Matthew Savage","card_number":"5123456789012346","card_expiry":"02/2030","cvv":123,"reference":"db1041c1cd95fc4737a4fa96c993623e","customer_ip":"1.2.3.4","currency":"AUD","test":true}'
+      string: '{"amount":10000,"card_holder":"Matthew Savage","card_number":"5123456789012346","card_expiry":"02/2030","cvv":123,"reference":"e2e5dce953451efcb7975dfb9c2a48be","customer_ip":"1.2.3.4","currency":"AUD","test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 12 Aug 2018 01:19:13 GMT
+      - Mon, 29 Apr 2019 09:20:31 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -35,27 +35,27 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3538@ea2e93d
+      - 1.16.9-3941@c1d8236
       X-Runtime:
-      - '0.521779'
+      - '0.572735'
       Pragma:
       - no-cache
       X-Request-Id:
-      - a32b835dbac96ace1ae22a60
+      - 61abd8e38cf93c836ccaaf26
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"authorization":"197632","id":"071-P-EDLD64XQ","card_number":"512345XXXXXX2346","card_holder":"Matthew
-        Savage","card_expiry":"2030-02-28","card_token":"fke8k0po","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","amount":10000,"decimal_amount":100.0,"successful":true,"message":"Approved","reference":"db1041c1cd95fc4737a4fa96c993623e","currency":"AUD","transaction_id":"071-P-EDLD64XQ","settlement_date":"2018-08-12","transaction_date":"2018-08-12T11:19:13+10:00","response_code":"00","captured":true,"captured_amount":10000,"rrn":"071PEDLD64XQ","cvv_match":"M","metadata":{},"addendum_data":{}},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"authorization":"310846","id":"071-P-DHX6RW80","card_number":"512345XXXXXX2346","card_holder":"Matthew
+        Savage","card_expiry":"2030-02-28","card_token":"zsqz731vld384l7g9cd6","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","amount":10000,"decimal_amount":100.0,"successful":true,"message":"Approved","reference":"e2e5dce953451efcb7975dfb9c2a48be","currency":"AUD","transaction_id":"071-P-DHX6RW80","settlement_date":"2019-04-29","transaction_date":"2019-04-29T19:20:31+10:00","response_code":"00","captured":true,"captured_amount":10000,"rrn":"071PDHX6RW80","cvv_match":"M","metadata":{"authorization_tracking_id":"","original_transaction_reference":""},"addendum_data":{}},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Sun, 12 Aug 2018 01:19:11 GMT
+  recorded_at: Mon, 29 Apr 2019 09:20:31 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/refunds
     body:
       encoding: UTF-8
-      string: '{"transaction_id":"071-P-EDLD64XQ","amount":10000,"reference":"db1041c1cd95fc4737a4fa96c993623e","test":true}'
+      string: '{"transaction_id":"071-P-DHX6RW80","amount":10000,"reference":"e2e5dce953451efcb7975dfb9c2a48be","test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -73,7 +73,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 12 Aug 2018 01:19:14 GMT
+      - Mon, 29 Apr 2019 09:20:31 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -85,24 +85,24 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3538@ea2e93d
+      - 1.16.9-3941@c1d8236
       X-Runtime:
-      - '0.138058'
+      - '0.157224'
       Pragma:
       - no-cache
       X-Request-Id:
-      - 03d4f72fd59b561275b18837
+      - 61bdd3775f81c8f009593232
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"authorization":"1534036754","id":"071-R-DLMJKB1V","amount":10000,"refunded":"Approved","message":"Approved","card_holder":"Matthew
-        Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","transaction_id":"071-R-DLMJKB1V","reference":"db1041c1cd95fc4737a4fa96c993623e","currency":"AUD","successful":true,"transaction_date":"2018-08-12T11:19:14+10:00","response_code":"00","settlement_date":"2018-08-13","metadata":{},"standalone":false,"rrn":"071RDLMJKB1V"},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"authorization":"1556529631","id":"071-R-UO8IL2IQ","amount":10000,"refunded":"Approved","message":"Approved","card_holder":"Matthew
+        Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","transaction_id":"071-R-UO8IL2IQ","reference":"e2e5dce953451efcb7975dfb9c2a48be","currency":"AUD","successful":true,"transaction_date":"2019-04-29T19:20:31+10:00","response_code":"00","settlement_date":"2019-04-30","metadata":{},"standalone":false,"rrn":"071RUO8IL2IQ"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Sun, 12 Aug 2018 01:19:11 GMT
+  recorded_at: Mon, 29 Apr 2019 09:20:31 GMT
 - request:
     method: get
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/refunds/db1041c1cd95fc4737a4fa96c993623e?test=true
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/refunds/e2e5dce953451efcb7975dfb9c2a48be?test=true
     body:
       encoding: US-ASCII
       string: ''
@@ -125,7 +125,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Sun, 12 Aug 2018 01:19:14 GMT
+      - Mon, 29 Apr 2019 09:20:31 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -137,19 +137,19 @@ http_interactions:
       Cache-Control:
       - no-store
       X-Request-Version:
-      - 1.16.9-3538@ea2e93d
+      - 1.16.9-3941@c1d8236
       X-Runtime:
-      - '0.023120'
+      - '0.037765'
       Pragma:
       - no-cache
       X-Request-Id:
-      - e222c038706d4548f73687a7
+      - cf9726be643079638021f310
       X-Backend:
       - sbox-priv-gateway-a
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"authorization":"1534036754","id":"071-R-DLMJKB1V","amount":10000,"refunded":"Approved","message":"Approved","card_holder":"Matthew
-        Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","transaction_id":"071-R-DLMJKB1V","reference":"db1041c1cd95fc4737a4fa96c993623e","currency":"AUD","successful":true,"transaction_date":"2018-08-12T11:19:14+10:00","response_code":"00","settlement_date":"2018-08-13","metadata":{},"standalone":false,"rrn":"071RDLMJKB1V"},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"authorization":"1556529631","id":"071-R-UO8IL2IQ","amount":10000,"refunded":"Approved","message":"Approved","card_holder":"Matthew
+        Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","transaction_id":"071-R-UO8IL2IQ","reference":"e2e5dce953451efcb7975dfb9c2a48be","currency":"AUD","successful":true,"transaction_date":"2019-04-29T19:20:31+10:00","response_code":"00","settlement_date":"2019-04-30","metadata":{},"standalone":false,"rrn":"071RUO8IL2IQ"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Sun, 12 Aug 2018 01:19:11 GMT
+  recorded_at: Mon, 29 Apr 2019 09:20:31 GMT
 recorded_with: VCR 3.0.3

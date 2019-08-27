@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authorise/token?test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Version:
+      - 1.21.8
+      X-Request-Id:
+      - 3be3397a721f693afdd0b76a26c049e4
+      X-Runtime:
+      - '0.033816'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjY4ODk0NDYsImlhdCI6MTU2Njg3NTA0NiwiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiYTZhZGE4ZTktZWZkMi00MDIyLWI2NzQtZWM3ZTQxMmJmODBiIiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiIxZGYyY2Y1Ny03N2Y0LTRmOGUtOWEyOS1mMzU5OTFjYWQzMmYifQ.3Rh4QSSKpmZem-3gftJf7LNrxdloLSZ3qr1h79Npi2s","reference_id":"1df2cf57-77f4-4f8e-9a29-f35991cad32f"},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Tue, 27 Aug 2019 03:04:06 GMT
+recorded_with: VCR 3.0.3

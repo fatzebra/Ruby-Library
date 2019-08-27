@@ -6,10 +6,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"card_number":"4000000000001000","card_expiry":"08/2020","threeds":{"enabled":true,"amount":100,"billing_address1":"SOME
-        ADDRESS","billing_city":"Sydney","billing_country_code":"036","billing_first_name":"John","billing_last_name":"Smith","billing_postal_code":"2000","billing_state":"NSW","currency_code":"036","df_reference_id":"63fe3cdab76dd5451d42","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"7b98d54061e11760566f","shipping_address1":"SOME
+        ADDRESS","billing_city":"Sydney","billing_country_code":"036","billing_first_name":"John","billing_last_name":"Smith","billing_postal_code":"2000","billing_state":"NSW","currency_code":"036","df_reference_id":"dbff57336d87de666c52","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"dde02c063c9bf10a0768","shipping_address1":"SOME
         ADDRESS","shipping_state":"NSW","shipping_city":"Sydney","shipping_country_code":"036","shipping_address2":"SOME
         ADDRESS","shipping_address3":"SOME ADDRESS","shipping_postal_code":"2000","billing_phone":"1234567890","work_phone":"1234567890","billing_address2":"SOME
-        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY","installment":2,"purchase_date":"20200827130408","recurring_end":"20200827","recurring_frequency":31},"test":true}'
+        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY","installment":2,"purchase_date":"20200827160718","recurring_end":"20200827","recurring_frequency":31},"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -35,14 +35,14 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 9180fa964a591552a0717b59bae3a3ee
+      - 2af752739f9fe58c3eedf3dc185ad683
       X-Runtime:
-      - '1.064345'
+      - '0.984536'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"ThreeDSVersion":"1.0.2","Enrolled":"Y","ErrorDesc":null,"ErrorNo":"0","EciFlag":"07","OrderId":"8000967246108933","TransactionId":"4QjsQDo83SOnNEbxVmE0","TransactionType":null,"SignatureVerification":null,"CardBrand":"VISA","CardBin":"400000","DSTransactionId":null,"RawACSUrl":null,"ACSUrl":null,"StepUpUrl":null,"Cavv":null,"PAResStatus":null,"Payload":null,"Xid":null,"ReasonCode":null,"ReasonDesc":null,"ChallengeRequired":null,"StatusReason":null,"ACSTransactionId":null,"ThreeDSServerTransactionId":null},"errors":null,"test":true}'
+      string: '{"successful":true,"response":{"ThreeDSVersion":"1.0.2","Enrolled":"Y","ErrorDesc":null,"ErrorNo":"0","EciFlag":"07","OrderId":"8000731887440603","TransactionId":"YfesbiwcEmqKw3F19I00","TransactionType":null,"SignatureVerification":null,"CardBrand":"VISA","CardBin":"400000","DSTransactionId":null,"RawACSUrl":null,"ACSUrl":null,"StepUpUrl":null,"Cavv":null,"PAResStatus":null,"Payload":null,"Xid":null,"ReasonCode":null,"ReasonDesc":null,"ChallengeRequired":null,"StatusReason":null,"ACSTransactionId":null,"ThreeDSServerTransactionId":null},"errors":null,"test":true}'
     http_version: 
-  recorded_at: Tue, 27 Aug 2019 03:04:09 GMT
+  recorded_at: Tue, 27 Aug 2019 06:07:19 GMT
 recorded_with: VCR 3.0.3

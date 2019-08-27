@@ -23,10 +23,10 @@ module FatZebra
       # @param [Hash] options for the request, and configurations (Optional)
       #
       # @return [FatZebra::Authorise]
-      def token(params = {}, options = {})
-        valid!(params, :token) if respond_to?(:valid!)
+      def jwt_token(params = {}, options = {})
+        valid!(params, :jwt_token) if respond_to?(:valid!)
 
-        response = request(:get, "#{resource_path}/token", params, options)
+        response = request(:get, "#{resource_path}/jwt_token", params, options)
         initialize_from(response)
       end
 

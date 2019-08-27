@@ -6,10 +6,10 @@ http_interactions:
     body:
       encoding: UTF-8
       string: '{"card_number":"5123456789012346","card_expiry":"07/2019","threeds":{"enabled":true,"amount":100,"billing_address1":"SOME
-        ADDRESS","billing_city":"Sydney","billing_country_code":"036","billing_first_name":"John","billing_last_name":"Smith","billing_postal_code":"2000","billing_state":"NSW","currency_code":"036","df_reference_id":"25cde2ed856349ca1f96","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"5759732c768802851b80","shipping_address1":"SOME
+        ADDRESS","billing_city":"Sydney","billing_country_code":"036","billing_first_name":"John","billing_last_name":"Smith","billing_postal_code":"2000","billing_state":"NSW","currency_code":"036","df_reference_id":"30b70c9f41ffb711553a","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"7957351f5a18231690fc","shipping_address1":"SOME
         ADDRESS","shipping_state":"NSW","shipping_city":"Sydney","shipping_country_code":"036","shipping_address2":"SOME
         ADDRESS","shipping_address3":"SOME ADDRESS","shipping_postal_code":"2000","billing_phone":"1234567890","work_phone":"1234567890","billing_address2":"SOME
-        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY","installment":2,"purchase_date":"20200827130406","recurring_end":"20200827","recurring_frequency":31},"test":true}'
+        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY","installment":2,"purchase_date":"20200827160716","recurring_end":"20200827","recurring_frequency":31},"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -35,16 +35,16 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 62e1b925f00a439d92e4ea2c2367800a
+      - 2df296b2b0a175938f59e4a4926e6a0d
       X-Runtime:
-      - '1.285444'
+      - '1.209359'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"successful":false,"response":{"ThreeDSVersion":"1.0.2","Enrolled":"U","ErrorDesc":"Error
-        Validating Credit Card Expiration Information Passed (YYMM) [1907] ","ErrorNo":"4090","EciFlag":"00","OrderId":"8010170639723768","TransactionId":"r3vD1510AUC9Owiv3Sf0","TransactionType":null,"SignatureVerification":null,"CardBrand":"MASTERCARD","CardBin":"512345","DSTransactionId":null,"RawACSUrl":null,"ACSUrl":null,"StepUpUrl":null,"Cavv":null,"PAResStatus":null,"Payload":null,"Xid":null,"ReasonCode":null,"ReasonDesc":null,"ChallengeRequired":null,"StatusReason":null,"ACSTransactionId":null,"ThreeDSServerTransactionId":null},"errors":"Error
+        Validating Credit Card Expiration Information Passed (YYMM) [1907] ","ErrorNo":"4090","EciFlag":"00","OrderId":"8010999563126063","TransactionId":"tUbpXz7xL6aMcytdujR0","TransactionType":null,"SignatureVerification":null,"CardBrand":"MASTERCARD","CardBin":"512345","DSTransactionId":null,"RawACSUrl":null,"ACSUrl":null,"StepUpUrl":null,"Cavv":null,"PAResStatus":null,"Payload":null,"Xid":null,"ReasonCode":null,"ReasonDesc":null,"ChallengeRequired":null,"StatusReason":null,"ACSTransactionId":null,"ThreeDSServerTransactionId":null},"errors":"Error
         Validating Credit Card Expiration Information Passed (YYMM) [1907] ","test":true}'
     http_version: 
-  recorded_at: Tue, 27 Aug 2019 03:04:07 GMT
+  recorded_at: Tue, 27 Aug 2019 06:07:17 GMT
 recorded_with: VCR 3.0.3

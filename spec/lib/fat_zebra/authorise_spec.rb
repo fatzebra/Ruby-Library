@@ -1,13 +1,14 @@
 require 'spec_helper'
 
 describe FatZebra::Authorise do
+  # WebMock.enable_net_connect!
 
-  describe '.token', :vcr do
-    subject(:token) { FatZebra::Authorise.token(valid_3ds_token_payload) }
+  describe '.jwt_token', :vcr do
+    subject(:token) { FatZebra::Authorise.jwt_token(valid_3ds_token_payload) }
 
     let(:valid_3ds_token_payload) {{
       reference_id: 'xxxx-xxxx-xxxx',
-      confirm_url: 'SOME URL',
+      confirm_url: 'https://example.com',
       order_number: 'xxxx-xxxx-xxxx',
       currency_code: '036',
       amount: 100
@@ -93,9 +94,7 @@ describe FatZebra::Authorise do
     end
     
     context 'validations' do
-      before do
-        valid_3ds_authorise_payload.clear
-      end
+      let(:valid_3ds_authorise_payload) {{}}
 
       it { expect{ authorise }.to raise_error(FatZebra::RequestValidationError) }
     end

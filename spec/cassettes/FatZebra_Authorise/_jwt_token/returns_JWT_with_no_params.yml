@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authorise/token?amount=100&confirm_url=SOME%20URL&currency_code=036&order_number=xxxx-xxxx-xxxx&test=true
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authorise/jwt_token?test=true
     body:
       encoding: US-ASCII
       string: ''
@@ -33,14 +33,14 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - e78310670896d688b34df81c22c69936
+      - f11a47b182fc1561a784ead20c4b331a
       X-Runtime:
-      - '0.031898'
+      - '0.022540'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjY4ODk0NDYsImlhdCI6MTU2Njg3NTA0NiwiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiY2ZmZTYxMjAtNjI5My00OTExLWFkZjctYmQwMWQxODk1ZTE4IiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiI1YmUyZWU1NC0xYzkzLTRiYzAtOGJjYS01Nzc2ZTNkY2M2MzkifQ.GAhXe_qVvD2HWHazgWN9sfgtVU8fHlG8GucRqkrfjik","reference_id":"5be2ee54-1c93-4bc0-8bca-5776e3dcc639"},"errors":[],"test":true}'
+      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjY5MDA0MzYsImlhdCI6MTU2Njg4NjAzNiwiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiNjQzMmVlYWMtOTAxNS00YTMwLWI1ZmItNWQzNDU5M2QxNDhmIiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiIwZmIzNmJlNi05OTE2LTQxZDgtYjZkNC1kNzAwNTVhMTE1NmIifQ.J1PAFHbg4NDUXbfHSWZCFkcb-8qYrC9HpZZTKSgz_9k","reference_id":"0fb36be6-9916-41d8-b6d4-d70055a1156b"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 27 Aug 2019 03:04:06 GMT
+  recorded_at: Tue, 27 Aug 2019 06:07:16 GMT
 recorded_with: VCR 3.0.3

@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe FatZebra::Authorise do
-  # WebMock.enable_net_connect!
 
   describe '.jwt_token', :vcr do
     subject(:token) { FatZebra::Authorise.jwt_token(valid_3ds_token_payload) }

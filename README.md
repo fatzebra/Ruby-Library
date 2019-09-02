@@ -3,14 +3,14 @@ Ruby API Library for Fat Zebra
 
 [![Build Status](https://travis-ci.org/fatzebra/Ruby-Library.svg?branch=master)](https://travis-ci.org/fatzebra/Ruby-Library)
 
-Release 3.1.0  for API version 1.0
+Release 3.2.0 for API version 1.0
 
 A Ruby client for the [Fat Zebra](https://www.fatzebra.com.au) Online Payment Gateway (for Australian Merchants)
 
 Dependencies
 ------------
 
- * Ruby (tested on 2.0, 2.1, 2.2, 2.3, 2.4)
+ * Ruby (tested on 2.3, 2.4, 2.5, 2.6)
  * Rest Client
 
 Installing

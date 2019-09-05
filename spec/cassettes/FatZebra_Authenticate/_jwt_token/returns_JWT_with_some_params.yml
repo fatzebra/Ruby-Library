@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/jwt_token?amount=100&confirm_url=https://example.com&currency_code=036&order_number=xxxx-xxxx-xxxx&test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Version:
+      - 1.21.8
+      X-Request-Id:
+      - b13f7edb9ab3d2d439b9ba6c5856c610
+      X-Runtime:
+      - '0.027646'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Njc2ODE3ODMsImlhdCI6MTU2NzY2NzM4MywiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiYmU1MjY4ZDktYmQ3Yi00MGVlLTg3NmEtMDQyNmQ3MDEwYjhlIiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiI0ZTk5ODA4OS0wYzVmLTQwZDctOGM2Yy1mYzkwMzdjYWU2YmQiLCJDb25maXJtVXJsIjoiaHR0cHM6Ly9leGFtcGxlLmNvbSIsIlBheWxvYWQiOnsiT3JkZXJEZXRhaWxzIjp7Ik9yZGVyTnVtYmVyIjoieHh4eC14eHh4LXh4eHgiLCJBbW91bnQiOjEwMCwiQ3VycmVuY3lDb2RlIjoiMDM2In19fQ.-43hdOxf8ratD9GF4CJXTzGnC-J9Q175HBsP4LyNmAA","reference_id":"4e998089-0c5f-40d7-8c6c-fc9037cae6bd"},"errors":null,"test":true}'
+    http_version: 
+  recorded_at: Thu, 05 Sep 2019 07:09:43 GMT
+recorded_with: VCR 3.0.3

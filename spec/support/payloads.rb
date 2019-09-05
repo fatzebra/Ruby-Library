@@ -40,10 +40,10 @@ shared_context 'payloads' do
     }
   }}
 
-  let(:valid_3ds_authorise_payload) {{
+  let(:valid_sca_authenticate_payload) {{
     card_number: '5123456789012346',
     card_expiry: DateTime.now.next_year.strftime('%m/%Y'),
-    threeds: {
+    sca: {
       enabled: true,
       amount: 100,
       billing_address1: 'SOME ADDRESS',
@@ -79,6 +79,27 @@ shared_context 'payloads' do
       purchase_date: DateTime.now.next_year.strftime('%Y%m%d%H%M%S'),
       recurring_end: DateTime.now.next_year.strftime('%Y%m%d'),
       recurring_frequency: 31
+    }
+  }}
+
+  let(:sample_decoded_jwt_response) {{
+    paylaod: {
+      ConsumerSessionId: '0e1ae450-df2b-4872-94f7-f129a2ddab18',
+      Validated: true,
+      Payment: {
+        Type: 'CCA',
+        ExtendedData: {
+          CAVV: 'AAABAWFlmQAAAABjRWWZEEFgFz+=',
+          ECIFlag: '05',
+          PAResStatus: 'Y',
+          SignatureVerification: 'Y',
+          XID: 'MHEyQjFRQkttemdpaFlRdHowWTA=',
+          Enrolled: 'Y'
+        }
+      },
+      ActionCode: 'SUCCESS',
+      ErrorNumber: 0,
+      ErrorDescription: 'Success'
     }
   }}
 

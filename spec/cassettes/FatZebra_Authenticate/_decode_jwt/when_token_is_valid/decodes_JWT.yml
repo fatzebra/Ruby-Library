@@ -1,0 +1,87 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/jwt_token?test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Version:
+      - 1.21.8
+      X-Request-Id:
+      - a5f9fc90de74efcb32b681ad6b5e6ce1
+      X-Runtime:
+      - '0.138682'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Njc2ODE3ODMsImlhdCI6MTU2NzY2NzM4MywiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiNjc1Yzc5NDQtNTg1Mi00ZWQ2LWExN2EtOGVjZjhiZDI3NWQ3IiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiIyYzRkN2Y4My1lY2E3LTQ2N2YtODliYy0yM2E1ZmU0ZmZiYjIifQ.YaSU5p_CnSqjsrooO5SSgnGLc6QQrxamz2Dxx5CDTA0","reference_id":"2c4d7f83-eca7-467f-89bc-23a5fe4ffbb2"},"errors":null,"test":true}'
+    http_version: 
+  recorded_at: Thu, 05 Sep 2019 07:09:43 GMT
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/decode_jwt
+    body:
+      encoding: UTF-8
+      string: '{"token":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Njc2ODE3ODMsImlhdCI6MTU2NzY2NzM4MywiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiNjc1Yzc5NDQtNTg1Mi00ZWQ2LWExN2EtOGVjZjhiZDI3NWQ3IiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiIyYzRkN2Y4My1lY2E3LTQ2N2YtODliYy0yM2E1ZmU0ZmZiYjIifQ.YaSU5p_CnSqjsrooO5SSgnGLc6QQrxamz2Dxx5CDTA0","test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Version:
+      - 1.21.8
+      X-Request-Id:
+      - d57628f436aa5a8f7a6c09c7bf535f3a
+      X-Runtime:
+      - '0.079135'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"payload":{"ObjectifyPayload":true,"ReferenceId":"2c4d7f83-eca7-467f-89bc-23a5fe4ffbb2"}},"errors":null,"test":true}'
+    http_version: 
+  recorded_at: Thu, 05 Sep 2019 07:09:43 GMT
+recorded_with: VCR 3.0.3

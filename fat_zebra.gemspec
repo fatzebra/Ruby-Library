@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {spec}/*`.split("\n")
   s.require_paths = %w[lib]
 
-  s.add_development_dependency 'pry'
+  s.add_development_dependency 'byebug'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec', '~> 3.6'
   s.add_development_dependency 'rubocop', '~> 0.58.1'

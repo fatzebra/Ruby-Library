@@ -82,25 +82,4 @@ shared_context 'payloads' do
     }
   }}
 
-  let(:sample_decoded_jwt_response) {{
-    paylaod: {
-      ConsumerSessionId: '0e1ae450-df2b-4872-94f7-f129a2ddab18',
-      Validated: true,
-      Payment: {
-        Type: 'CCA',
-        ExtendedData: {
-          CAVV: 'AAABAWFlmQAAAABjRWWZEEFgFz+=',
-          ECIFlag: '05',
-          PAResStatus: 'Y',
-          SignatureVerification: 'Y',
-          XID: 'MHEyQjFRQkttemdpaFlRdHowWTA=',
-          Enrolled: 'Y'
-        }
-      },
-      ActionCode: 'SUCCESS',
-      ErrorNumber: 0,
-      ErrorDescription: 'Success'
-    }
-  }}
-
 end

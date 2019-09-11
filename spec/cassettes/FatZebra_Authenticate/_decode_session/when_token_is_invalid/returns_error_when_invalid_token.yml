@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: post
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/decode_jwt
+    uri: http://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/decode_session
     body:
       encoding: UTF-8
       string: '{"token":"INVALID TOKEN","test":true}'
@@ -31,9 +31,9 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 7f9cf59eb0ad28dc4cb99e746745ba19
+      - 3cf52433c6380ccec54b8561354c1d18
       X-Runtime:
-      - '0.054235'
+      - '0.019682'
       Transfer-Encoding:
       - chunked
     body:
@@ -41,5 +41,5 @@ http_interactions:
       string: '{"successful":false,"response":null,"errors":"Decoding JWT failed:
         The token is invalid","test":true}'
     http_version: 
-  recorded_at: Thu, 05 Sep 2019 07:09:43 GMT
+  recorded_at: Wed, 11 Sep 2019 05:28:05 GMT
 recorded_with: VCR 3.0.3

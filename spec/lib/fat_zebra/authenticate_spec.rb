@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe FatZebra::Authenticate do
 
-  describe '.jwt_token', :vcr do
-    subject(:token) { FatZebra::Authenticate.jwt_token(valid_3ds_token_payload) }
+  describe '.session', :vcr do
+    subject(:token) { FatZebra::Authenticate.session(valid_3ds_token_payload) }
 
     let(:valid_3ds_token_payload) {{
       reference_id: 'xxxx-xxxx-xxxx',
@@ -34,11 +34,11 @@ describe FatZebra::Authenticate do
     end
   end
 
-  describe '.decode_jwt', :vcr do
-    subject(:decoded) { FatZebra::Authenticate.decode_jwt(token: jwt) }
+  describe '.decode_session', :vcr do
+    subject(:decoded) { FatZebra::Authenticate.decode_session(token: jwt) }
 
     context 'when token is valid' do
-      let(:jwt) { FatZebra::Authenticate.jwt_token({}).jwt }
+      let(:jwt) { FatZebra::Authenticate.session({}).jwt }
 
       it 'decodes JWT' do
         is_expected.to be_accepted

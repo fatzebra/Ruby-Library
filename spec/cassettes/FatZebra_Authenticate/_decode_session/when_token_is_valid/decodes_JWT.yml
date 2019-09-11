@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/jwt_token?test=true
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/session?test=true
     body:
       encoding: US-ASCII
       string: ''
@@ -33,22 +33,22 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - a5f9fc90de74efcb32b681ad6b5e6ce1
+      - 7ff03464d39c2550c71cd555492ed2e4
       X-Runtime:
-      - '0.138682'
+      - '0.021289'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Njc2ODE3ODMsImlhdCI6MTU2NzY2NzM4MywiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiNjc1Yzc5NDQtNTg1Mi00ZWQ2LWExN2EtOGVjZjhiZDI3NWQ3IiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiIyYzRkN2Y4My1lY2E3LTQ2N2YtODliYy0yM2E1ZmU0ZmZiYjIifQ.YaSU5p_CnSqjsrooO5SSgnGLc6QQrxamz2Dxx5CDTA0","reference_id":"2c4d7f83-eca7-467f-89bc-23a5fe4ffbb2"},"errors":null,"test":true}'
+      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjgxOTQwODQsImlhdCI6MTU2ODE3OTY4NCwiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiYjI2NDZjMWYtMzRkNC00NTFlLWFlNjAtZTQ2MDBiMmQxMjZkIiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiJjMjY0NmUwZS1mZGQxLTQyZmYtODhmNi01ZTM4ZDI1YThkOWMifQ.lrgRPJARjA2kFD7w9_OhHkuoHkKRCoJBH48AmBq4tNs","reference_id":"c2646e0e-fdd1-42ff-88f6-5e38d25a8d9c"},"errors":null,"test":true}'
     http_version: 
-  recorded_at: Thu, 05 Sep 2019 07:09:43 GMT
+  recorded_at: Wed, 11 Sep 2019 05:28:04 GMT
 - request:
     method: post
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/decode_jwt
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/decode_session
     body:
       encoding: UTF-8
-      string: '{"token":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1Njc2ODE3ODMsImlhdCI6MTU2NzY2NzM4MywiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiNjc1Yzc5NDQtNTg1Mi00ZWQ2LWExN2EtOGVjZjhiZDI3NWQ3IiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiIyYzRkN2Y4My1lY2E3LTQ2N2YtODliYy0yM2E1ZmU0ZmZiYjIifQ.YaSU5p_CnSqjsrooO5SSgnGLc6QQrxamz2Dxx5CDTA0","test":true}'
+      string: '{"token":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjgxOTQwODQsImlhdCI6MTU2ODE3OTY4NCwiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiYjI2NDZjMWYtMzRkNC00NTFlLWFlNjAtZTQ2MDBiMmQxMjZkIiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiJjMjY0NmUwZS1mZGQxLTQyZmYtODhmNi01ZTM4ZDI1YThkOWMifQ.lrgRPJARjA2kFD7w9_OhHkuoHkKRCoJBH48AmBq4tNs","test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -74,14 +74,14 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - d57628f436aa5a8f7a6c09c7bf535f3a
+      - b285ac321433a9eacdd87ae1514bd762
       X-Runtime:
-      - '0.079135'
+      - '0.033568'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"payload":{"ObjectifyPayload":true,"ReferenceId":"2c4d7f83-eca7-467f-89bc-23a5fe4ffbb2"}},"errors":null,"test":true}'
+      string: '{"successful":true,"response":{"payload":{"ObjectifyPayload":true,"ReferenceId":"c2646e0e-fdd1-42ff-88f6-5e38d25a8d9c"}},"errors":null,"test":true}'
     http_version: 
-  recorded_at: Thu, 05 Sep 2019 07:09:43 GMT
+  recorded_at: Wed, 11 Sep 2019 05:28:04 GMT
 recorded_with: VCR 3.0.3

@@ -2,7 +2,7 @@ module FatZebra
   ##
   # == FatZebra \Authenticate
   #
-  # Manage 3DS authentication for the API
+  # Manage 3DS2/SCA authentication for the API
   #
   # * session
   # * authenticate
@@ -11,8 +11,7 @@ module FatZebra
   class Authenticate < APIResource
     @resource_name = 'authenticate'
 
-    validates :card_number, required: true, on: :authenticate
-    validates :card_expiry, required: true, on: :authenticate
+    validates :card_token, required: true, on: :authenticate
     validates :sca, required: true, on: :authenticate
     validates :token, required: true, on: :decode_session
 

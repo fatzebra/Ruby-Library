@@ -60,21 +60,37 @@ describe FatZebra::Authenticate do
 
   describe '.authenticate', :vcr do
     subject(:authenticate) { FatZebra::Authenticate.authenticate(valid_sca_authenticate_payload) }
+    let!(:credit_card) { FatZebra::Card.create(valid_credit_card_payload) }
 
     context 'with invalid input' do
-      before do
-        valid_sca_authenticate_payload[:card_expiry] = DateTime.now.prev_month.strftime('%m/%Y')
+      it do
+        valid_sca_authenticate_payload[:card_token] = 'INVALID'
+        is_expected.not_to be_accepted
+        expect(authenticate.errors).to match(/Card not found/)
       end
 
       it do
+        valid_sca_authenticate_payload[:sca] = {}
         is_expected.not_to be_accepted
-        expect(authenticate.errors).to match(/Error Validating Credit Card Expiration/)
+        expect(authenticate.errors.join).to match(/Invalid input data/)
+      end
+
+      it do
+        valid_sca_authenticate_payload[:sca][:currency_code] = 'INVALID'
+        is_expected.not_to be_accepted
+        expect(authenticate.errors).to match(/3DS lookup request process failed/)
+      end
+
+      it do
+        valid_sca_authenticate_payload[:sca][:amount] = 'INVALID'
+        is_expected.not_to be_accepted
+        expect(authenticate.errors).to match(/3DS lookup request process failed/)
       end
     end
 
     context 'with frictionless response' do
       before do
-        valid_sca_authenticate_payload[:card_number] = '4000000000001000'
+        valid_credit_card_payload[:card_number] = '4000000000001000'
       end
 
       it do
@@ -96,7 +112,7 @@ describe FatZebra::Authenticate do
 
     context 'with challenge response' do
       before do
-        valid_sca_authenticate_payload[:card_number] = '4111111111111111'
+        valid_credit_card_payload[:card_number] = '4000000000001091'
       end
 
       it do

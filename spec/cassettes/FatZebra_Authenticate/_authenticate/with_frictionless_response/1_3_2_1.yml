@@ -2,14 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/credit_cards
     body:
       encoding: UTF-8
-      string: '{"card_number":"4000000000001000","card_expiry":"09/2020","sca":{"enabled":true,"amount":100,"billing_address1":"SOME
-        ADDRESS","billing_city":"Sydney","billing_country_code":"036","billing_first_name":"John","billing_last_name":"Smith","billing_postal_code":"2000","billing_state":"NSW","currency_code":"036","df_reference_id":"337a9d2edc7a23e70bc3","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"9e3d639924c7821aa134","shipping_address1":"SOME
-        ADDRESS","shipping_state":"NSW","shipping_city":"Sydney","shipping_country_code":"036","shipping_address2":"SOME
-        ADDRESS","shipping_address3":"SOME ADDRESS","shipping_postal_code":"2000","billing_phone":"1234567890","work_phone":"1234567890","billing_address2":"SOME
-        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY","installment":2,"purchase_date":"20200911152806","recurring_end":"20200911","recurring_frequency":31},"test":true}'
+      string: '{"card_holder":"Matthew Savage","card_number":"5123456789012346","card_expiry":"02/2030","cvv":123,"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -35,14 +31,61 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 80fe8d6875e42e80f70ae8d822cba055
+      - 19b3e96e4f633d9f230c6b77f06eebf0
       X-Runtime:
-      - '1.409677'
+      - '0.276477'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"ThreeDSVersion":"1.0.2","Enrolled":"Y","ErrorDesc":null,"ErrorNo":"0","EciFlag":"07","OrderId":"8000202972698323","TransactionId":"7iCu3TyFtTvPLRFe3x00","TransactionType":null,"SignatureVerification":null,"CardBrand":"VISA","CardBin":"400000","DSTransactionId":null,"RawACSUrl":null,"ACSUrl":null,"StepUpUrl":null,"Cavv":null,"PAResStatus":null,"Payload":null,"Xid":null,"ReasonCode":null,"ReasonDesc":null,"ChallengeRequired":null,"StatusReason":null,"ACSTransactionId":null,"ThreeDSServerTransactionId":null},"errors":null,"test":true}'
+      string: '{"successful":true,"response":{"token":"agwrrjb3zyosna8pcd6e","card_holder":"Matthew
+        Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
+        Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 11 Sep 2019 05:28:07 GMT
+  recorded_at: Wed, 09 Oct 2019 01:07:39 GMT
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate
+    body:
+      encoding: UTF-8
+      string: '{"card_token":"agwrrjb3zyosna8pcd6e","sca":{"enabled":true,"amount":100,"billing_address1":"SOME
+        ADDRESS","billing_city":"Sydney","billing_country_code":"036","billing_first_name":"John","billing_last_name":"Smith","billing_postal_code":"2000","billing_state":"NSW","currency_code":"036","df_reference_id":"9de06b463aa2175add57","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"54de7c7ea863995630c9","shipping_address1":"SOME
+        ADDRESS","shipping_state":"NSW","shipping_city":"Sydney","shipping_country_code":"036","shipping_address2":"SOME
+        ADDRESS","shipping_address3":"SOME ADDRESS","shipping_postal_code":"2000","billing_phone":"1234567890","work_phone":"1234567890","billing_address2":"SOME
+        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY","installment":2,"purchase_date":"20201009120739","recurring_end":"20201009","recurring_frequency":31},"test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Version:
+      - 1.21.8
+      X-Request-Id:
+      - c29e5047d262544106e1cba562de538c
+      X-Runtime:
+      - '1.297055'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"ThreeDSVersion":"1.0.2","Enrolled":"Y","ErrorDesc":null,"ErrorNo":"0","EciFlag":"00","OrderId":"8010171682066220","TransactionId":"Cu2aEMFJmTs76fhdJJD0","TransactionType":null,"SignatureVerification":null,"CardBrand":"MASTERCARD","CardBin":"512345","DSTransactionId":null,"RawACSUrl":null,"ACSUrl":null,"StepUpUrl":null,"Cavv":null,"PAResStatus":null,"Payload":null,"Xid":null,"ReasonCode":null,"ReasonDesc":null,"ChallengeRequired":null,"StatusReason":null,"ACSTransactionId":null,"ThreeDSServerTransactionId":null},"errors":null,"test":true}'
+    http_version: 
+  recorded_at: Wed, 09 Oct 2019 01:07:41 GMT
 recorded_with: VCR 3.0.3

@@ -33,14 +33,14 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - d3b0aaedb8bd22781c1e74ec12748b16
+      - cf3cc347db0dddec418e3f7fcb618ff3
       X-Runtime:
-      - '0.024655'
+      - '0.035549'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjgxOTQwODQsImlhdCI6MTU2ODE3OTY4NCwiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiMTRkZDJkMzEtNmZjMC00NzcxLTk5YTItODMzODUyOWU5OTBkIiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiI1YjcyMmEwYS04M2M3LTQyMzktYjQ0MC1kMDcyYmUwOTY3ZDMifQ.UeqSHrphpflgaVXe4EzeSmNIblg5iCS2BXs4qm0GhNQ","reference_id":"5b722a0a-83c7-4239-b440-d072be0967d3"},"errors":null,"test":true}'
+      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NzA1OTc2NTcsImlhdCI6MTU3MDU4MzI1NywiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiZmRhYTdmYmQtYzNkYi00MDRmLTllNjItMzc2ZDc5ODg3NDljIiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiIwMDZlMDNlNi1mNTNmLTRmNGUtODdkMy0xZWZiM2YwODE3ZTcifQ.j81_AP59eUxD0EXq36hOyH4egblj8LykW6CD_upmKwM","reference_id":"006e03e6-f53f-4f4e-87d3-1efb3f0817e7"},"errors":null,"test":true}'
     http_version: 
-  recorded_at: Wed, 11 Sep 2019 05:28:04 GMT
+  recorded_at: Wed, 09 Oct 2019 01:07:37 GMT
 recorded_with: VCR 3.0.3

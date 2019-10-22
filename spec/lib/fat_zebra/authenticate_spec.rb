@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe FatZebra::Authenticate do
-
   describe '.session', :vcr do
     subject(:token) { FatZebra::Authenticate.session(valid_3ds_token_payload) }
 
@@ -32,6 +31,12 @@ describe FatZebra::Authenticate do
       expect(token.jwt).to be_truthy
       expect(token.reference_id).to be_truthy
     end
+
+    it 'returns error when amount is invalid' do
+      valid_3ds_token_payload[:amount] = 'INVALID'
+      is_expected.not_to be_accepted
+      expect(token.errors).to match(/Amount is invalid/)
+    end    
   end
 
   describe '.decode_session', :vcr do
@@ -100,8 +105,7 @@ describe FatZebra::Authenticate do
       end
 
       it do
-        expect(authenticate.Enrolled).to eq('Y')
-        expect(authenticate.ACSUrl).not_to be_truthy
+        expect(authenticate.Enrolled).to be_truthy
         expect(authenticate.CardBin).to be_truthy
         expect(authenticate.ErrorNo).to eq('0')
         expect(authenticate.ErrorDesc).not_to be_truthy
@@ -122,8 +126,7 @@ describe FatZebra::Authenticate do
       end
       
       it do
-        expect(authenticate.Enrolled).to eq('Y')
-        expect(authenticate.ACSUrl).to be_truthy
+        expect(authenticate.Enrolled).to be_truthy
         expect(authenticate.CardBin).to be_truthy
         expect(authenticate.ErrorNo).to eq('0')
         expect(authenticate.ErrorDesc).not_to be_truthy

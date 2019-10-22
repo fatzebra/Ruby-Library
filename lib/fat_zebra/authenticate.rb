@@ -27,7 +27,7 @@ module FatZebra
       def session(params = {}, options = {})
         valid!(params, :session) if respond_to?(:valid!)
 
-        response = request(:get, "#{resource_path}/session", params, options)
+        response = request(:post, "#{resource_path}/session", params, options)
         initialize_from(response)
       end
 
@@ -41,7 +41,7 @@ module FatZebra
       def decode_session(params = {}, options = {})
         valid!(params, :decode_session) if respond_to?(:valid!)
 
-        response = request(:post, "#{resource_path}/decode_session", params, options)
+        response = request(:get, "#{resource_path}/decode_session", params, options)
         initialize_from(response)
       end
 

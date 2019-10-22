@@ -1,11 +1,11 @@
 ---
 http_interactions:
 - request:
-    method: get
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/session?amount=100&confirm_url=https://example.com&currency_code=036&order_number=xxxx-xxxx-xxxx&reference_id=xxxx-xxxx-xxxx&test=true
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/session
     body:
-      encoding: US-ASCII
-      string: ''
+      encoding: UTF-8
+      string: '{"reference_id":"xxxx-xxxx-xxxx","confirm_url":"https://example.com","order_number":"xxxx-xxxx-xxxx","currency_code":"036","amount":100,"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -13,8 +13,6 @@ http_interactions:
       - application/json
       User-Agent:
       - Ruby
-      Host:
-      - gateway.sandbox.fatzebra.com.au
       Authorization:
       - Basic VEVTVDpURVNU
       Content-Type:
@@ -33,14 +31,14 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 5fd62841e21aa0a4c7bb5238741f984e
+      - 7b46fc3eb645c1d24027f3c5d71f0fd4
       X-Runtime:
-      - '0.300157'
+      - '0.411523'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NzA1OTc2NTcsImlhdCI6MTU3MDU4MzI1NywiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiN2M1YjkyNDAtNDY3Yi00ODljLWFiNzEtZmVkNjM2MjA3MzRkIiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiIxZjI1ZGRiMi04YTNkLTQ3ZTAtYTNhNy0zOWYyNTgzZmYxYWQifQ.1HmS1HEy9JX80iG2abPBrlnOZc789RZzFX1C6uTsMLA","reference_id":"1f25ddb2-8a3d-47e0-a3a7-39f2583ff1ad"},"errors":null,"test":true}'
+      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NzE3MzY5NDIsImlhdCI6MTU3MTcyMjU0MiwiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiYjkyZTIxNjUtYmE3NS00ODQ2LTg3MDgtOGMyZjRjOWY5MGIyIiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiQ29uZmlybVVybCI6Imh0dHBzOi8vZXhhbXBsZS5jb20iLCJSZWZlcmVuY2VJZCI6Inh4eHgteHh4eC14eHh4IiwiUGF5bG9hZCI6eyJPcmRlckRldGFpbHMiOnsiT3JkZXJOdW1iZXIiOiJ4eHh4LXh4eHgteHh4eCIsIkN1cnJlbmN5Q29kZSI6IjAzNiIsIkFtb3VudCI6IjEwMCJ9fX0.jHAsaYpedoI1zy179SngTEvdAVmn5cMyK65m4Wc9HPw","reference_id":"xxxx-xxxx-xxxx"},"errors":null,"test":true}'
     http_version: 
-  recorded_at: Wed, 09 Oct 2019 01:07:37 GMT
+  recorded_at: Tue, 22 Oct 2019 05:35:42 GMT
 recorded_with: VCR 3.0.3

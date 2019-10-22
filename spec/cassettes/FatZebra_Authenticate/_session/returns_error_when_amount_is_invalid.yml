@@ -5,7 +5,7 @@ http_interactions:
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/session
     body:
       encoding: UTF-8
-      string: '{"test":true}'
+      string: '{"reference_id":"xxxx-xxxx-xxxx","confirm_url":"https://example.com","order_number":"xxxx-xxxx-xxxx","currency_code":"036","amount":"INVALID","test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -19,8 +19,8 @@ http_interactions:
       - application/json
   response:
     status:
-      code: 200
-      message: OK
+      code: 422
+      message: Unprocessable Entity
     headers:
       Cache-Control:
       - no-store
@@ -31,14 +31,14 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 6345f4aa83efe6a86cda2508096718f6
+      - 419d283db39c727ebe7c4f2cf473af23
       X-Runtime:
-      - '0.026720'
+      - '0.025645'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NzE3MzY5NDIsImlhdCI6MTU3MTcyMjU0MiwiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiNWU4YjQ1YzQtYWNjNS00NjM0LTgxZDEtOTUyNzlmMzA0NTc2IiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiI2ZjVlMmY0NC1jMDdhLTRkY2MtOGU1MC1iYTZlZDk2MjI2NzAifQ.1y_D9q827OGFeRFfKdMebP4aiXmd0ATTIKNkZHFWy98","reference_id":"6f5e2f44-c07a-4dcc-8e50-ba6ed9622670"},"errors":null,"test":true}'
+      string: '{"successful":false,"response":null,"errors":"Amount is invalid","test":true}'
     http_version: 
   recorded_at: Tue, 22 Oct 2019 05:35:42 GMT
 recorded_with: VCR 3.0.3

@@ -31,28 +31,28 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - cb1cb1b9d3efeb9b7a41e18b84dcf845
+      - 9ae7bb633e97c3da0eaa900c22b25fe0
       X-Runtime:
-      - '0.408971'
+      - '0.485720'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"iutbq2ioa6o7y3re54ye","card_holder":"Matthew
+      string: '{"successful":true,"response":{"token":"w8rrs6wjhzignoiov16f","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
         Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 09 Oct 2019 01:07:38 GMT
+  recorded_at: Tue, 22 Oct 2019 05:35:43 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate
     body:
       encoding: UTF-8
       string: '{"card_token":"INVALID","sca":{"enabled":true,"amount":100,"billing_address1":"SOME
-        ADDRESS","billing_city":"Sydney","billing_country_code":"036","billing_first_name":"John","billing_last_name":"Smith","billing_postal_code":"2000","billing_state":"NSW","currency_code":"036","df_reference_id":"88e103c85863def8ef1c","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"ffb08b440083096d715e","shipping_address1":"SOME
+        ADDRESS","billing_city":"Sydney","billing_country_code":"036","billing_first_name":"John","billing_last_name":"Smith","billing_postal_code":"2000","billing_state":"NSW","currency_code":"036","df_reference_id":"517d0529ce930d16e96f","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"cad30be29fa03d0f6802","shipping_address1":"SOME
         ADDRESS","shipping_state":"NSW","shipping_city":"Sydney","shipping_country_code":"036","shipping_address2":"SOME
         ADDRESS","shipping_address3":"SOME ADDRESS","shipping_postal_code":"2000","billing_phone":"1234567890","work_phone":"1234567890","billing_address2":"SOME
-        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY","installment":2,"purchase_date":"20201009120738","recurring_end":"20201009","recurring_frequency":31},"test":true}'
+        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY","installment":2,"purchase_date":"20201022163543","recurring_end":"20201022","recurring_frequency":31},"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -78,14 +78,14 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 8a03f40ba1f4ec18812fd69797f573ae
+      - 9c7c65a530156a26ee9a548f28353123
       X-Runtime:
-      - '0.079299'
+      - '0.050768'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"successful":false,"response":null,"errors":"Card not found","test":true}'
     http_version: 
-  recorded_at: Wed, 09 Oct 2019 01:07:38 GMT
+  recorded_at: Tue, 22 Oct 2019 05:35:43 GMT
 recorded_with: VCR 3.0.3

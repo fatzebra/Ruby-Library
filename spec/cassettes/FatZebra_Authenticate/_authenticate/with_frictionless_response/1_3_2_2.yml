@@ -31,28 +31,28 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 9f26fd3d409651af10f60a44e0f1b0a2
+      - f3b0d04482c4b5e7987ca7cd53f3297e
       X-Runtime:
-      - '0.279391'
+      - '0.281100'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"v3b2yvtzf20q5t3lpn3d","card_holder":"Matthew
+      string: '{"successful":true,"response":{"token":"hkdowcrk5qovxokvo0zn","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
         Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Wed, 09 Oct 2019 01:07:41 GMT
+  recorded_at: Tue, 22 Oct 2019 05:35:47 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate
     body:
       encoding: UTF-8
-      string: '{"card_token":"v3b2yvtzf20q5t3lpn3d","sca":{"enabled":true,"amount":100,"billing_address1":"SOME
-        ADDRESS","billing_city":"Sydney","billing_country_code":"036","billing_first_name":"John","billing_last_name":"Smith","billing_postal_code":"2000","billing_state":"NSW","currency_code":"036","df_reference_id":"2cbaa265c1ee1be9a418","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"5fb24b29e03087aa8d7d","shipping_address1":"SOME
+      string: '{"card_token":"hkdowcrk5qovxokvo0zn","sca":{"enabled":true,"amount":100,"billing_address1":"SOME
+        ADDRESS","billing_city":"Sydney","billing_country_code":"036","billing_first_name":"John","billing_last_name":"Smith","billing_postal_code":"2000","billing_state":"NSW","currency_code":"036","df_reference_id":"ab571798e0e4d2d86e17","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"170e4014fedccce3da9c","shipping_address1":"SOME
         ADDRESS","shipping_state":"NSW","shipping_city":"Sydney","shipping_country_code":"036","shipping_address2":"SOME
         ADDRESS","shipping_address3":"SOME ADDRESS","shipping_postal_code":"2000","billing_phone":"1234567890","work_phone":"1234567890","billing_address2":"SOME
-        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY","installment":2,"purchase_date":"20201009120741","recurring_end":"20201009","recurring_frequency":31},"test":true}'
+        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY","installment":2,"purchase_date":"20201022163547","recurring_end":"20201022","recurring_frequency":31},"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -78,14 +78,14 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - f313727ca0c086661caef02f1c7a803c
+      - d84813413536deae4cdd87ed367be6f8
       X-Runtime:
-      - '1.246319'
+      - '1.887108'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"ThreeDSVersion":"1.0.2","Enrolled":"Y","ErrorDesc":null,"ErrorNo":"0","EciFlag":"00","OrderId":"8010420640062882","TransactionId":"K1b1cuXvHUSAiA4ITXe0","TransactionType":null,"SignatureVerification":null,"CardBrand":"MASTERCARD","CardBin":"512345","DSTransactionId":null,"RawACSUrl":null,"ACSUrl":null,"StepUpUrl":null,"Cavv":null,"PAResStatus":null,"Payload":null,"Xid":null,"ReasonCode":null,"ReasonDesc":null,"ChallengeRequired":null,"StatusReason":null,"ACSTransactionId":null,"ThreeDSServerTransactionId":null},"errors":null,"test":true}'
+      string: '{"successful":true,"response":{"ThreeDSVersion":"1.0.2","Enrolled":"U","ErrorDesc":null,"ErrorNo":"0","EciFlag":"00","OrderId":"8010074191112636","TransactionId":"hrX0HxumRFhrazbpLVj0","TransactionType":null,"SignatureVerification":null,"CardBrand":"MASTERCARD","CardBin":"512345","DSTransactionId":null,"RawACSUrl":null,"ACSUrl":null,"StepUpUrl":null,"Cavv":null,"PAResStatus":null,"Payload":null,"Xid":null,"ReasonCode":null,"ReasonDesc":null,"ChallengeRequired":null,"StatusReason":null,"ACSTransactionId":null,"ThreeDSServerTransactionId":null},"errors":null,"test":true}'
     http_version: 
-  recorded_at: Wed, 09 Oct 2019 01:07:42 GMT
+  recorded_at: Tue, 22 Oct 2019 05:35:48 GMT
 recorded_with: VCR 3.0.3

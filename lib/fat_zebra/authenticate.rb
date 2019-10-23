@@ -46,7 +46,7 @@ module FatZebra
       end
 
       ##
-      # Creates a lookup request to 3DS server
+      # Authenticates a 3ds request
       #
       # @param [Hash] params
       # @param [Hash] options for the request, and configurations (Optional)

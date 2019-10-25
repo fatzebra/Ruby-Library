@@ -40,10 +40,9 @@ shared_context 'payloads' do
     }
   }}
 
-  let(:valid_3ds_authorise_payload) {{
-    card_number: '5123456789012346',
-    card_expiry: DateTime.now.next_year.strftime('%m/%Y'),
-    threeds: {
+  let(:valid_sca_authenticate_payload) {{
+    card_token: credit_card.token,
+    sca: {
       enabled: true,
       amount: 100,
       billing_address1: 'SOME ADDRESS',

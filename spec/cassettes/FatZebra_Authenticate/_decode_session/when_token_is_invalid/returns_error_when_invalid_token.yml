@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authorise/jwt_token?test=true
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/decode_session?test=true&token=INVALID%20TOKEN
     body:
       encoding: US-ASCII
       string: ''
@@ -21,8 +21,8 @@ http_interactions:
       - application/json
   response:
     status:
-      code: 200
-      message: OK
+      code: 422
+      message: Unprocessable Entity
     headers:
       Cache-Control:
       - no-store
@@ -33,14 +33,15 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 2cb2771998d04b67bf479f83c41cad0e
+      - 55f43b14bc30599d22bbdad8cdb4ab83
       X-Runtime:
-      - '0.045799'
+      - '0.023084'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NjczOTkyMDQsImlhdCI6MTU2NzM4NDgwNCwiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiNmQzZDcxZTktMGE5YS00OTFlLWJkZmQtYjA5YWVlZDU5ZmY5IiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiJlNjQ2MGFhNy05YjhhLTQ2MTQtOTZiOC02YjdhNzAxMmQxMDEifQ.KjC2WU5UUegB1h56jvGZ7XVU-0EuYE0MVepuwG9H-O8","reference_id":"e6460aa7-9b8a-4614-96b8-6b7a7012d101"},"errors":[],"test":true}'
+      string: '{"successful":false,"response":null,"errors":"Decoding JWT failed:
+        The token is invalid","test":true}'
     http_version: 
-  recorded_at: Mon, 02 Sep 2019 00:40:04 GMT
+  recorded_at: Tue, 22 Oct 2019 05:35:42 GMT
 recorded_with: VCR 3.0.3

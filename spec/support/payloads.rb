@@ -45,39 +45,45 @@ shared_context 'payloads' do
     sca: {
       enabled: true,
       amount: 100,
-      billing_address1: 'SOME ADDRESS',
-      billing_city: 'Sydney',
-      billing_country_code: '036', # Australia
-      billing_first_name: 'John',
-      billing_last_name: 'Smith',
-      billing_postal_code: '2000',
-      billing_state: 'NSW',
-      currency_code: '036',
+      currency: 'AUD',
       df_reference_id: SecureRandom.hex(10),
       mobile_phone: '1234567890',
       email: 'dev@fatzebra.com.au',
       transaction_mode: 'mobile',
       transaction_type: 'C',
       order_number: SecureRandom.hex(10),
-
-      shipping_address1: 'SOME ADDRESS',
-      shipping_state: 'NSW',
-      shipping_city: 'Sydney',
-      shipping_country_code: '036',
-      shipping_address2: 'SOME ADDRESS',
-      shipping_address3: 'SOME ADDRESS',
-      shipping_postal_code: '2000',
-      billing_phone: '1234567890',
-      work_phone: '1234567890',
-      billing_address2: 'SOME ADDRESS',
-      billing_address3: 'SOME ADDRESS',
-      authentication_indicator: '01',
-      product_code: 'PHY',
-
-      installment: 2,
-      purchase_date: DateTime.now.next_year.strftime('%Y%m%d%H%M%S'),
-      recurring_end: DateTime.now.next_year.strftime('%Y%m%d'),
-      recurring_frequency: 31
+      billing: {
+        address1: 'SOME ADDRESS',
+        city: 'Sydney',
+        country: 'AUS',
+        first_name: 'John',
+        last_name: 'Smith',
+        postal_code: '2000',
+        state: 'NSW'
+      },
+      shipping: {
+        address1: 'SOME ADDRESS',
+        state: 'NSW',
+        city: 'Sydney',
+        country: 'AUS',
+        address2: 'SOME ADDRESS',
+        address3: 'SOME ADDRESS',
+        postal_code: '2000',
+      },
+      extra: {
+        billing_phone: '1234567890',
+        work_phone: '1234567890',
+        billing_address2: 'SOME ADDRESS',
+        billing_address3: 'SOME ADDRESS',
+        authentication_indicator: '01',
+        product_code: 'PHY'
+      },
+      recurring: {
+        installment: 2,
+        purchase_date: DateTime.now.next_year.strftime('%Y%m%d%H%M%S'),
+        recurring_end: DateTime.now.next_year.strftime('%Y%m%d'),
+        recurring_frequency: 31
+      }
     }
   }}
 

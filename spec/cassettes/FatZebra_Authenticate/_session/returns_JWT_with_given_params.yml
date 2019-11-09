@@ -5,7 +5,7 @@ http_interactions:
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/session
     body:
       encoding: UTF-8
-      string: '{"reference_id":"xxxx-xxxx-xxxx","confirm_url":"https://example.com","order_number":"xxxx-xxxx-xxxx","currency_code":"036","amount":100,"test":true}'
+      string: '{"reference_id":"xxxx-xxxx-xxxx","confirm_url":"https://example.com","order_number":"xxxx-xxxx-xxxx","currency":"AUD","amount":100,"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3

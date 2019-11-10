@@ -31,16 +31,16 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - a658f0960b85d68833fdd92206b26845
+      - 2244f6108474dd94a43b9a45e418a057
       X-Runtime:
-      - '0.271155'
+      - '0.290410'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"7dm52wbkblctxmtwrgue","card_holder":"Matthew
+      string: '{"successful":true,"response":{"token":"famk7ghti4oww835k9of","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
         Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 22 Oct 2019 05:35:53 GMT
+  recorded_at: Fri, 01 Nov 2019 04:37:59 GMT
 recorded_with: VCR 3.0.3

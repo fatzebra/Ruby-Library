@@ -8,7 +8,7 @@ describe FatZebra::Authenticate do
       reference_id: 'xxxx-xxxx-xxxx',
       confirm_url: 'https://example.com',
       order_number: 'xxxx-xxxx-xxxx',
-      currency_code: '036',
+      currency: 'AUS',
       amount: 100
     }}
 
@@ -81,7 +81,7 @@ describe FatZebra::Authenticate do
       end
 
       it do
-        valid_sca_authenticate_payload[:sca][:currency_code] = 'INVALID'
+        valid_sca_authenticate_payload[:sca][:currency] = 'INVALID'
         is_expected.not_to be_accepted
         expect(authenticate.errors).to match(/3DS lookup request process failed/)
       end

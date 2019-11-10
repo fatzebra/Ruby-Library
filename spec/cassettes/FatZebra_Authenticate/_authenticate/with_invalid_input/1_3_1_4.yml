@@ -31,28 +31,28 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - ebaa0d01e5cef8adda5b20276cd8d012
+      - b7ad00c08022ecdd0b0ed4048522f31f
       X-Runtime:
-      - '0.280849'
+      - '0.336813'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"r79r1zalxzti1jbfgwra","card_holder":"Matthew
+      string: '{"successful":true,"response":{"token":"tyubxa3kxnai1uklhclr","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
         Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 22 Oct 2019 05:35:44 GMT
+  recorded_at: Fri, 01 Nov 2019 04:37:52 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate
     body:
       encoding: UTF-8
-      string: '{"card_token":"r79r1zalxzti1jbfgwra","sca":{"enabled":true,"amount":"INVALID","billing_address1":"SOME
-        ADDRESS","billing_city":"Sydney","billing_country_code":"036","billing_first_name":"John","billing_last_name":"Smith","billing_postal_code":"2000","billing_state":"NSW","currency_code":"036","df_reference_id":"223b4fe522f63cdbdd71","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"3e4429ecc3ec3b4238fb","shipping_address1":"SOME
-        ADDRESS","shipping_state":"NSW","shipping_city":"Sydney","shipping_country_code":"036","shipping_address2":"SOME
-        ADDRESS","shipping_address3":"SOME ADDRESS","shipping_postal_code":"2000","billing_phone":"1234567890","work_phone":"1234567890","billing_address2":"SOME
-        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY","installment":2,"purchase_date":"20201022163544","recurring_end":"20201022","recurring_frequency":31},"test":true}'
+      string: '{"card_token":"tyubxa3kxnai1uklhclr","sca":{"enabled":true,"amount":"INVALID","currency":"AUD","df_reference_id":"7841a6586df869088266","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"ac924e4c7b0985ab5071","billing":{"address1":"SOME
+        ADDRESS","city":"Sydney","country":"AUS","first_name":"John","last_name":"Smith","postal_code":"2000","state":"NSW"},"shipping":{"address1":"SOME
+        ADDRESS","state":"NSW","city":"Sydney","country":"AUS","address2":"SOME
+        ADDRESS","address3":"SOME ADDRESS","postal_code":"2000"},"extra":{"billing_phone":"1234567890","work_phone":"1234567890","billing_address2":"SOME
+        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY"},"recurring":{"installment":2,"purchase_date":"20201101153752","recurring_end":"20201101","recurring_frequency":31}},"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -78,15 +78,15 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - b8c91e6982b9a289dc25581abd4205e4
+      - 3fa4c4b8af2bcee85a9da54ebd0513d4
       X-Runtime:
-      - '0.035474'
+      - '0.050493'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"successful":false,"response":null,"errors":"3DS lookup request process
-        failed: amount must be filled","test":true}'
+        failed: amount must be an integer","test":true}'
     http_version: 
-  recorded_at: Tue, 22 Oct 2019 05:35:44 GMT
+  recorded_at: Fri, 01 Nov 2019 04:37:52 GMT
 recorded_with: VCR 3.0.3

@@ -109,7 +109,6 @@ describe FatZebra::Authenticate do
 
       it do
         expect(authenticate.enrolled).to be_truthy
-        expect(authenticate.acs_url).to eq('')
         expect(authenticate.version).to be_truthy
         expect(authenticate.card_bin).to be_truthy
         expect(authenticate.authentication_transaction_id).to be_truthy
@@ -126,6 +125,13 @@ describe FatZebra::Authenticate do
         is_expected.to be_accepted
         expect(authenticate.keys).to include('enrolled', 'version', 'card_bin', 'authentication_transaction_id')
         expect(authenticate.errors).to be_empty
+      end
+
+      it do
+        expect(authenticate.enrolled).to be_truthy
+        expect(authenticate.version).to be_truthy
+        expect(authenticate.card_bin).to be_truthy
+        expect(authenticate.authentication_transaction_id).to be_truthy
       end
     end
 

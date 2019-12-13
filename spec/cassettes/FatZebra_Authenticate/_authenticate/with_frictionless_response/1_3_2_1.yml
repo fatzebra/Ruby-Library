@@ -31,28 +31,27 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 140ff02e52134975b16e34cb3a9e8dae
+      - 5eec467855ac8c00a5aea3a3188a4d7b
       X-Runtime:
-      - '0.305169'
+      - '0.270447'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"683ewp4gv5hwyvwd4o78","card_holder":"Matthew
+      string: '{"successful":true,"response":{"token":"w85zqhss15f3kza55c9p","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
         Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Fri, 01 Nov 2019 04:37:52 GMT
+  recorded_at: Fri, 13 Dec 2019 03:36:49 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate
     body:
       encoding: UTF-8
-      string: '{"card_token":"683ewp4gv5hwyvwd4o78","sca":{"enabled":true,"amount":100,"currency":"AUD","df_reference_id":"023fbed330ef94c02c57","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"cab7804b6b1aed8d7c2d","billing":{"address1":"SOME
-        ADDRESS","city":"Sydney","country":"AUS","first_name":"John","last_name":"Smith","postal_code":"2000","state":"NSW"},"shipping":{"address1":"SOME
-        ADDRESS","state":"NSW","city":"Sydney","country":"AUS","address2":"SOME
-        ADDRESS","address3":"SOME ADDRESS","postal_code":"2000"},"extra":{"billing_phone":"1234567890","work_phone":"1234567890","billing_address2":"SOME
-        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY"},"recurring":{"installment":2,"purchase_date":"20201101153752","recurring_end":"20201101","recurring_frequency":31}},"test":true}'
+      string: '{"card_token":"w85zqhss15f3kza55c9p","amount":100,"currency":"AUD","customer_ip":"111.111.111.111","sca":{"type":"enrollment","merchant_reference_code":"2cd5d82a-579b-4d4c-8f55-f96d8338aa2f","customer":{"address_1":"23
+        Smith Road","address_2":"North Shore","city":"Canberra","country":"AU","state":"NSW","email":"test@test.com","first_name":"James","last_name":"Smith","phone_number":"0444555666","post_code":"2000","passport_number":"X1234567890","passport_country":"036","account_changed_at":"20191210","account_created_at":"20191210","account_password_changed_at":"20191210"},"shipping_address":{"address_1":"23
+        Smith Road","address_2":"North Shore","city":"Sydney","country":"AU","state":"NSW","email":"test@test.com","first_name":"James","last_name":"Smith","phone_number":"0444555666","post_code":"2000","method":"pickup","destination_code":"01"},"custom":{"transaction_mode":"mobile","reference_id":"b2376865132d5f61e688aede1f014452","merchant_name":"TEST","merchant_new_customer":true,"preorder":1,"http_accept":"text/html","http_user_agent":"Mozilla/5.0
+        (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0","recurring_end_date":"20201201","recurring_frequency":3,"recurring_original_purchase_date":"2019120112:00:00"},"items":[{"unit_price":23.3,"product_description":"Widgets","product_name":"Watch","quantity":1,"product_sku":"9999","passenger_first_name":"John","passenger_last_name":"Smith"}],"airline_data":{"legs":[{"carrier_code":"code","departure_date":"20221012","destination":"SYD","originating_airport_code":"MEL"}],"number_of_passengers":2,"passengers":[{"first_name":"John","last_name":"Smith"},{"first_name":"Megan","last_name":"Doe"}]}},"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -78,14 +77,14 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - de45d4c827cbd7f373f6cbd8b99182db
+      - ea2891f24275b68c28a3f1323e948a70
       X-Runtime:
-      - '1.430369'
+      - '3.727027'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"ThreeDSVersion":"1.0.2","Enrolled":"U","ErrorDesc":null,"ErrorNo":"0","EciFlag":"00","OrderId":"8010571263488745","TransactionId":"cboYpC7dDGCsXMzw1Gv0","TransactionType":null,"SignatureVerification":null,"CardBrand":"MASTERCARD","CardBin":"512345","DSTransactionId":null,"RawACSUrl":null,"ACSUrl":null,"StepUpUrl":null,"Cavv":null,"PAResStatus":null,"Payload":null,"Xid":null,"ReasonCode":null,"ReasonDesc":null,"ChallengeRequired":null,"StatusReason":null,"ACSTransactionId":null,"ThreeDSServerTransactionId":null},"errors":null,"test":true}'
+      string: '{"successful":true,"response":{"action":{"proceed":false},"version":"1.0.2","enrolled":"U","acs_url":"","pareq":null,"pares":null,"xid":null,"eci":null,"cavv":null,"aav":null,"ucaf_collection_indicator":"0","authentication_path":"NOREDIRECT","authentication_result":null,"authentication_transaction_id":"PzazADhdWhVEa7ceE3N0","authentication_status_message":null,"card_bin":"512345","card_type_name":"MASTERCARD","commerce_indicator":"internet","proxy_pan":null,"currency":null,"request_id":"5762082109296464103008","request_token":"AxjzbwSTOFzz7ZXxSAZgAAoCUaf/NLj2Eg6cQkgoZNJMvRivpPBBCAAAXRO6","decision":"ACCEPT"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Fri, 01 Nov 2019 04:37:53 GMT
+  recorded_at: Fri, 13 Dec 2019 03:36:53 GMT
 recorded_with: VCR 3.0.3

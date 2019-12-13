@@ -31,28 +31,27 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 4e0457249cdad22cd821387f5662f06b
+      - 9eaac5a0f47c58280c16fac2aeea8967
       X-Runtime:
-      - '0.417234'
+      - '0.276772'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"xv8rgcp86o9zogcgblys","card_holder":"Matthew
+      string: '{"successful":true,"response":{"token":"zwjg665ok4olwtkgtxqa","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
         Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Fri, 01 Nov 2019 04:37:51 GMT
+  recorded_at: Fri, 13 Dec 2019 03:36:48 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate
     body:
       encoding: UTF-8
-      string: '{"card_token":"xv8rgcp86o9zogcgblys","sca":{"enabled":true,"amount":100,"currency":"INVALID","df_reference_id":"ac494ee2467b55d9f498","mobile_phone":"1234567890","email":"dev@fatzebra.com.au","transaction_mode":"mobile","transaction_type":"C","order_number":"f932c8f5109b0dd30ee4","billing":{"address1":"SOME
-        ADDRESS","city":"Sydney","country":"AUS","first_name":"John","last_name":"Smith","postal_code":"2000","state":"NSW"},"shipping":{"address1":"SOME
-        ADDRESS","state":"NSW","city":"Sydney","country":"AUS","address2":"SOME
-        ADDRESS","address3":"SOME ADDRESS","postal_code":"2000"},"extra":{"billing_phone":"1234567890","work_phone":"1234567890","billing_address2":"SOME
-        ADDRESS","billing_address3":"SOME ADDRESS","authentication_indicator":"01","product_code":"PHY"},"recurring":{"installment":2,"purchase_date":"20201101153751","recurring_end":"20201101","recurring_frequency":31}},"test":true}'
+      string: '{"card_token":"zwjg665ok4olwtkgtxqa","amount":100,"currency":"INVALID","customer_ip":"111.111.111.111","sca":{"type":"enrollment","merchant_reference_code":"b4e1785c-adfc-4f6d-977f-f2d174f11b04","customer":{"address_1":"23
+        Smith Road","address_2":"North Shore","city":"Canberra","country":"AU","state":"NSW","email":"test@test.com","first_name":"James","last_name":"Smith","phone_number":"0444555666","post_code":"2000","passport_number":"X1234567890","passport_country":"036","account_changed_at":"20191210","account_created_at":"20191210","account_password_changed_at":"20191210"},"shipping_address":{"address_1":"23
+        Smith Road","address_2":"North Shore","city":"Sydney","country":"AU","state":"NSW","email":"test@test.com","first_name":"James","last_name":"Smith","phone_number":"0444555666","post_code":"2000","method":"pickup","destination_code":"01"},"custom":{"transaction_mode":"mobile","reference_id":"8334c5a5686e00bf11616b7ae5cf9c62","merchant_name":"TEST","merchant_new_customer":true,"preorder":1,"http_accept":"text/html","http_user_agent":"Mozilla/5.0
+        (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0","recurring_end_date":"20201201","recurring_frequency":3,"recurring_original_purchase_date":"2019120112:00:00"},"items":[{"unit_price":23.3,"product_description":"Widgets","product_name":"Watch","quantity":1,"product_sku":"9999","passenger_first_name":"John","passenger_last_name":"Smith"}],"airline_data":{"legs":[{"carrier_code":"code","departure_date":"20221012","destination":"SYD","originating_airport_code":"MEL"}],"number_of_passengers":2,"passengers":[{"first_name":"John","last_name":"Smith"},{"first_name":"Megan","last_name":"Doe"}]}},"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -78,15 +77,16 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 750c8e82fb23f759e671af890167fd38
+      - 96ede94204ae13d0b0172ea816b6f602
       X-Runtime:
-      - '0.079170'
+      - '0.029971'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":false,"response":null,"errors":"3DS lookup request process
-        failed: currency_code length must be 3","test":true}'
+      string: '{"successful":false,"response":null,"errors":["INVALID is not valid
+        for this merchant. Permitted currencies: USD, EUR, GBP, AUD, CAD, JPY, CHF,
+        HKD, NZD, SGD, and JPY"],"test":true}'
     http_version: 
-  recorded_at: Fri, 01 Nov 2019 04:37:51 GMT
+  recorded_at: Fri, 13 Dec 2019 03:36:48 GMT
 recorded_with: VCR 3.0.3

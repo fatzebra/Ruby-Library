@@ -40,50 +40,100 @@ shared_context 'payloads' do
     }
   }}
 
-  let(:valid_sca_authenticate_payload) {{
-    card_token: credit_card.token,
-    sca: {
-      enabled: true,
-      amount: 100,
-      currency: 'AUD',
-      df_reference_id: SecureRandom.hex(10),
-      mobile_phone: '1234567890',
-      email: 'dev@fatzebra.com.au',
+  let(:valid_sca_enrollment_payload) {{
+    customer: {
+      address_1: '23 Smith Road',
+      address_2: 'North Shore',
+      city: 'Canberra',
+      country: 'AU',
+      state: 'NSW',
+      email: 'test@test.com',
+      first_name: 'James',
+      last_name: 'Smith',
+      phone_number: '0444555666',
+      post_code: '2000',
+      passport_number: 'X1234567890',
+      passport_country: '036',
+      account_changed_at: '20191210',
+      account_created_at: '20191210',
+      account_password_changed_at: '20191210'
+    },
+    shipping_address: {
+      address_1: '23 Smith Road',
+      address_2: 'North Shore',
+      city: 'Sydney',
+      country: 'AU',
+      state: 'NSW',
+      email: 'test@test.com',
+      first_name: 'James',
+      last_name: 'Smith',
+      phone_number: '0444555666',
+      post_code: '2000',
+      method: 'pickup',
+      destination_code: '01',
+    },
+    custom: {
       transaction_mode: 'mobile',
-      transaction_type: 'C',
-      order_number: SecureRandom.hex(10),
-      billing: {
-        address1: 'SOME ADDRESS',
-        city: 'Sydney',
-        country: 'AUS',
-        first_name: 'John',
-        last_name: 'Smith',
-        postal_code: '2000',
-        state: 'NSW'
-      },
-      shipping: {
-        address1: 'SOME ADDRESS',
-        state: 'NSW',
-        city: 'Sydney',
-        country: 'AUS',
-        address2: 'SOME ADDRESS',
-        address3: 'SOME ADDRESS',
-        postal_code: '2000',
-      },
-      extra: {
-        billing_phone: '1234567890',
-        work_phone: '1234567890',
-        billing_address2: 'SOME ADDRESS',
-        billing_address3: 'SOME ADDRESS',
-        authentication_indicator: '01',
-        product_code: 'PHY'
-      },
-      recurring: {
-        installment: 2,
-        purchase_date: DateTime.now.next_year.strftime('%Y%m%d%H%M%S'),
-        recurring_end: DateTime.now.next_year.strftime('%Y%m%d'),
-        recurring_frequency: 31
+      reference_id: SecureRandom.hex,
+
+      merchant_name: 'TEST',
+      merchant_new_customer: true,
+      preorder: 1,
+
+      http_accept: 'text/html',
+      http_user_agent: 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0',
+
+      recurring_end_date: '20201201',
+      recurring_frequency: 3,
+      recurring_original_purchase_date: '2019120112:00:00'
+    },
+    items: [
+      {
+        unit_price: 23.3,
+        product_description: 'Widgets',
+        product_name: 'Watch',
+        quantity: 1,
+        product_sku: '9999',
+        passenger_first_name: 'John',
+        passenger_last_name: 'Smith',
       }
+    ],
+    airline_data: {
+      legs: [
+        {
+          carrier_code: 'code',
+          departure_date: '20221012',
+          destination: 'SYD',
+          originating_airport_code: 'MEL',
+        }
+      ],
+      number_of_passengers: 2,
+      passengers: [
+        {
+          first_name: 'John',
+          last_name: 'Smith',
+        },
+        {
+          first_name: 'Megan',
+          last_name: 'Doe',
+        }
+      ]
+    }
+  }}
+
+  let(:valid_sca_validation_payload) {{
+    authentication_transaction_id: SecureRandom.hex,
+    signed_pares: SecureRandom.hex
+  }}
+
+  let(:valid_sca_authentication_payload) {{
+    card_token: credit_card.token,
+    amount: 100,
+    currency: 'AUD',
+    customer_ip: '111.111.111.111',
+    sca: {
+      type: 'enrollment',
+      merchant_reference_code: SecureRandom.uuid,
     }
   }}
 

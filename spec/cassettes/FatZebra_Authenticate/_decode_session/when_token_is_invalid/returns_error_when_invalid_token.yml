@@ -33,15 +33,15 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 55f43b14bc30599d22bbdad8cdb4ab83
+      - a32509c0289cec10954d4d581bfeb46f
       X-Runtime:
-      - '0.023084'
+      - '0.039686'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":false,"response":null,"errors":"Decoding JWT failed:
-        The token is invalid","test":true}'
+      string: '{"successful":false,"response":null,"errors":["Decoding JWT failed:
+        The token is invalid"],"test":true}'
     http_version: 
-  recorded_at: Tue, 22 Oct 2019 05:35:42 GMT
+  recorded_at: Fri, 13 Dec 2019 00:52:54 GMT
 recorded_with: VCR 3.0.3

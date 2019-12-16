@@ -31,24 +31,24 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 7b775432c29782d1272fb8dc0b06c8c4
+      - 43ed2b2d9c154c7e0481c5c355b96cda
       X-Runtime:
-      - '0.345672'
+      - '0.296102'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"token":"66ey2kj14nrvybz7b3gs","card_holder":"Matthew
+      string: '{"successful":true,"response":{"token":"8zwisd92mo3vj78h3h1g","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Banco
         Del Pichincha, C.A.","card_country":"Ecuador","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Fri, 01 Nov 2019 04:37:51 GMT
+  recorded_at: Fri, 13 Dec 2019 03:36:48 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate
     body:
       encoding: UTF-8
-      string: '{"card_token":"66ey2kj14nrvybz7b3gs","sca":{},"test":true}'
+      string: '{"card_token":"8zwisd92mo3vj78h3h1g","amount":100,"currency":"AUD","customer_ip":"111.111.111.111","sca":{},"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -74,14 +74,14 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 308793f00505a51ce066df1aadadda61
+      - f20df6f1e626b1465afd5e7b4c7ed6d8
       X-Runtime:
-      - '0.033605'
+      - '0.016688'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
       string: '{"successful":false,"response":null,"errors":["Invalid input data"],"test":true}'
     http_version: 
-  recorded_at: Fri, 01 Nov 2019 04:37:51 GMT
+  recorded_at: Fri, 13 Dec 2019 03:36:48 GMT
 recorded_with: VCR 3.0.3

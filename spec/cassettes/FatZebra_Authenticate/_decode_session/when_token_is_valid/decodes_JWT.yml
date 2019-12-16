@@ -5,7 +5,7 @@ http_interactions:
     uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/session
     body:
       encoding: UTF-8
-      string: '{"test":true}'
+      string: '{"currency":"AUD","amount":100,"test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -31,19 +31,19 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - b25d4b9392a92488ea9fc6c19a25c323
+      - f4d377e827607ded10629269ce56e58f
       X-Runtime:
-      - '0.027316'
+      - '0.048153'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NzE3MzY5NDIsImlhdCI6MTU3MTcyMjU0MiwiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiYThjMWM3MDItNGJiMi00MTAxLWI2NDctMzg4MDhmNzQ2MTY5IiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiI2MGNjNjQ2Yy1lOTk5LTQzZGUtYWNjZC03MmI5NWM4ZGJlMDQifQ.Clghlq4zGBvTZsvLA4vM_GXEznPj_wwkCmsuqv3thMU","reference_id":"60cc646c-e999-43de-accd-72b95c8dbe04"},"errors":null,"test":true}'
+      string: '{"successful":true,"response":{"jwt":"eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NzYyMTI3NzMsImlhdCI6MTU3NjE5ODM3MywiaXNzIjoiNWRjM2VhMzVhZmE4MGQyZWEwZWUxMGU3IiwianRpIjoiYTRmYjk0MmQtZmYyNS00YmE1LTg0OGQtZWY4ZTk5N2E4OWQyIiwiT3JnVW5pdElkIjoiNWRiMTVhMzQwMDViOTMwZmM0MGM4OWVlIiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUGF5bG9hZCI6eyJPcmRlckRldGFpbHMiOnsiQ3VycmVuY3lDb2RlIjoiMDM2IiwiQW1vdW50IjoiMTAwIn19fQ.XnYWuD5aZ3G5J5es3H8TBJkqAwR8ZYUMbggbIc4mguc"},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 22 Oct 2019 05:35:42 GMT
+  recorded_at: Fri, 13 Dec 2019 00:52:53 GMT
 - request:
     method: get
-    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/decode_session?test=true&token=eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NzE3MzY5NDIsImlhdCI6MTU3MTcyMjU0MiwiaXNzIjoiNTgyZTBhMjAzM2ZhZGQxMjYwZjk5MGY2IiwianRpIjoiYThjMWM3MDItNGJiMi00MTAxLWI2NDctMzg4MDhmNzQ2MTY5IiwiT3JnVW5pdElkIjoiNTgyYmU5ZGVkYTUyOTMyYTk0NmM0NWM0IiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmVmZXJlbmNlSWQiOiI2MGNjNjQ2Yy1lOTk5LTQzZGUtYWNjZC03MmI5NWM4ZGJlMDQifQ.Clghlq4zGBvTZsvLA4vM_GXEznPj_wwkCmsuqv3thMU
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/authenticate/decode_session?test=true&token=eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1NzYyMTI3NzMsImlhdCI6MTU3NjE5ODM3MywiaXNzIjoiNWRjM2VhMzVhZmE4MGQyZWEwZWUxMGU3IiwianRpIjoiYTRmYjk0MmQtZmYyNS00YmE1LTg0OGQtZWY4ZTk5N2E4OWQyIiwiT3JnVW5pdElkIjoiNWRiMTVhMzQwMDViOTMwZmM0MGM4OWVlIiwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUGF5bG9hZCI6eyJPcmRlckRldGFpbHMiOnsiQ3VycmVuY3lDb2RlIjoiMDM2IiwiQW1vdW50IjoiMTAwIn19fQ.XnYWuD5aZ3G5J5es3H8TBJkqAwR8ZYUMbggbIc4mguc
     body:
       encoding: US-ASCII
       string: ''
@@ -74,14 +74,14 @@ http_interactions:
       X-Request-Version:
       - 1.21.8
       X-Request-Id:
-      - 95c7bb10d345b47ee5b11aaa7ba5b67d
+      - ccb35eb7239627765e7be3908aa68345
       X-Runtime:
-      - '0.022733'
+      - '0.029515'
       Transfer-Encoding:
       - chunked
     body:
       encoding: UTF-8
-      string: '{"successful":true,"response":{"payload":{"ObjectifyPayload":true,"ReferenceId":"60cc646c-e999-43de-accd-72b95c8dbe04"}},"errors":null,"test":true}'
+      string: '{"successful":true,"response":{"processor_transaction_id":null,"consumer_session_id":null,"reference_id":null,"type":null,"action_code":null,"error_number":null,"error_description":null},"errors":[],"test":true}'
     http_version: 
-  recorded_at: Tue, 22 Oct 2019 05:35:42 GMT
+  recorded_at: Fri, 13 Dec 2019 00:52:53 GMT
 recorded_with: VCR 3.0.3

@@ -102,6 +102,7 @@ module FatZebra
 
     private
 
+    # rubocop:disable Metrics/CyclomaticComplexity
     def handle_request
       response = http.request(request)
 
@@ -114,6 +115,8 @@ module FatZebra
         raise RequestError.new(response, message: 'Requested Resource not found')
       when [Net::HTTPRequestTimeOut]
         raise RequestError.new(response, message: 'Verify the address for the service')
+      when [Net::HTTPGatewayTimeOut]
+        raise RequestError.new(response, message: 'Gateway timeout - please retry or contact gateway')
       when [Net::HTTPInternalServerError]
         raise RequestError.new(response, message: 'Server Error, please check with service')
       when [Net::HTTPNotImplemented]
@@ -122,6 +125,7 @@ module FatZebra
         raise RequestError, response
       end
     end
+    # rubocop:enable Metrics/CyclomaticComplexity
 
     def build_multipart_post
       parts = []

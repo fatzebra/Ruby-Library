@@ -38,4 +38,12 @@ describe FatZebra::Card do
     end
   end
 
+  describe '.find', :vcr do
+    let(:create) { FatZebra::Card.create(valid_credit_card_payload) }
+    subject(:card) { FatZebra::Card.find(create.token) }
+
+    it { is_expected.to be_accepted }
+    it { expect(card.token).to eq(create.token) }
+  end
+
 end

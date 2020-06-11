@@ -9,6 +9,7 @@ module FatZebra
   class Card < APIResource
     @resource_name = 'credit_cards'
 
+    include FatZebra::APIOperation::Find
     include FatZebra::APIOperation::Save
 
     validates :card_holder, required: { unless: %i[wallet] }, on: :create

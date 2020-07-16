@@ -5,7 +5,7 @@ Ruby API Library for Fat Zebra
 
 Release 3.2.1 for API version 1.0
 
-A Ruby client for the [Fat Zebra](https://www.fatzebra.com.au) Online Payment Gateway (for Australian Merchants)
+A Ruby client for the [Fat Zebra](https://www.fatzebra.com) Online Payment Gateway
 
 Dependencies
 ------------
@@ -54,11 +54,11 @@ end
 Documentation
 -------------
 
-Full API reference can be found at http://docs.fatzebra.com.au
+Full API reference can be found at http://docs.fatzebra.com
 
 Support
 -------
-If you have any issue with the Fat Zebra Ruby Client please contact us at support@fatzebra.com.au and we will be more then happy to help out. Alternatively you may raise an issue in github.
+If you have any issue with the Fat Zebra Ruby Client please contact us at support@fatzebra.com and we will be more then happy to help out. Alternatively you may raise an issue in github.
 
 Pull Requests
 -------------

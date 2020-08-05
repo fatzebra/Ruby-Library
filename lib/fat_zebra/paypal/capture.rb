@@ -10,7 +10,7 @@ module FatZebra
 
       def refund(params = {}, options = {})
         response = request(:post, resource_path("captures/#{id}/refund"), params, options)
-        FatZebra::Paypal::Refund.initialize_from((response)
+        FatZebra::Paypal::Refund.initialize_from(response)
       end
     end
   end

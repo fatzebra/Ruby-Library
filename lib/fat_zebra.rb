@@ -38,6 +38,13 @@ require 'fat_zebra/bank_account'
 require 'fat_zebra/web_hook'
 require 'fat_zebra/batch'
 
+# Paypal API Resources
+require 'fat_zebra/paypal/billing_agreement'
+require 'fat_zebra/paypal/order'
+require 'fat_zebra/paypal/authorization'
+require 'fat_zebra/paypal/capture'
+require 'fat_zebra/paypal/refund'
+
 ##
 # Implementation of the FatZebra
 module FatZebra

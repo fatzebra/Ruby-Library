@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0//paypal/billing_agreements/071-PBA-PYG1L6M4CV4DYHTZ/charge
+    body:
+      encoding: UTF-8
+      string: '{"reference":"677a1d99-5274-4eb2-a666-888985a2b162","amount":1100,"currency":"AUD","customer_ip":"1.2.3.4","options":{"brand_name":"EXAMPLE
+        INC"},"purchases":[{"description":"Sporting Goods","custom_id":"CUST-HighFashions","soft_descriptor":"HighFashions","amount":{"item_total":900,"shipping":200},"items":[{"name":"T-Shirt","unit_amount":900,"qty":1,"category":"PHYSICAL_GOODS"}],"shipping_address":{"method":"United
+        States Postal Service 1","address":{"first_name":"John","last_name":"Doe","address_1":"100
+        Kent Street","address_2":"Cafe Lane","city":"Sydney","state":"NSW","postcode":"2000","country":"AU"}}}],"test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Version:
+      - 1.21.8
+      X-Request-Id:
+      - 37b760682e49d4a1400f205cf7f58dd3
+      X-Runtime:
+      - '7.284475'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-PPO-YTDFUYE0K14LAKEY","reference":"677a1d99-5274-4eb2-a666-888985a2b162","amount":1100,"decimal_amount":11.0,"successful":true,"message":"Approved","currency":"AUD","transaction_id":"071-PPO-YTDFUYE0K14LAKEY","transaction_date":"2020-08-07T14:01:48+10:00","intent":"CAPTURE","paypal_reference":"677a1d99-5274-4eb2-a666-888985a2b162","invoice_id":"677a1d99-5274-4eb2-a666-888985a2b162","billing_agreement_id":"071-PBA-PYG1L6M4CV4DYHTZ","status":"COMPLETED","payment_source":"BILLING_AGREEMENT","authorized_amount":0.0,"captured_amount":11.0,"refunded_amount":0.0,"authorizations":[],"captures":[{"id":"071-PPC-CSHGL09PIO4NLU4V","amount":1100,"decimal_amount":11.0,"captured_amount":1100,"successful":true,"message":"Approved","reference":"677a1d99-5274-4eb2-a666-888985a2b162","captured":true,"currency":"AUD","transaction_id":"071-PPC-CSHGL09PIO4NLU4V","transaction_date":"2020-08-07T14:01:48+10:00","response_code":"00","invoice_id":"677a1d99-5274-4eb2-a666-888985a2b162","paypal_fee":56,"seller_receivable_net_amount":1044,"note_to_payer":"Sporting
+        Goods","is_final_capture":true,"refunded_amount":0,"balance_available_for_refund":1100,"order":"071-PPO-YTDFUYE0K14LAKEY"}],"refunds":[],"payer":{"id":"CV5LBGRHGTXHY","email":"sb-qxxvi1315481@personal.example.com","address":{"country_code":"AU"}},"payee":{"id":"GE53HS375QX4J","email":"test-seller@example.com"}},"errors":[],"test":true}'
+    http_version:
+  recorded_at: Fri, 07 Aug 2020 04:01:52 GMT
+recorded_with: VCR 3.0.3

@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0//paypal/authorizations/071-PPA-3AM3CXFFKMFYI3QM/capture
+    body:
+      encoding: UTF-8
+      string: '{"amount":200,"final_Capture":false,"note_to_payer":"test capture $2","test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Version:
+      - 1.21.8
+      X-Request-Id:
+      - f417482028fb56c5853115e2355ab566
+      X-Runtime:
+      - '9.242708'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-PPC-1VD9NBDKP4EFQUYW","amount":200,"decimal_amount":2.0,"captured_amount":200,"successful":true,"message":"Approved","reference":"ref_12345_420768","captured":true,"currency":"AUD","transaction_id":"071-PPC-1VD9NBDKP4EFQUYW","transaction_date":"2020-08-07T14:01:30+10:00","response_code":"00","invoice_id":"071-PPC-1VD9NBDKP4EFQUYW","paypal_fee":35,"seller_receivable_net_amount":165,"note_to_payer":"test
+        capture $2","is_final_capture":false,"refunded_amount":0,"balance_available_for_refund":200,"balance_available_for_capture":13400,"authorization":"071-PPA-3AM3CXFFKMFYI3QM","order":"071-PPO-QMNDDIFZMCX0LA0G"},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Fri, 07 Aug 2020 04:01:39 GMT
+recorded_with: VCR 3.0.3

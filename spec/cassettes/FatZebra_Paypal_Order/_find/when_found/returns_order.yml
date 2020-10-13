@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0//paypal/orders/071-PPO-U7RRMGM3OY3V2ZMN?test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Version:
+      - 1.21.8
+      X-Request-Id:
+      - 3b84871376becb04242c5c5eed2befcb
+      X-Runtime:
+      - '0.037029'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-PPO-U7RRMGM3OY3V2ZMN","reference":"ref_12345_771673","amount":11900,"decimal_amount":119.0,"successful":true,"message":"Approved","currency":"AUD","transaction_id":"071-PPO-U7RRMGM3OY3V2ZMN","transaction_date":"2020-08-06T23:19:37+10:00","intent":"CAPTURE","paypal_reference":"ref_12345_771673","invoice_id":"ref_12345_771673","status":"COMPLETED","authorized_amount":0.0,"captured_amount":120.0,"refunded_amount":1.0,"authorizations":[],"captures":[{"id":"071-PPC-TUOHT8YJHBY7SBJU","amount":12000,"decimal_amount":120.0,"captured_amount":12000,"successful":true,"message":"Approved","reference":"ref_12345_771673","captured":true,"currency":"AUD","transaction_id":"071-PPC-TUOHT8YJHBY7SBJU","transaction_date":"2020-08-06T23:19:37+10:00","response_code":"00","invoice_id":"ref_12345_771673","paypal_fee":318,"seller_receivable_net_amount":11682,"note_to_payer":"Sporting
+        Goods","is_final_capture":true,"refunded_amount":100,"balance_available_for_refund":11900,"order":"071-PPO-U7RRMGM3OY3V2ZMN"}],"refunds":[{"id":"071-PPR-SRR9FP7ZKXT9IXU3","amount":100,"refunded":"Approved","message":"Approved","transaction_id":"071-PPR-SRR9FP7ZKXT9IXU3","currency":"AUD","successful":true,"transaction_date":"2020-08-06T23:26:56+10:00","response_code":"00","standalone":false,"note_to_payer":"test
+        note","invoice_id":"071-PPR-SRR9FP7ZKXT9IXU3","decimal_amount":1.0,"paypal_fee":2,"seller_payable_net_amount":98,"balance_available_for_refund":11900,"capture":"071-PPC-TUOHT8YJHBY7SBJU","order":"071-PPO-U7RRMGM3OY3V2ZMN"}],"payer":{"id":"CV5LBGRHGTXHY","email":"sb-qxxvi1315481@personal.example.com","address":{"country_code":"AU"}},"payee":{"id":"GE53HS375QX4J","email":"test-seller@example.com"}},"errors":[],"test":true}'
+    http_version:
+  recorded_at: Fri, 07 Aug 2020 00:03:08 GMT
+recorded_with: VCR 3.0.3

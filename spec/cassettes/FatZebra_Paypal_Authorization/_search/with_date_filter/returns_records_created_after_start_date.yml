@@ -1,0 +1,46 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0//paypal/authorizations?from=2020/08/05&limit=10&offset=0&test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Version:
+      - 1.21.8
+      X-Request-Id:
+      - fabf10d0564100be367e755ef180cfc0
+      X-Runtime:
+      - '0.054100'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":[{"id":"071-PPA-3AM3CXFFKMFYI3QM","amount":12000,"decimal_amount":120.0,"captured_amount":200,"successful":true,"captured":false,"currency":"AUD","transaction_id":"071-PPA-3AM3CXFFKMFYI3QM","transaction_date":"2020-08-06T23:17:27+10:00","message":"Approved","response_code":"00","reference":"ref_12345_420768","refunded_amount":0,"balance_available_for_capture":13600,"order":"071-PPO-QMNDDIFZMCX0LA0G"},{"id":"071-PPA-QPIVKACDAHBNH3LO","amount":12000,"decimal_amount":120.0,"captured_amount":0,"successful":true,"captured":false,"currency":"AUD","transaction_id":"071-PPA-QPIVKACDAHBNH3LO","transaction_date":"2020-08-06T23:40:58+10:00","message":"Approved","response_code":"00","reference":"ref_12345_108143","refunded_amount":0,"balance_available_for_capture":13800,"order":"071-PPO-TKJOIWAQBL0FUXIY"}],"errors":[],"test":true,"records":2,"total_records":2,"page":1,"total_pages":1}'
+    http_version: 
+  recorded_at: Thu, 06 Aug 2020 13:43:13 GMT
+recorded_with: VCR 3.0.3

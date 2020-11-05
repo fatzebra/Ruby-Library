@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0//paypal/refunds?from=2020/08/05&limit=10&offset=0&test=true
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Host:
+      - gateway.sandbox.fatzebra.com.au
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-store
+      Pragma:
+      - no-cache
+      Content-Type:
+      - application/json; charset=utf-8
+      X-Request-Version:
+      - 1.21.8
+      X-Request-Id:
+      - f9e0e746bb7c4611132605c0fefbd352
+      X-Runtime:
+      - '0.086558'
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":[{"id":"071-PPR-SRR9FP7ZKXT9IXU3","amount":100,"refunded":"Approved","message":"Approved","transaction_id":"071-PPR-SRR9FP7ZKXT9IXU3","currency":"AUD","successful":true,"transaction_date":"2020-08-06T23:26:56+10:00","response_code":"00","standalone":false,"note_to_payer":"test
+        note","invoice_id":"071-PPR-SRR9FP7ZKXT9IXU3","decimal_amount":1.0,"paypal_fee":2,"seller_payable_net_amount":98,"balance_available_for_refund":11900,"capture":"071-PPC-TUOHT8YJHBY7SBJU","order":"071-PPO-U7RRMGM3OY3V2ZMN"},{"id":"071-PPR-10HDHDI4QRHVDOGV","amount":10900,"refunded":"Approved","message":"Approved","transaction_id":"071-PPR-10HDHDI4QRHVDOGV","currency":"AUD","successful":true,"transaction_date":"2020-08-05T16:54:15+10:00","response_code":"00","standalone":false,"invoice_id":"071-PPR-10HDHDI4QRHVDOGV","decimal_amount":109.0,"paypal_fee":262,"seller_payable_net_amount":10638,"balance_available_for_refund":0,"capture":"071-PPC-JUNNKEGCHIOL1CFR","order":"071-PPO-RXFR2E6ILCIE6HKI"},{"id":"071-PPR-7BIDZCFHPCCBUSJH","amount":100,"refunded":"Approved","message":"Approved","transaction_id":"071-PPR-7BIDZCFHPCCBUSJH","currency":"AUD","successful":true,"transaction_date":"2020-08-05T11:24:24+10:00","response_code":"00","standalone":false,"note_to_payer":"refund
+        the rest","invoice_id":"071-PPR-7BIDZCFHPCCBUSJH","decimal_amount":1.0,"paypal_fee":2,"seller_payable_net_amount":98,"balance_available_for_refund":0,"capture":"071-PPC-JUNNKEGCHIOL1CFR","order":"071-PPO-RXFR2E6ILCIE6HKI"},{"id":"071-PPR-WXEAYHCGZY7DJYZ2","amount":1000,"refunded":"Approved","message":"Approved","transaction_id":"071-PPR-WXEAYHCGZY7DJYZ2","currency":"AUD","successful":true,"transaction_date":"2020-08-05T10:46:21+10:00","response_code":"00","standalone":false,"note_to_payer":"refund
+        the rest","invoice_id":"071-PPR-WXEAYHCGZY7DJYZ2","decimal_amount":10.0,"paypal_fee":24,"seller_payable_net_amount":976,"balance_available_for_refund":0,"capture":"071-PPC-RBJV9SSA7PWXVXFB","order":"071-PPO-5ICGTHBIMG9T7D4I"},{"id":"071-PPR-6FOW2YDJYBPSDBNB","amount":100,"refunded":"Approved","message":"Approved","transaction_id":"071-PPR-6FOW2YDJYBPSDBNB","currency":"AUD","successful":true,"transaction_date":"2020-08-05T10:40:07+10:00","response_code":"00","standalone":false,"note_to_payer":"refund
+        billing agreement","invoice_id":"071-PPR-6FOW2YDJYBPSDBNB","decimal_amount":1.0,"paypal_fee":2,"seller_payable_net_amount":98,"balance_available_for_refund":0,"capture":"071-PPC-RBJV9SSA7PWXVXFB","order":"071-PPO-5ICGTHBIMG9T7D4I"}],"errors":[],"test":true,"records":5,"total_records":5,"page":1,"total_pages":1}'
+    http_version: 
+  recorded_at: Fri, 07 Aug 2020 00:03:14 GMT
+recorded_with: VCR 3.0.3

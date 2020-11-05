@@ -137,4 +137,42 @@ shared_context 'payloads' do
     }
   }}
 
+  let(:valid_charge_billing_agreement_payload) {{
+    reference: SecureRandom.uuid,
+    amount: 1100,
+    currency: "AUD",
+    customer_ip: '1.2.3.4',
+    options: {
+      brand_name: "EXAMPLE INC"
+    },
+    purchases: [{
+      description: "Sporting Goods",
+      custom_id: "CUST-HighFashions",
+      soft_descriptor: "HighFashions",
+      amount: {
+        item_total: 900,
+        shipping: 200
+      },
+      items: [{
+        name: "T-Shirt",
+        unit_amount: 900,
+        qty: 1,
+        category: "PHYSICAL_GOODS"
+      }],
+      shipping_address: {
+        method: "United States Postal Service 1",
+        address: {
+          first_name: "John",
+          last_name: "Doe",
+          address_1: "100 Kent Street",
+          address_2: "Cafe Lane",
+          city: "Sydney",
+          state: "NSW",
+          postcode: "2000",
+          country: "AU"
+        }
+      }
+    }]
+  }}
+
 end

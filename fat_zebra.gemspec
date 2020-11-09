@@ -6,8 +6,8 @@ require 'fat_zebra/version'
 Gem::Specification.new do |s|
   s.name        = 'fat_zebra'
   s.version     = FatZebra::VERSION
-  s.authors     = ['Matthew Savage']
-  s.email       = ['matt@amasses.net']
+  s.authors     = ['Fat Zebra']
+  s.email       = ['support@fatzebra.com']
   s.homepage    = ''
   s.summary     = 'Fat Zebra payments gem - integrate your ruby app with Fat Zebra'
   s.description = 'Provides integration with the Fat Zebra internet payment gateway (www.fatzebra.com), including purchase, refund, auth, capture and recurring billing functionality.'

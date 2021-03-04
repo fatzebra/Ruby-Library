@@ -6,7 +6,7 @@ module FatZebra
       REGEXP_HTTP = %r{http[s]?\:\/\/}
 
       def cleanup_host(uri)
-        uri.gsub(REGEXP_HTTP, '')
+        uri.to_s.gsub(REGEXP_HTTP, '')
       end
 
       ##

@@ -102,4 +102,22 @@ describe FatZebra::Purchase do
     it { expect(settlement.data.first).to be_a(FatZebra::Purchase) }
   end
 
+  describe '#extend!', :vcr do
+    let(:purchase) { FatZebra::Purchase.create(valid_purchase_payload.merge(capture: false)) }
+    subject(:extend) { purchase.extend! }
+
+    it { is_expected.to be_accepted }
+    it { is_expected.to be_successful }
+    it { expect(extend).to be_a(FatZebra::Purchase) }
+  end
+
+  describe '#increment', :vcr do
+    let(:purchase) { FatZebra::Purchase.create(valid_purchase_payload.merge(capture: false)) }
+    subject(:increment) { purchase.increment!(200) }
+
+    it { is_expected.to be_accepted }
+    it { is_expected.to be_successful }
+    it { expect(increment).to be_a(FatZebra::Purchase) }
+    it { expect(increment.amount).to eq(valid_purchase_payload[:amount] + 200) }
+  end
 end

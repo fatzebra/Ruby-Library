@@ -92,5 +92,28 @@ module FatZebra
       update_from(response)
     end
 
+    ##
+    # Extends an authorization expiry (if not already expired)
+    #
+    # @param [Hash] options for the request, and configurations (Optional)
+    #
+    # @return [Response] Purchase response object
+    def extend!(options = {})
+      response = request(:put, resource_path("purchases/#{id}"), { extend: true }, options)
+      update_from(response)
+    end
+
+    ##
+    # Increments an authorization amount
+    #
+    # @param [Int] amount to increment the authorization by
+    # @param [Hash] options for the request, and configurations (Optional)
+    #
+    # @return [Response] Purchase response object
+    def increment!(additional_amount, options = {})
+      raise ArgumentError, 'Amount must be a positive amount' unless additional_amount > 0
+      response = request(:put, resource_path("purchases/#{id}"), { amount: amount + additional_amount }, options)
+      update_from(response)
+    end
   end
 end

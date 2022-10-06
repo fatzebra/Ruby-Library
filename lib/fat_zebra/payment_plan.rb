@@ -24,8 +24,6 @@ module FatZebra
     validates :start_date, required: true, on: :create
     validates :frequency, required: true, on: :create
     validates :anniversary, required: true, on: :create
-    validates :total_count, required: true, on: :create
-    validates :total_amount, required: true, on: :create
 
     ##
     # Suspend a payment plan

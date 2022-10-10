@@ -1,0 +1,183 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/customers
+    body:
+      encoding: UTF-8
+      string: '{"first_name":"Harrold","last_name":"Humphries","reference":"24afa31905723b983269b560ea69305b","email":"hhump@test.com","ip_address":"180.200.33.181","card":{"card_holder":"Harrold
+        Humphries Senior","card_number":"5123456789012346","expiry_date":"05/2023","cvv":"123"},"address":{"address":"1
+        Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Thu, 06 Oct 2022 00:22:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      - max-age=31536000; includeSubDomains
+      X-Request-Version:
+      - 1.21.8
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 719015d575211a060e5bb57e
+      X-Runtime:
+      - '0.080575'
+      X-Backend:
+      - gateway
+      Content-Security-Policy-Report-Only:
+      - 'child-src ''self'' blob: *.cardinalcommerce.com fatzebra.statuspage.io; connect-src
+        ''self'' *.forter.com *.pmnts-staging.io *.rollbar.com *.nr-data.net *.cardinalcommerce.com
+        fatzebra.statuspage.io *.googleapis.com *.google-analytics.com; default-src
+        ''self'' ''unsafe-eval'' ''unsafe-inline'' *.forter.com *.nr-data.net blob:
+        *.pmnts-sandbox.io *.rollbar.com fatzebra.statuspage.io *.iovation.com data:
+        *.googleapis.com *.gstatic.com *.newrelic.com *.bootstrapcdn.com www.google.com
+        pay.google.com *.google-analytics.com *.gravatar.com; font-src ''self'' cdnjs.cloudflare.com
+        data: *.gstatic.com *.bootstrapcdn.com *.aexp-static.com; form-action ''self''
+        *.cardinalcommerce.com; frame-ancestors ''self''; frame-src ''self'' fatzebra.statuspage.io
+        *.americanexpress.com www.google.com pay.google.com *.masterpass.com *.visa.com
+        *.mastercard.com; img-src ''self'' *.visa.com data: *.googleapis.com *.gstatic.com
+        masterpass.com *.masterpass.com *.americanexpress.com *.google-analytics.com
+        *.gravatar.com; script-src ''self'' ''unsafe-eval'' ''unsafe-inline'' *.forter.com
+        *.nr-data.net *.pmnts-sandbox.io *.pmnts-staging.io *.rollbar.com fatzebra.statuspage.io
+        cdnjs.cloudflare.com *.iovation.com *.jquery.com *.newrelic.com *.googleapis.com
+        *.cardinalcommerce.com *.bootstrapcdn.com wasm-eval *.google-analytics.com
+        *.googletagmanager.com; script-src-attr ''unsafe-inline''; script-src-elem
+        ''self'' ''unsafe-inline'' *.forter.com *.nr-data.net *.pmnts-sandbox.io *.rollbar.com
+        fatzebra.statuspage.io *.iovation.com *.jquery.com cdnjs.cloudflare.com *.pmnts-staging.io
+        *.aexp-static.com *.newrelic.com *.googleapis.com *.americanexpress.com www.google.com
+        pay.google.com *.visa.com *.masterpass.com *.mastercard.com *.google-analytics.com
+        *.gstatic.com *.bootstrapcdn.com; style-src ''self'' ''unsafe-eval'' ''unsafe-inline''
+        *.bootstrapcdn.com *.googleapis.com; style-src-attr ''unsafe-inline''; style-src-elem
+        ''unsafe-inline'' ''self'' *.googleapis.com cdnjs.cloudflare.com *.bootstrapcdn.com;
+        worker-src blob:; report-uri https://fatzebra.report-uri.com/r/d/csp/wizard'
+      Nel:
+      - '{"report_to":"default","max_age":31536000,"include_subdomains":true}'
+      Report-To:
+      - '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://fatzebra.report-uri.com/a/d/g"}],"include_subdomains":true}'
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-C-6FMTKA57","email":"hhump@test.com","reference":"24afa31905723b983269b560ea69305b","first_name":"Harrold","last_name":"Humphries","created_at":"2022-10-06T11:22:25+11:00","address":{"address":"1
+        Harriet Road","city":"Kooliablin","state":"NSW","postcode":"2222","country":"Australia"},"card_token":"oqh8v4jtgsl8ckdka9s1","card_number":"512345XXXXXX2346","bank_account":null,"metadata":null,"sdk_ready":true},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Thu, 06 Oct 2022 00:22:25 GMT
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/payment_plans
+    body:
+      encoding: UTF-8
+      string: '{"payment_method":"Credit Card","customer":"071-C-6FMTKA57","reference":"7b6bc420610da917011cc24cfa35d98d","setup_fee":0,"amount":100,"start_date":"2023-01-04","end_date":"2023-04-04","frequency":"Weekly","anniversary":5,"test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Date:
+      - Thu, 06 Oct 2022 00:22:26 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 201 Created
+      Cache-Control:
+      - no-store
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      - max-age=31536000; includeSubDomains
+      X-Request-Version:
+      - 1.21.8
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - '09b341c47a3f603f10d825ab'
+      X-Runtime:
+      - '0.405580'
+      X-Backend:
+      - gateway
+      Content-Security-Policy-Report-Only:
+      - 'child-src ''self'' blob: *.cardinalcommerce.com fatzebra.statuspage.io; connect-src
+        ''self'' *.forter.com *.pmnts-staging.io *.rollbar.com *.nr-data.net *.cardinalcommerce.com
+        fatzebra.statuspage.io *.googleapis.com *.google-analytics.com; default-src
+        ''self'' ''unsafe-eval'' ''unsafe-inline'' *.forter.com *.nr-data.net blob:
+        *.pmnts-sandbox.io *.rollbar.com fatzebra.statuspage.io *.iovation.com data:
+        *.googleapis.com *.gstatic.com *.newrelic.com *.bootstrapcdn.com www.google.com
+        pay.google.com *.google-analytics.com *.gravatar.com; font-src ''self'' cdnjs.cloudflare.com
+        data: *.gstatic.com *.bootstrapcdn.com *.aexp-static.com; form-action ''self''
+        *.cardinalcommerce.com; frame-ancestors ''self''; frame-src ''self'' fatzebra.statuspage.io
+        *.americanexpress.com www.google.com pay.google.com *.masterpass.com *.visa.com
+        *.mastercard.com; img-src ''self'' *.visa.com data: *.googleapis.com *.gstatic.com
+        masterpass.com *.masterpass.com *.americanexpress.com *.google-analytics.com
+        *.gravatar.com; script-src ''self'' ''unsafe-eval'' ''unsafe-inline'' *.forter.com
+        *.nr-data.net *.pmnts-sandbox.io *.pmnts-staging.io *.rollbar.com fatzebra.statuspage.io
+        cdnjs.cloudflare.com *.iovation.com *.jquery.com *.newrelic.com *.googleapis.com
+        *.cardinalcommerce.com *.bootstrapcdn.com wasm-eval *.google-analytics.com
+        *.googletagmanager.com; script-src-attr ''unsafe-inline''; script-src-elem
+        ''self'' ''unsafe-inline'' *.forter.com *.nr-data.net *.pmnts-sandbox.io *.rollbar.com
+        fatzebra.statuspage.io *.iovation.com *.jquery.com cdnjs.cloudflare.com *.pmnts-staging.io
+        *.aexp-static.com *.newrelic.com *.googleapis.com *.americanexpress.com www.google.com
+        pay.google.com *.visa.com *.masterpass.com *.mastercard.com *.google-analytics.com
+        *.gstatic.com *.bootstrapcdn.com; style-src ''self'' ''unsafe-eval'' ''unsafe-inline''
+        *.bootstrapcdn.com *.googleapis.com; style-src-attr ''unsafe-inline''; style-src-elem
+        ''unsafe-inline'' ''self'' *.googleapis.com cdnjs.cloudflare.com *.bootstrapcdn.com;
+        worker-src blob:; report-uri https://fatzebra.report-uri.com/r/d/csp/wizard'
+      Nel:
+      - '{"report_to":"default","max_age":31536000,"include_subdomains":true}'
+      Report-To:
+      - '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://fatzebra.report-uri.com/a/d/g"}],"include_subdomains":true}'
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"id":"071-PP-CT2VS286","customer":"071-C-6FMTKA57","amount":100,"currency":"AUD","setup_fee":0,"frequency":"Weekly","anniversary":5,"start_date":"2023-01-04","end_date":"2023-04-04","total_count":null,"total_amount":null,"payment_method":"Credit
+        Card","reference":"7b6bc420610da917011cc24cfa35d98d","description":null,"status":"Active","status_reason":"None","created_at":"2022-10-06T11:22:26+11:00","failed_payment_fee":0,"retry_interval":3,"status_change_date":null,"payments":[{"id":"071-PT-GCDX05QC","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0001","amount":100,"currency":"AUD","scheduled_date":"2023-01-06","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-6LM6H00S","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0002","amount":100,"currency":"AUD","scheduled_date":"2023-01-13","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-EVK5KMZ2","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0003","amount":100,"currency":"AUD","scheduled_date":"2023-01-20","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-12SYJEVW","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0004","amount":100,"currency":"AUD","scheduled_date":"2023-01-27","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-BHKWQZGK","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0005","amount":100,"currency":"AUD","scheduled_date":"2023-02-03","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-G4TZJ5EE","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0006","amount":100,"currency":"AUD","scheduled_date":"2023-02-10","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-UWZSFWOR","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0007","amount":100,"currency":"AUD","scheduled_date":"2023-02-17","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-QVSEDRFY","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0008","amount":100,"currency":"AUD","scheduled_date":"2023-02-24","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-GQVAZOM7","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0009","amount":100,"currency":"AUD","scheduled_date":"2023-03-03","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-NFE7J1MV","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0010","amount":100,"currency":"AUD","scheduled_date":"2023-03-10","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-VS36TXC4","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0011","amount":100,"currency":"AUD","scheduled_date":"2023-03-17","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]},{"id":"071-PT-PTV0ORDF","payment_plan":"071-PP-CT2VS286","reference":"7b6bc420610da917011cc24cfa35d98d-0012","amount":100,"currency":"AUD","scheduled_date":"2023-03-24","payment_method":"Credit
+        Card","status":"Scheduled","result":null,"records":[]}]},"errors":[],"test":true}'
+    http_version: 
+  recorded_at: Thu, 06 Oct 2022 00:22:26 GMT
+recorded_with: VCR 3.0.3

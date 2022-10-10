@@ -45,6 +45,9 @@ require 'fat_zebra/paypal/authorization'
 require 'fat_zebra/paypal/capture'
 require 'fat_zebra/paypal/refund'
 
+# Reports API Resouces
+require 'fat_zebra/reports/payouts'
+
 ##
 # Implementation of the FatZebra
 module FatZebra

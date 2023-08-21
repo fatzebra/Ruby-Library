@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FatZebra
   ##
   # == FatZebra \Helper
@@ -40,20 +42,21 @@ module FatZebra
         port       = port.to_i if port
 
         url_params = Util.compact(
-          host:  host,
-          path:  path,
-          port:  port,
+          host: host,
+          path: path,
+          port: port,
           query: params
         )
 
         return URI::HTTPS.build(url_params) if options[:http_secure]
+
         URI::HTTP.build(url_params)
       end
 
       def default_headers
         {
           headers: {
-            accept:       'application/json',
+            accept: 'application/json',
             content_type: 'application/json'
           }
         }

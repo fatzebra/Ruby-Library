@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FatZebra
   ##
   # == FatZebra \Batch
@@ -51,8 +53,9 @@ module FatZebra
     # @return [String] formated as CSV
     def result(params = {}, options = {})
       request(:get, "#{resource_path}/#{id}/result.csv", params, options)
-    rescue FatZebra::RequestError => error
-      return error.http_body if error.http_status == 422
+    rescue FatZebra::RequestError => e
+      return e.http_body if e.http_status == 422
+
       raise
     end
 

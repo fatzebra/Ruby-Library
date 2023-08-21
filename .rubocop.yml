@@ -7,7 +7,7 @@ Layout/EmptyLinesAroundBlockBody:
 
 Style/MissingRespondToMissing:
   Enabled: false
-Style/MethodMissingSuper:
+Lint/MissingSuper:
   Enabled: false
 Style/NumericPredicate:
   Enabled: false
@@ -34,7 +34,7 @@ Documentation:
   Enabled: false
 
 AllCops:
-  TargetRubyVersion: 2.2
+  TargetRubyVersion: 2.7
   Exclude:
     - bin/**/*
     - vendor/**/*

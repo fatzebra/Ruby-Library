@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 module FatZebra
   module Util
     class << self
 
-      DATE_FORMAT = '%Y/%m/%d'.freeze
-      REGEXP_HTTP = %r{http[s]?\:\/\/}
+      DATE_FORMAT = '%Y/%m/%d'
+      REGEXP_HTTP = %r{https?://}.freeze
 
       def cleanup_host(uri)
         uri.to_s.gsub(REGEXP_HTTP, '')

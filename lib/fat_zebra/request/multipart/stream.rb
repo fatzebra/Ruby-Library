@@ -1,3 +1,4 @@
+# rubocop:disable Style/FrozenStringLiteralComment
 module FatZebra
   ##
   # == FatZebra \Request \Multipart \Stream
@@ -55,3 +56,5 @@ module FatZebra
     end
   end
 end
+
+# rubocop:enable Style/FrozenStringLiteralComment

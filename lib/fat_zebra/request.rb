@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'fat_zebra/request/multipart/part'
 require 'fat_zebra/request/multipart/stream'
 require 'fat_zebra/request/multipart/epilogue'
@@ -15,13 +17,14 @@ module FatZebra
       def execute(params = {})
         klass = new(params)
 
-        if params[:method] == :post
+        case params[:method]
+        when :post
           klass.post
-        elsif params[:method] == :put
+        when :put
           klass.put
-        elsif params[:method] == :delete
+        when :delete
           klass.delete
-        elsif params[:method] == :get
+        when :get
           klass.get
         else
           raise FatZebra::UnknownRequestMethod, "#{params[:method]} haven't been implemented"
@@ -131,7 +134,7 @@ module FatZebra
       parts << Multipart::Epilogue.new
 
       request.content_length = parts.inject(0) { |sum, part| sum + part.length }
-      request.content_type = 'multipart/form-data; boundary=' + parts.first.boundary
+      request.content_type = "multipart/form-data; boundary=#{parts.first.boundary}"
       request.body_stream = Multipart::Stream.new(parts.map(&:to_io))
     end
 

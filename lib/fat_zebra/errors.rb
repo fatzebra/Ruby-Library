@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FatZebra
 
   ##
@@ -16,10 +18,7 @@ module FatZebra
   # Request to API Error
   class RequestError < StandardError
 
-    attr_reader :http_body
-    attr_reader :http_status
-    attr_reader :http_status_type
-    attr_reader :http_message
+    attr_reader :http_body, :http_status, :http_status_type, :http_message
 
     def initialize(response, message: nil)
       @http_status      = response.code.to_i

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FatZebra
   ##
   # == FatZebra \Purchase
@@ -71,8 +73,8 @@ module FatZebra
     def refund(params = {}, options = {})
       Refund.create({
         transaction_id: id,
-        amount:         amount,
-        reference:      reference
+        amount: amount,
+        reference: reference
       }.merge(params), options)
     end
 
@@ -112,6 +114,7 @@ module FatZebra
     # @return [Response] Purchase response object
     def increment!(additional_amount, options = {})
       raise ArgumentError, 'Amount must be a positive amount' unless additional_amount > 0
+
       response = request(:put, resource_path("purchases/#{id}"), { amount: amount + additional_amount }, options)
       update_from(response)
     end

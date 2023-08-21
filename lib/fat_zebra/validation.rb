@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FatZebra
   module Validation
 
@@ -39,7 +41,7 @@ module FatZebra
       errors << "'#{field}' is required" if params[field].nil? || params[field] == ''
     end
 
-    # rubocop:disable Metrics/CyclomaticComplexity
+    # rubocop:disable Metrics/CyclomaticComplexity, Lint/MixedRegexpCaptureTypes
     def validate_type(field, options, params)
       regexp =
         case options
@@ -50,9 +52,9 @@ module FatZebra
         when :positive_integer
           /\A\d*\z/
         when :batch_filename
-          /\ABATCH-(?<version>v\d)-(?<type>[A-Z]*)-((?<merchant_username>[A-Z0-9]*\-?[A-Z0-9]*)-)?(?<process_date>\d{8})-(?<reference>[a-zA-Z0-9\-_]*).csv\z/i
+          /\ABATCH-(?<version>v\d)-(?<type>[A-Z]*)-((?<merchant_username>[A-Z0-9]*-?[A-Z0-9]*)-)?(?<process_date>\d{8})-(?<reference>[a-zA-Z0-9\-_]*).csv\z/i
         when :file_type
-          /\A\#\<File\:.*\z/
+          /\A\#<File:.*\z/
         when :boolean
           /\Atrue|false\z/
         else
@@ -61,7 +63,7 @@ module FatZebra
 
       errors << "'#{field}' is not a '#{options}'" unless params[field].to_s =~ regexp
     end
-    # rubocop:enable Metrics/CyclomaticComplexity
+    # rubocop:enable Metrics/CyclomaticComplexity, Lint/MixedRegexpCaptureTypes
 
   end
 end

@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift(__dir__) unless $LOAD_PATH.include?(__dir__)
+
 # Libraries
 require 'securerandom'
 require 'json'
@@ -37,6 +41,9 @@ require 'fat_zebra/direct_credit'
 require 'fat_zebra/bank_account'
 require 'fat_zebra/web_hook'
 require 'fat_zebra/batch'
+
+# Utilities/Mastercard
+require 'fat_zebra/utilities/mastercard/click_to_pay/registration'
 
 # Paypal API Resources
 require 'fat_zebra/paypal/billing_agreement'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FatZebra
   ##
   # == FatZebra \Paypal::Refund
@@ -14,7 +16,7 @@ module FatZebra
 
       class << self
         def base_path
-          super + '/paypal/'
+          "#{super}/paypal/"
         end
       end
     end

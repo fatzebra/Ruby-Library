@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FatZebra
   ##
   # == FatZebra \API \Resource
@@ -30,16 +32,17 @@ module FatZebra
         uri            = build_endpoint_url(configurations.gateway, path, url_params, http_secure: configurations.http_secure)
 
         request_options = Util.compact(
-          method:  method,
-          url:     uri.to_s,
+          method: method,
+          url: uri.to_s,
           payload: payload,
-          proxy:   configurations.proxy,
+          proxy: configurations.proxy,
           use_ssl: configurations.http_secure
         ).merge(authentication).merge(default_headers).merge(configurations.global_options).merge(options)
 
         Request.execute(request_options).body
-      rescue FatZebra::RequestError => error
-        return error.http_body if error.http_status == 422
+      rescue FatZebra::RequestError => e
+        return e.http_body if e.http_status == 422
+
         raise
       end
       # rubocop:enable Metrics/AbcSize
@@ -48,8 +51,9 @@ module FatZebra
 
       def ssl_options
         return {} unless configurations.http_secure
+
         {
-          ca_file:     File.expand_path(File.dirname(__FILE__) + '/../../vendor/cacert.pem'),
+          ca_file: File.expand_path("#{File.dirname(__FILE__)}/../../vendor/cacert.pem"),
           verify_mode: OpenSSL::SSL::VERIFY_PEER
         }
       end
@@ -57,7 +61,7 @@ module FatZebra
       def authentication
         {
           basic_auth: {
-            user:     configurations.username,
+            user: configurations.username,
             password: configurations.token
           }
         }

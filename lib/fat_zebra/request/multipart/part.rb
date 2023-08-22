@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FatZebra
   ##
   # == FatZebra \Request \Multipart \Part
@@ -7,7 +9,7 @@ module FatZebra
     module Multipart
       module Part
 
-        LINE_BREAK = "\r\n".freeze
+        LINE_BREAK = "\r\n"
 
         def boundary
           '----FatZebraMultipartPost'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module FatZebra
   ##
   # == FatZebra \Config
@@ -7,7 +9,7 @@ module FatZebra
 
     GATEWAY_URLS = {
       production: 'gateway.fatzebra.com.au',
-      sandbox:    'gateway.sandbox.fatzebra.com.au'
+      sandbox: 'gateway.sandbox.fatzebra.com.au'
     }.freeze
 
     ##

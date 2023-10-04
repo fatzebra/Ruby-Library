@@ -1,0 +1,30 @@
+steps:
+  - label: ":rspec: Run rspec"
+    command:
+      - "bundle install"
+      - "bundle exec rspec"
+    plugins:
+      - docker#v3.3.0:
+          image: ruby:2.7
+
+  - label: ":rubocop: Run the cop"
+    command:
+      - "bundle install"
+      - "echo 'running rubocop'"
+      - "bundle exec rubocop"
+    plugins:
+      - docker#v3.3.0:
+          image: ruby:2.7
+  - wait
+
+  - label: ":pick:  Build and Push"
+    command:
+      - "bundle install"
+      - "bundle exec rake release"
+    branches: master
+    plugins:
+      - docker#v3.3.0:
+          image: ruby:2.7
+    agents:
+      queue: aws
+      Environment: test

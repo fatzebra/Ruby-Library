@@ -20,7 +20,7 @@ steps:
   - label: ":pick:  Build and Push"
     command:
       - "bundle install"
-      - "bundle exec rake release"
+      - "gem build && gem push *.gem"
     branches: master
     plugins:
       - docker#v3.3.0:

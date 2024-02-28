@@ -1,0 +1,84 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/utilities/apple_pay/domains/www.example99.com
+    body:
+      encoding: UTF-8
+      string: '{"async":false,"test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 28 Feb 2024 06:06:21 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 200 OK
+      Cache-Control:
+      - no-store
+      Vary:
+      - Accept
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 567ad3e606bf6c5b7012a787
+      X-Runtime:
+      - '3.091697'
+      X-Backend:
+      - gateway
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Content-Security-Policy-Report-Only:
+      - 'child-src ''self'' blob: *.cardinalcommerce.com fatzebra.statuspage.io; connect-src
+        ''self'' *.mastercard.com *.forter.com *.pmnts-staging.io *.rollbar.com *.nr-data.net
+        *.cardinalcommerce.com fatzebra.statuspage.io *.googleapis.com *.google-analytics.com;
+        default-src ''self'' ''unsafe-eval'' ''unsafe-inline'' *.forter.com *.nr-data.net
+        blob: *.pmnts-sandbox.io *.rollbar.com fatzebra.statuspage.io *.iovation.com
+        data: *.googleapis.com *.gstatic.com *.newrelic.com *.bootstrapcdn.com www.google.com
+        pay.google.com *.google-analytics.com *.gravatar.com; font-src ''self'' cdnjs.cloudflare.com
+        data: *.gstatic.com *.bootstrapcdn.com *.aexp-static.com; form-action ''self''
+        *.cardinalcommerce.com; frame-ancestors ''self''; frame-src ''self'' fatzebra.statuspage.io
+        *.americanexpress.com www.google.com pay.google.com *.masterpass.com *.visa.com
+        *.mastercard.com; img-src ''self'' *.visa.com data: *.googleapis.com *.gstatic.com
+        masterpass.com *.masterpass.com *.americanexpress.com *.google-analytics.com
+        *.gravatar.com; script-src ''self'' ''unsafe-eval'' ''unsafe-inline'' *.forter.com
+        *.nr-data.net *.pmnts-sandbox.io *.pmnts-staging.io *.rollbar.com fatzebra.statuspage.io
+        cdnjs.cloudflare.com *.iovation.com *.jquery.com *.newrelic.com *.googleapis.com
+        *.cardinalcommerce.com *.bootstrapcdn.com wasm-eval *.google-analytics.com
+        *.googletagmanager.com; script-src-attr ''unsafe-inline''; script-src-elem
+        ''self'' ''unsafe-inline'' *.forter.com *.nr-data.net *.pmnts-sandbox.io *.rollbar.com
+        fatzebra.statuspage.io *.iovation.com *.jquery.com cdnjs.cloudflare.com *.pmnts-staging.io
+        *.aexp-static.com *.newrelic.com *.googleapis.com *.americanexpress.com www.google.com
+        pay.google.com *.visa.com *.masterpass.com *.mastercard.com *.google-analytics.com
+        *.gstatic.com *.bootstrapcdn.com; style-src ''self'' ''unsafe-eval'' ''unsafe-inline''
+        *.bootstrapcdn.com *.googleapis.com; style-src-attr ''unsafe-inline''; style-src-elem
+        ''unsafe-inline'' ''self'' *.googleapis.com cdnjs.cloudflare.com *.bootstrapcdn.com;
+        worker-src blob:; report-uri https://fatzebra.report-uri.com/r/d/csp/wizard'
+      Nel:
+      - '{"report_to":"default","max_age":31536000,"include_subdomains":true}'
+      Report-To:
+      - '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://fatzebra.report-uri.com/a/d/g"}],"include_subdomains":true}'
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{"status":"Active","domain":"www.example99.com","created_at":"2024-02-28T17:06:18+11:00","updated_at":"2024-02-28T06:06:21+00:00"},"errors":[],"test":true}'
+    http_version:
+  recorded_at: Wed, 28 Feb 2024 06:06:21 GMT
+recorded_with: VCR 3.0.3

@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://gateway.sandbox.fatzebra.com.au/v1.0/utilities/apple_pay/domains/www.example99.com
+    body:
+      encoding: UTF-8
+      string: '{"test":true}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Basic VEVTVDpURVNU
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      Date:
+      - Wed, 28 Feb 2024 06:06:22 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Status:
+      - 202 Accepted
+      Cache-Control:
+      - no-store
+      Vary:
+      - Accept
+      Pragma:
+      - no-cache
+      X-Request-Id:
+      - 5162e26069e53a9463e733fd
+      X-Runtime:
+      - '0.033018'
+      X-Backend:
+      - gateway
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"successful":true,"response":{},"errors":[],"test":true}'
+    http_version:
+  recorded_at: Wed, 28 Feb 2024 06:06:22 GMT
+recorded_with: VCR 3.0.3

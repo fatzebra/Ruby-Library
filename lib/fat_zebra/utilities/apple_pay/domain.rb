@@ -13,8 +13,8 @@ module FatZebra
           # Register an Apple Pay (web) domain
           #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def register!
-            response = request(:post, ENDPOINT_URL)
+          def register!(domain, params = {})
+            response = request(:post, path(domain), params)
             initialize_from(response)
           end
 
@@ -22,8 +22,8 @@ module FatZebra
           # Check registration status of an Apple Pay (web) domain
           #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def registered?
-            response = request(:get, ENDPOINT_URL)
+          def find!(domain)
+            response = request(:get, path(domain))
             initialize_from(response)
           end
 
@@ -31,9 +31,15 @@ module FatZebra
           # Delete an Apple Pay (web) domain
           #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def delete!
-            response = request(:delete, ENDPOINT_URL)
+          def delete!(domain)
+            response = request(:delete, path(domain))
             initialize_from(response)
+          end
+
+          private
+
+          def path(domain)
+            "#{ENDPOINT_URL}/#{domain}"
           end
         end
       end

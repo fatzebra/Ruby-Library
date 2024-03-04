@@ -21,7 +21,7 @@ http_interactions:
       message: Accepted
     headers:
       Date:
-      - Wed, 28 Feb 2024 06:06:22 GMT
+      - Mon, 04 Mar 2024 01:10:33 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -37,9 +37,9 @@ http_interactions:
       Pragma:
       - no-cache
       X-Request-Id:
-      - 5162e26069e53a9463e733fd
+      - 3f319fea5d6aa95004cab8f5
       X-Runtime:
-      - '0.033018'
+      - '0.033681'
       X-Backend:
       - gateway
       Strict-Transport-Security:
@@ -48,5 +48,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"successful":true,"response":{},"errors":[],"test":true}'
     http_version:
-  recorded_at: Wed, 28 Feb 2024 06:06:22 GMT
+  recorded_at: Mon, 04 Mar 2024 01:10:33 GMT
 recorded_with: VCR 3.0.3

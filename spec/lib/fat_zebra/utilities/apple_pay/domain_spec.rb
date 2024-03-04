@@ -10,20 +10,11 @@ describe FatZebra::Utilities::ApplePay::Domain do
       async: false
     }}
 
-    it "registers the domain" do
+    it "creates the domain" do
       expect(create).to be_accepted
       expect(create.domain).to eq(domain)
       expect(create.status).to eq("Active")
     end
-    # it { is_expected.to be_accepted }
-    # it { expect(create.domain).to eq(domain) }
-    # it { expect(create.status).to eq("Active") }
-
-    # context 'validations' do
-    #   let(:customer_valid_payload) {{}}
-
-    #   it { expect{ customer }.to raise_error(FatZebra::RequestValidationError) }
-    # end
   end
 
   describe '.find!', :vcr do
@@ -35,10 +26,6 @@ describe FatZebra::Utilities::ApplePay::Domain do
       expect(find.domain).to eq(domain)
       expect(find.status).to eq("Active")
     end
-
-    # it { is_expected.to be_accepted }
-    # it { expect(find.status).to eq("Active") }
-    # it { expect(find.domain).to eq(domain) }
   end
 
   describe '.delete!', :vcr do
@@ -48,7 +35,5 @@ describe FatZebra::Utilities::ApplePay::Domain do
     it "deletes the domain" do
       expect(delete).to be_accepted
     end
-
-    # it { is_expected.to be_accepted }
   end
 end

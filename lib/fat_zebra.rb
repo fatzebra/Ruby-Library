@@ -42,7 +42,8 @@ require 'fat_zebra/bank_account'
 require 'fat_zebra/web_hook'
 require 'fat_zebra/batch'
 
-# Utilities/Mastercard
+# Utilities
+require 'fat_zebra/utilities/apple_pay/domain'
 require 'fat_zebra/utilities/mastercard/click_to_pay/registration'
 
 # Paypal API Resources

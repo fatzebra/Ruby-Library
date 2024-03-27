@@ -10,9 +10,12 @@ Gem::Specification.new do |s|
   s.version     = FatZebra::VERSION
   s.authors     = ['Fat Zebra']
   s.email       = ['support@fatzebra.com']
-  s.homepage    = ''
+  s.homepage    = 'https://github.com/fatzebra/Ruby-Library'
   s.summary     = 'Fat Zebra payments gem - integrate your ruby app with Fat Zebra'
   s.description = 'Provides integration with the Fat Zebra internet payment gateway (www.fatzebra.com), including purchase, refund, auth, capture and recurring billing functionality.'
+
+  s.metadata['homepage_uri'] = spec.homepage
+  s.metadata['source_code_uri'] = spec.homepage
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {spec}/*`.split("\n")

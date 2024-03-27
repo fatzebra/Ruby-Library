@@ -5,7 +5,7 @@ steps:
       - "bundle exec rspec"
     plugins:
       - docker#v3.3.0:
-          image: ruby:2.7
+          image: ruby:3.3
 
   - label: ":rubocop: Run the cop"
     command:
@@ -14,7 +14,7 @@ steps:
       - "bundle exec rubocop"
     plugins:
       - docker#v3.3.0:
-          image: ruby:2.7
+          image: ruby:3.3
   - wait
 
   - label: ":pick:  Build and Push"
@@ -24,7 +24,7 @@ steps:
     branches: master
     plugins:
       - docker#v3.3.0:
-          image: ruby:2.7
+          image: ruby:3.3
           environment:
             - GEM_HOST_API_KEY
             - GIT_AUTHOR_NAME=Fat Zebra

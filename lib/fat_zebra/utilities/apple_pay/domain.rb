@@ -13,7 +13,7 @@ module FatZebra
           # List Apple Pay (web) domains
           #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def list!
+          def list
             response = request(:get, ENDPOINT_URL)
             initialize_from(response)
           end

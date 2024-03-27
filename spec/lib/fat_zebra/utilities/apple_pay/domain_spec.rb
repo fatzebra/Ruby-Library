@@ -2,6 +2,27 @@ require 'spec_helper'
 
 describe FatZebra::Utilities::ApplePay::Domain do
 
+  describe '.list', :vcr do
+    subject(:list) { FatZebra::Utilities::ApplePay::Domain.list }
+
+    it "fetches the merchant domains" do
+      expect(list).to be_accepted
+      expect(list.data.length).to eq(2)
+      expect(list.data.first.raw).to eq(
+        {
+          "domain" => "example.com", 
+          "status" => "Active"
+        }
+      )
+      expect(list.data.last.raw).to eq(
+        {
+          "domain" => "example2.com", 
+          "status" => "Active"
+        }
+      )
+    end
+  end
+
   describe '.register!', :vcr do
     subject(:create) { FatZebra::Utilities::ApplePay::Domain.register!(domain, valid_payload) }
 

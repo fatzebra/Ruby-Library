@@ -12,6 +12,8 @@ module FatZebra
           ##
           # List Apple Pay (web) domains
           #
+          # @param [Hash] options for the request, and configurations (Optional)
+          #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
           def list(options: {})
             params = {}
@@ -22,6 +24,10 @@ module FatZebra
           ##
           # Register an Apple Pay (web) domain
           #
+          # @param [String] domain
+          # @param [Hash] params
+          # @param [Hash] options for the request, and configurations (Optional)
+          #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
           def register!(domain, params = {}, options: {})
             response = request(:post, path(domain), params, options)
@@ -30,6 +36,9 @@ module FatZebra
 
           ##
           # Check registration status of an Apple Pay (web) domain
+          #
+          # @param [String] domain
+          # @param [Hash] options for the request, and configurations (Optional)
           #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
           def find!(domain, options: {})
@@ -40,6 +49,9 @@ module FatZebra
 
           ##
           # Delete an Apple Pay (web) domain
+          #
+          # @param [String] domain
+          # @param [Hash] options for the request, and configurations (Optional)
           #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
           def delete!(domain, options: {})

@@ -12,36 +12,51 @@ module FatZebra
           ##
           # List Apple Pay (web) domains
           #
+          # @param [Hash] options for the request, and configurations (Optional)
+          #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def list
-            response = request(:get, ENDPOINT_URL)
+          def list(options: {})
+            params = {}
+            response = request(:get, ENDPOINT_URL, params, options)
             initialize_from(response)
           end
 
           ##
           # Register an Apple Pay (web) domain
           #
+          # @param [String] domain
+          # @param [Hash] params
+          # @param [Hash] options for the request, and configurations (Optional)
+          #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def register!(domain, params = {})
-            response = request(:post, path(domain), params)
+          def register!(domain, params = {}, options: {})
+            response = request(:post, path(domain), params, options)
             initialize_from(response)
           end
 
           ##
           # Check registration status of an Apple Pay (web) domain
           #
+          # @param [String] domain
+          # @param [Hash] options for the request, and configurations (Optional)
+          #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def find!(domain)
-            response = request(:get, path(domain))
+          def find!(domain, options: {})
+            params = {}
+            response = request(:get, path(domain), params, options)
             initialize_from(response)
           end
 
           ##
           # Delete an Apple Pay (web) domain
           #
+          # @param [String] domain
+          # @param [Hash] options for the request, and configurations (Optional)
+          #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def delete!(domain)
-            response = request(:delete, path(domain))
+          def delete!(domain, options: {})
+            params = {}
+            response = request(:delete, path(domain), params, options)
             initialize_from(response)
           end
 

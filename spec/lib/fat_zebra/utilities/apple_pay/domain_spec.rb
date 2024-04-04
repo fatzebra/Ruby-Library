@@ -28,7 +28,7 @@ describe FatZebra::Utilities::ApplePay::Domain do
 
     let!(:domain) { "www.example99.com" }
     let!(:valid_payload) {{
-      async: false
+      'async' => false
     }}
 
     it "creates the domain" do

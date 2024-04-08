@@ -15,7 +15,7 @@ module FatZebra
           # @param [Hash] options for the request, and configurations (Optional)
           #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def list(options: {})
+          def list(options = {})
             params = {}
             response = request(:get, ENDPOINT_URL, params, options)
             initialize_from(response)
@@ -29,7 +29,7 @@ module FatZebra
           # @param [Hash] options for the request, and configurations (Optional)
           #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def register!(domain, params = {}, options: {})
+          def register!(domain, params = {}, options = {})
             response = request(:post, path(domain), params, options)
             initialize_from(response)
           end
@@ -41,7 +41,7 @@ module FatZebra
           # @param [Hash] options for the request, and configurations (Optional)
           #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def find!(domain, options: {})
+          def find!(domain, options = {})
             params = {}
             response = request(:get, path(domain), params, options)
             initialize_from(response)
@@ -54,7 +54,7 @@ module FatZebra
           # @param [Hash] options for the request, and configurations (Optional)
           #
           # @return [FatZebra::Utilities::ApplePay::Domains] response
-          def delete!(domain, options: {})
+          def delete!(domain, options = {})
             params = {}
             response = request(:delete, path(domain), params, options)
             initialize_from(response)

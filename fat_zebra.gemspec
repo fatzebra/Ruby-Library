@@ -23,6 +23,8 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>= 2.7'
 
+  s.add_dependency 'ostruct'
+
   s.add_development_dependency 'byebug'
   s.add_development_dependency 'rake'
   s.add_development_dependency 'rspec', '~> 3.6'

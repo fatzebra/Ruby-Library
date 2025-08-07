@@ -36,7 +36,7 @@ module FatZebra
     end
 
     def validate_required(field, options, params)
-      return if options.is_a?(Hash) && options[:unless] && options[:unless].any? { |f| params[f] }
+      return if options.is_a?(Hash) && options[:unless]&.any? { |f| params[f] }
 
       errors << "'#{field}' is required" if params[field].nil? || params[field] == ''
     end

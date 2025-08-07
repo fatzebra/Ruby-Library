@@ -144,7 +144,7 @@ module FatZebra
 
     def set_header
       params[:headers].each do |(type, value)|
-        formated_type = type.to_s.split(/_/).map(&:capitalize).join('-')
+        formated_type = type.to_s.split('_').map(&:capitalize).join('-')
 
         request[formated_type] = value
       end
@@ -162,18 +162,14 @@ module FatZebra
 
     def uri_proxy
       @uri_proxy ||=
-        if params[:proxy]
-          URI(params[:proxy])
-        else
-          OpenStruct.new
-        end
+        URI(params[:proxy] || '')
     end
 
     def proxy_host
-      if !uri_proxy.host.nil?
-        uri_proxy.host
-      else
+      if uri_proxy.host.nil?
         :ENV
+      else
+        uri_proxy.host
       end
     end
   end

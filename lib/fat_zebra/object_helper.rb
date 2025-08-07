@@ -112,8 +112,8 @@ module FatZebra
       @values.delete(name)
 
       singleton_class.class_eval { remove_method name.to_sym } if singleton_methods.include?(name.to_sym)
-      singleton_class.class_eval { remove_method "#{name}=".to_sym } if singleton_methods.include?("#{name}=".to_sym)
-      singleton_class.class_eval { remove_method "#{name}?".to_sym } if singleton_methods.include?("#{name}?".to_sym)
+      singleton_class.class_eval { remove_method :"#{name}=" } if singleton_methods.include?(:"#{name}=")
+      singleton_class.class_eval { remove_method :"#{name}?" } if singleton_methods.include?(:"#{name}?")
     end
 
   end

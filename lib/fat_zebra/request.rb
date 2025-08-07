@@ -165,7 +165,7 @@ module FatZebra
         if params[:proxy]
           URI(params[:proxy])
         else
-          OpenStruct.new
+          URI('')
         end
     end
 

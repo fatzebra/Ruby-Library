@@ -1,42 +1,67 @@
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 3
+  Exclude:
+    - vendor/**/*
+    - spec/**/*
+
 Layout/EmptyLinesAroundClassBody:
   Enabled: false
 Layout/EmptyLinesAroundModuleBody:
   Enabled: false
-Layout/EmptyLinesAroundBlockBody:
-  Enabled: false
+Layout/LineLength:
+  Max: 200
 
-Style/MissingRespondToMissing:
+Style/Documentation:
   Enabled: false
-Lint/MissingSuper:
+Style/MapIntoArray:
+  Enabled: false
+Style/MissingRespondToMissing:
   Enabled: false
 Style/NumericPredicate:
   Enabled: false
+Style/SuperArguments:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Gemspec/DevelopmentDependencies:
+  Enabled: false
+Gemspec/RequiredRubyVersion:
+  Enabled: false
+Gemspec/RequireMFA:
+  Enabled: false
 
 Metrics/AbcSize:
-  # The ABC size is a calculated magnitude, so this number can be a Fixnum or
-  # a Float.
   Max: 27
-Metrics/LineLength:
-  Max: 200
 Metrics/ClassLength:
   CountComments: false
   Max: 200
 Metrics/MethodLength:
   CountComments: false
   Max: 25
-Metrics/ModuleLength:
-  CountComments: false
-  Max: 200
-Metrics/CyclomaticComplexity:
-  Max: 7
 
-Documentation:
+Naming/PredicateMethod:
   Enabled: false
 
-AllCops:
-  TargetRubyVersion: 2.7
-  Exclude:
-    - bin/**/*
-    - vendor/**/*
-    - tmp/**/*
-    - spec/**/*
+# Metrics/MethodLength:
+#   CountComments: false
+#   Max: 25
+# Metrics/ModuleLength:
+#   CountComments: false
+#   Max: 200
+# Metrics/CyclomaticComplexity:
+#   Max: 7
+
+# Documentation:
+#   Enabled: false
+
+# AllCops:
+#   TargetRubyVersion: 2.7
+#   Exclude:
+#     - bin/**/*
+#     - vendor/**/*
+#     - tmp/**/*
+#     - spec/**/*

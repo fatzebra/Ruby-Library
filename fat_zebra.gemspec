@@ -17,11 +17,8 @@ Gem::Specification.new do |s|
   s.metadata['homepage_uri'] = s.homepage
   s.metadata['source_code_uri'] = s.homepage
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {spec}/*`.split("\n")
-  s.require_paths = %w[lib]
-
-  s.required_ruby_version = '>= 2.7'
+  s.files         = Dir.glob('lib/**/*') + %w[README.md fat_zebra.gemspec]
+  s.require_paths = ['lib']
 
   s.add_development_dependency 'byebug'
   s.add_development_dependency 'rake'

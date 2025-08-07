@@ -5,7 +5,7 @@ module FatZebra
     class << self
 
       DATE_FORMAT = '%Y/%m/%d'
-      REGEXP_HTTP = %r{https?://}.freeze
+      REGEXP_HTTP = %r{https?://}
 
       def cleanup_host(uri)
         uri.to_s.gsub(REGEXP_HTTP, '')

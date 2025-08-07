@@ -1,0 +1,41 @@
+name: build and test
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*.*.*'
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version:
+          - 3.2
+          - 3.3
+          - 3.4
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby and Install Gem
+        uses: ruby/setup-ruby@v1 # zizmor: ignore[unpinned-uses]
+        env:
+          BUNDLER_GEMFILE=gemfiles/Gemfile.ruby${{ matrix.ruby-version }}
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+
+      - name: Run rubocop
+        env:
+          BUNDLER_GEMFILE=gemfiles/Gemfile.ruby${{ matrix.ruby-version }}
+        run: |
+          bundle exec rubocop
+
+      - name: Run rspec test
+        env:
+          BUNDLER_GEMFILE=gemfiles/Gemfile.ruby${{ matrix.ruby-version }}
+        run: |
+          bundle exec rspec

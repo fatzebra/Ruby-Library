@@ -1,7 +1,7 @@
 AllCops:
   NewCops: enable
   SuggestExtensions: false
-  TargetRubyVersion: 3
+  TargetRubyVersion: 3.2
   Exclude:
     - vendor/**/*
     - spec/**/*
@@ -28,10 +28,6 @@ Lint/MissingSuper:
   Enabled: false
 
 Gemspec/DevelopmentDependencies:
-  Enabled: false
-Gemspec/RequiredRubyVersion:
-  Enabled: false
-Gemspec/RequireMFA:
   Enabled: false
 
 Metrics/AbcSize:

@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    fat_zebra (3.2.9)
+    fat_zebra (0.0.0.pre.build)
 
 GEM
   remote: http://rubygems.org/

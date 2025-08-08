@@ -39,3 +39,47 @@ jobs:
           BUNDLE_GEMFILE: gemfiles/Gemfile.ruby${{ matrix.ruby-version }}
         run: |
           bundle exec rspec
+
+  publish-gem:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    needs:
+      - build-and-test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Base Ref
+        id: validate_base_ref
+        env:
+          JSON_ENV_VARS: ${{ inputs.credentials_json }}
+        shell: bash
+        run: |
+          if [ "${{ github.event.base_ref }}" != "refs/heads/main" ]; then
+            echo "Only main branch tags can be published"
+            echo "Tag's BASE_REF [${{ github.event.base_ref }}] is not [refs/heads/main]"
+            # exit 1
+          fi
+
+      - name: Validate Tag
+        id: validate_tag
+        uses: rubenesp87/semver-validation-action@0.1.0
+        with:
+          version: ${{ github.ref_name }}
+
+      - name: Update version
+        shell: bash
+        run: |
+          echo "Using TAG ${{ github.ref_name }}"
+          sed -i "s/0.0.0.pre.build/${{ github.ref_name }}/" lib/fat_zebra/version.rb
+          cat lib/fat_zebra/version.rb
+
+      - name: Build and publish
+        shell: bash
+        run: |
+          gem build
+          ls -latr *.gem
+          gem specification *.gem
+        env:
+          # GEM_HOST_API_KEY: ${{ secrets.rubygems_api_key }}
+          GIT_AUTHOR_NAME: Fat Zebra
+          GIT_AUTHOR_EMAIL: support@fatzebra.com

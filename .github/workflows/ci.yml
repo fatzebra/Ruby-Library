@@ -60,7 +60,7 @@ jobs:
           if [ "${{ github.event.base_ref }}" != "refs/heads/main" ]; then
             echo "Only main branch tags can be published"
             echo "Tag's BASE_REF [${{ github.event.base_ref }}] is not [refs/heads/main]"
-            # exit 1
+            exit 1
           fi
 
       - name: Validate Tag

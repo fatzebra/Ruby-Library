@@ -1,17 +1,10 @@
 Ruby API Library for Fat Zebra
 ==============================
 
-[![Build Status](https://travis-ci.org/fatzebra/Ruby-Library.svg?branch=master)](https://travis-ci.org/fatzebra/Ruby-Library)
-
-Release 3.2.6 for API version 1.0
-
 A Ruby client for the [Fat Zebra](https://www.fatzebra.com) Online Payment Gateway
 
-Dependencies
-------------
-
- * Ruby (tested on 2.3, 2.4, 2.5, 2.6)
- * Rest Client
+- [Latest releases](https://github.com/fatzebra/Ruby-Library/releases)
+- [Published Gem versions](https://rubygems.org/gems/fat_zebra)
 
 Installing
 ----------

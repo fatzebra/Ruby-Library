@@ -1,0 +1,88 @@
+name: build and test
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '*.*.*'
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ruby-version:
+          - 3.2
+          - 3.3
+          - 3.4
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby and Install Gem
+        uses: ruby/setup-ruby@v1
+        env:
+          BUNDLE_GEMFILE: gemfiles/ruby${{ matrix.ruby-version }}/Gemfile
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+
+      - name: Run rubocop
+        env:
+          BUNDLE_GEMFILE: gemfiles/ruby${{ matrix.ruby-version }}/Gemfile
+        run: |
+          bundle exec rubocop
+
+      - name: Run rspec test
+        env:
+          BUNDLE_GEMFILE: gemfiles/ruby${{ matrix.ruby-version }}/Gemfile
+        run: |
+          bundle exec rspec
+
+  publish-gem:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    environment: release
+    permissions:
+      id-token: write
+    needs:
+      - build-and-test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Base Ref
+        id: validate_base_ref
+        env:
+          JSON_ENV_VARS: ${{ inputs.credentials_json }}
+        shell: bash
+        run: |
+          if [ "${{ github.event.base_ref }}" != "refs/heads/main" ]; then
+            echo "Only main branch tags can be published"
+            echo "Tag's BASE_REF [${{ github.event.base_ref }}] is not [refs/heads/main]"
+            exit 1
+          fi
+
+      - name: Validate Tag
+        id: validate_tag
+        uses: rubenesp87/semver-validation-action@1aa67a60c04f1f6cccd1bcd93885f25f612bcc35
+        with:
+          version: ${{ github.ref_name }}
+
+      - name: Update version
+        shell: bash
+        run: |
+          echo "Using TAG ${{ github.ref_name }}"
+          sed -i "s/0.0.0.pre.build/${{ github.ref_name }}/" lib/fat_zebra/version.rb
+
+      - name: Configure trusted publishing credentials
+        uses: rubygems/configure-rubygems-credentials@v1.0.0
+
+      - name: Build and publish
+        shell: bash
+        run: |
+          gem build
+          gem push *.gem
+        env:
+          GIT_AUTHOR_NAME: Fat Zebra
+          GIT_AUTHOR_EMAIL: support@fatzebra.com

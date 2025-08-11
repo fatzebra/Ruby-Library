@@ -14,19 +14,19 @@ Gem::Specification.new do |s|
   s.summary     = 'Fat Zebra payments gem - integrate your ruby app with Fat Zebra'
   s.description = 'Provides integration with the Fat Zebra internet payment gateway (www.fatzebra.com), including purchase, refund, auth, capture and recurring billing functionality.'
 
-  s.metadata['homepage_uri'] = s.homepage
-  s.metadata['source_code_uri'] = s.homepage
+  s.metadata['homepage_uri']          = s.homepage
+  s.metadata['source_code_uri']       = s.homepage
+  s.metadata['rubygems_mfa_required'] = 'true'
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {spec}/*`.split("\n")
-  s.require_paths = %w[lib]
+  s.files         = Dir.glob('lib/**/*') + %w[README.md fat_zebra.gemspec]
+  s.require_paths = ['lib']
 
-  s.required_ruby_version = '>= 2.7'
+  s.required_ruby_version = '>= 3.2'
 
   s.add_development_dependency 'byebug'
   s.add_development_dependency 'rake'
-  s.add_development_dependency 'rspec', '~> 3.6'
+  s.add_development_dependency 'rspec'
   s.add_development_dependency 'rubocop'
-  s.add_development_dependency 'vcr', '~> 3.0'
-  s.add_development_dependency 'webmock', '~> 3.0'
+  s.add_development_dependency 'vcr'
+  s.add_development_dependency 'webmock'
 end

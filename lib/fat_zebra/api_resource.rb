@@ -53,7 +53,6 @@ module FatZebra
         return {} unless configurations.http_secure
 
         {
-          ca_file: File.expand_path("#{File.dirname(__FILE__)}/../../vendor/cacert.pem"),
           verify_mode: OpenSSL::SSL::VERIFY_PEER
         }
       end

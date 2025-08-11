@@ -5,7 +5,7 @@ module FatZebra
     class << self
 
       DATE_FORMAT = '%Y/%m/%d'
-      REGEXP_HTTP = %r{https?://}.freeze
+      REGEXP_HTTP = %r{https?://}
 
       def cleanup_host(uri)
         uri.to_s.gsub(REGEXP_HTTP, '')
@@ -16,7 +16,7 @@ module FatZebra
       #
       # @return [Hash]
       def compact(hash)
-        hash.reject { |_, value| value.nil? }
+        hash.compact
       end
 
       ##
@@ -56,7 +56,7 @@ module FatZebra
       #   underscore('MyModel') => 'my_model'
       def underscore(string)
         string
-          .gsub(/::/, '/')
+          .gsub('::', '/')
           .gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2')
           .gsub(/([a-z\d])([A-Z])/, '\1_\2')
           .tr('-', '_')

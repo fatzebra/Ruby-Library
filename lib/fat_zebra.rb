@@ -5,7 +5,6 @@ $LOAD_PATH.unshift(__dir__) unless $LOAD_PATH.include?(__dir__)
 # Libraries
 require 'securerandom'
 require 'json'
-require 'ostruct'
 require 'net/http'
 require 'cgi'
 require 'date'

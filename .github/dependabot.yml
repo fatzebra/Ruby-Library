@@ -1,9 +1,27 @@
 version: 2
 updates:
   - package-ecosystem: bundler
-    directory: /
+    directory: /gemfiles/ruby3.2
     schedule:
-      interval: daily
+      interval: weekly
+    groups:
+      non-major-dependencies:
+        update-types:
+          - "minor"
+          - "patch"
+  - package-ecosystem: bundler
+    directory: /gemfiles/ruby3.3
+    schedule:
+      interval: weekly
+    groups:
+      non-major-dependencies:
+        update-types:
+          - "minor"
+          - "patch"
+  - package-ecosystem: bundler
+    directory: /gemfiles/ruby3.4
+    schedule:
+      interval: weekly
     groups:
       non-major-dependencies:
         update-types:

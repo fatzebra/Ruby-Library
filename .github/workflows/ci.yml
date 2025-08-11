@@ -23,20 +23,20 @@ jobs:
       - name: Set up Ruby and Install Gem
         uses: ruby/setup-ruby@v1
         env:
-          BUNDLE_GEMFILE: gemfiles/Gemfile.ruby${{ matrix.ruby-version }}
+          BUNDLE_GEMFILE: gemfiles/ruby${{ matrix.ruby-version }}/Gemfile
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
 
       - name: Run rubocop
         env:
-          BUNDLE_GEMFILE: gemfiles/Gemfile.ruby${{ matrix.ruby-version }}
+          BUNDLE_GEMFILE: gemfiles/ruby${{ matrix.ruby-version }}/Gemfile
         run: |
           bundle exec rubocop
 
       - name: Run rspec test
         env:
-          BUNDLE_GEMFILE: gemfiles/Gemfile.ruby${{ matrix.ruby-version }}
+          BUNDLE_GEMFILE: gemfiles/ruby${{ matrix.ruby-version }}/Gemfile
         run: |
           bundle exec rspec
 

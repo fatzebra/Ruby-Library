@@ -1,5 +1,5 @@
 PATH
-  remote: ..
+  remote: ../..
   specs:
     fat_zebra (0.0.0.pre.build)
 
@@ -71,6 +71,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-24
+  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -83,7 +84,7 @@ DEPENDENCIES
   webmock
 
 RUBY VERSION
-   ruby 3.2.9p265
+   ruby 3.3.9p170
 
 BUNDLED WITH
-   2.4.19
+   2.5.22

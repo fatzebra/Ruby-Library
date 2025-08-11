@@ -44,6 +44,8 @@ jobs:
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
     environment: release
+    permissions:
+      id-token: write
     needs:
       - build-and-test
     steps:

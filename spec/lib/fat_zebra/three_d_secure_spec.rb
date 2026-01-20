@@ -51,7 +51,6 @@ describe FatZebra::ThreeDSecure do
 
     let(:merchant_username) { "TEST "}
 
-    # reference_id is returned from setup; for stability we call setup here.
     let(:reference_id) do
       described_class.setup(card_token: credit_card.token).reference_id
     end

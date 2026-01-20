@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 19 Jan 2026 12:44:08 GMT
+      - Tue, 20 Jan 2026 11:42:44 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -39,11 +39,11 @@ http_interactions:
       Pragma:
       - no-cache
       X-Request-Id:
-      - 3778b8732ce0a68b634940b9
+      - 3ffbdf59712fa06e2578a497
       X-Runtime:
-      - '0.079003'
+      - '0.031469'
       X-Backend:
-      - ip-10-100-34-142.ap-southeast-2.compute.internal
+      - ip-10-100-22-12.ap-southeast-2.compute.internal
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Content-Security-Policy-Report-Only:
@@ -84,6 +84,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"successful":true,"response":{"token":"02gg1kmaafmw92ah3mgo","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Debit","card_subcategory":"PrePaid","card_issuer":"Afriland
-        First Bank","card_country":"Liberia","authorized":true,"transaction_count":408,"alias":null},"errors":[],"test":true}'
-  recorded_at: Mon, 19 Jan 2026 12:44:08 GMT
+        First Bank","card_country":"Liberia","authorized":true,"transaction_count":411,"alias":null},"errors":[],"test":true}'
+  recorded_at: Tue, 20 Jan 2026 11:42:44 GMT
 recorded_with: VCR 6.3.1

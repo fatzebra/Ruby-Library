@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 19 Jan 2026 12:44:03 GMT
+      - Tue, 20 Jan 2026 11:42:44 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -39,11 +39,11 @@ http_interactions:
       Pragma:
       - no-cache
       X-Request-Id:
-      - 1242b3d3219b3b831acf7762
+      - 2c5aebf536b3e6023cf2bed0
       X-Runtime:
-      - '0.048763'
+      - '0.039472'
       X-Backend:
-      - ip-10-100-34-142.ap-southeast-2.compute.internal
+      - ip-10-100-22-12.ap-southeast-2.compute.internal
       Strict-Transport-Security:
       - max-age=31536000; includeSubDomains
       Content-Security-Policy-Report-Only:
@@ -84,52 +84,6 @@ http_interactions:
       encoding: UTF-8
       string: '{"successful":true,"response":{"token":"02gg1kmaafmw92ah3mgo","card_holder":"Matthew
         Savage","card_number":"512345XXXXXX2346","card_expiry":"2030-02-28","card_type":"MasterCard","card_category":"Debit","card_subcategory":"PrePaid","card_issuer":"Afriland
-        First Bank","card_country":"Liberia","authorized":true,"transaction_count":408,"alias":null},"errors":[],"test":true}'
-  recorded_at: Mon, 19 Jan 2026 12:44:03 GMT
-- request:
-    method: post
-    uri: https://gateway.sandbox.fatzebra.com.au/sdk/three_d_secure/setup
-    body:
-      encoding: UTF-8
-      string: '{"test":true}'
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - application/json
-      User-Agent:
-      - Ruby
-      Authorization:
-      - Basic VEVTVDpURVNU
-      Content-Type:
-      - application/json
-  response:
-    status:
-      code: 401
-      message: Unauthorized
-    headers:
-      Date:
-      - Mon, 19 Jan 2026 12:44:03 GMT
-      Content-Type:
-      - application/json; charset=utf-8
-      Transfer-Encoding:
-      - chunked
-      Connection:
-      - keep-alive
-      Status:
-      - 401 Unauthorized
-      Vary:
-      - Accept, Origin
-      X-Request-Id:
-      - 34e6196e5c85834f7dca11e2
-      X-Runtime:
-      - '0.017276'
-      X-Backend:
-      - ip-10-100-34-142.ap-southeast-2.compute.internal
-      Strict-Transport-Security:
-      - max-age=31536000; includeSubDomains
-    body:
-      encoding: UTF-8
-      string: '{"error":"Unauthorized"}'
-  recorded_at: Mon, 19 Jan 2026 12:44:03 GMT
+        First Bank","card_country":"Liberia","authorized":true,"transaction_count":411,"alias":null},"errors":[],"test":true}'
+  recorded_at: Tue, 20 Jan 2026 11:42:44 GMT
 recorded_with: VCR 6.3.1

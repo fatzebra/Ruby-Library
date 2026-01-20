@@ -23,7 +23,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 20 Jan 2026 11:42:41 GMT
+      - Tue, 20 Jan 2026 11:42:42 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -39,9 +39,9 @@ http_interactions:
       Pragma:
       - no-cache
       X-Request-Id:
-      - 5a0f0f4a4c3c17a14cb49b8a
+      - 2f836b0529122a9259464a2b
       X-Runtime:
-      - '0.042969'
+      - '0.024410'
       X-Backend:
       - ip-10-100-22-12.ap-southeast-2.compute.internal
       Strict-Transport-Security:
@@ -85,7 +85,7 @@ http_interactions:
       string: '{"successful":true,"response":{"token":"9pdv7a4pkmod2ciuzshj","card_holder":"Card
         Holder","card_number":"400000XXXXXX2503","card_expiry":"2045-02-28","card_type":"VISA","card_category":"Credit","card_subcategory":"Standard","card_issuer":"Intl
         Hdqtrs Center Owned","card_country":"United States","authorized":true,"transaction_count":0,"alias":null},"errors":[],"test":true}'
-  recorded_at: Tue, 20 Jan 2026 11:42:41 GMT
+  recorded_at: Tue, 20 Jan 2026 11:42:42 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/sdk/three_d_secure/setup
@@ -109,7 +109,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 20 Jan 2026 11:42:41 GMT
+      - Tue, 20 Jan 2026 11:42:43 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -122,12 +122,12 @@ http_interactions:
       - no-store
       Vary:
       - Accept, Origin
-      X-Runtime:
-      - '0.469771'
       Pragma:
       - no-cache
       X-Request-Id:
-      - 1eef70a37fb9f03166dfec6d
+      - 34ae9b7c5739b1693573ba46
+      X-Runtime:
+      - '0.517167'
       X-Backend:
       - ip-10-100-22-12.ap-southeast-2.compute.internal
       Strict-Transport-Security:
@@ -168,14 +168,14 @@ http_interactions:
       - '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://fatzebra.report-uri.com/a/d/g"}],"include_subdomains":true}'
     body:
       encoding: UTF-8
-      string: '{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjZmQ3YWY1Zi1mZDNkLTQzODktYWU0OS1jY2ExZjBlNWZkNWUiLCJpYXQiOjE3Njg5MDkzNjEsImlzcyI6IjVkZDgzYmYwMGU0MjNkMTQ5OGRjYmFjYSIsImV4cCI6MTc2ODkxMjk2MSwiT3JnVW5pdElkIjoiNjE5ZDU1OTVlNGMxZGE1NTAzNmFjMTViIiwiUmVmZXJlbmNlSWQiOiJkZjI3NTA1Yy1kNThmLTRmMmYtOTVmMC1jNjA3NmJkZDNiMTEifQ.qVp97rk5yE5IFLtrqrKmd0bJZK52Cdbs2VBdJA1DErU","device_data_collection_url":"https://centinelapistag.cardinalcommerce.com/V1/Cruise/Collect","reference_id":"df27505c-d58f-4f2f-95f0-c6076bdd3b11"}'
-  recorded_at: Tue, 20 Jan 2026 11:42:41 GMT
+      string: '{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwMTg3YzVkNC0wZjdiLTQ0OWMtYjQ5NS05Mzg0NTZmNWZkOGYiLCJpYXQiOjE3Njg5MDkzNjIsImlzcyI6IjVkZDgzYmYwMGU0MjNkMTQ5OGRjYmFjYSIsImV4cCI6MTc2ODkxMjk2MiwiT3JnVW5pdElkIjoiNjE5ZDU1OTVlNGMxZGE1NTAzNmFjMTViIiwiUmVmZXJlbmNlSWQiOiI4YjgxMmRiZi01ZTRmLTQxNjktOWVjZC1jMWNmMmMzNDIyNGQifQ.xa5YE0zL438_2R9qYx1z95hJ24-dApKrUYwDsvzQmxc","device_data_collection_url":"https://centinelapistag.cardinalcommerce.com/V1/Cruise/Collect","reference_id":"8b812dbf-5e4f-4169-9ecd-c1cf2c34224d"}'
+  recorded_at: Tue, 20 Jan 2026 11:42:43 GMT
 - request:
     method: post
     uri: https://gateway.sandbox.fatzebra.com.au/sdk/three_d_secure/check_enrollment
     body:
       encoding: UTF-8
-      string: '{"merchant_username":"TEST ","card_token":"9pdv7a4pkmod2ciuzshj","amount":100,"currency":"AUD","reference":"ref-7f48dc0df037","verification":"123","device_channel":"BROWSER","reference_id":"df27505c-d58f-4f2f-95f0-c6076bdd3b11","return_url":"https://example.com/3ds/return","acs_window_size":"05","browser_accept_content":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","browser_language":"en-AU","browser_java_enabled":false,"browser_color_depth":24,"browser_screen_height":1080,"browser_screen_width":1920,"browser_time_difference":0,"browser_user_agent":"RSpec","test":true}'
+      string: '{"merchant_username":"TEST ","card_token":"9pdv7a4pkmod2ciuzshj","amount":100,"currency":"AUD","reference":"ref-e6360a70d550","verification":"123","device_channel":"BROWSER","reference_id":"8b812dbf-5e4f-4169-9ecd-c1cf2c34224d","return_url":"https://example.com/3ds/return","acs_window_size":"05","browser_accept_content":"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8","browser_language":"en-AU","browser_java_enabled":false,"browser_color_depth":24,"browser_screen_height":1080,"browser_screen_width":1920,"browser_time_difference":0,"browser_user_agent":"RSpec","test":true}'
     headers:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
@@ -193,7 +193,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 20 Jan 2026 11:42:42 GMT
+      - Tue, 20 Jan 2026 11:42:43 GMT
       Content-Type:
       - application/json; charset=utf-8
       Transfer-Encoding:
@@ -209,9 +209,9 @@ http_interactions:
       Pragma:
       - no-cache
       X-Request-Id:
-      - 520fb63e0517f350581b5fd6
+      - 640df20b5ffa15fc2a720591
       X-Runtime:
-      - '0.607629'
+      - '0.573456'
       X-Backend:
       - ip-10-100-22-12.ap-southeast-2.compute.internal
       Strict-Transport-Security:
@@ -252,6 +252,6 @@ http_interactions:
       - '{"group":"default","max_age":31536000,"endpoints":[{"url":"https://fatzebra.report-uri.com/a/d/g"}],"include_subdomains":true}'
     body:
       encoding: UTF-8
-      string: '{"veres":"Y","pares":"C","eci":null,"cavv":null,"xid":null,"directory_server_transaction_id":"6a643b6a-4611-4816-ba5f-fb5d6e7cb195","specification_version":"2.2.0","step_up_url":"https://centinelapistag.cardinalcommerce.com/V2/Cruise/StepUp","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyMjBjZjRlNy0yYjY1LTQ1NWQtODE3Zi1iMzk0YjZjMjIyOTgiLCJpYXQiOjE3Njg5MDkzNjIsImlzcyI6IjVkZDgzYmYwMGU0MjNkMTQ5OGRjYmFjYSIsImV4cCI6MTc2ODkxMjk2MiwiT3JnVW5pdElkIjoiNjE5ZDU1OTVlNGMxZGE1NTAzNmFjMTViIiwiUGF5bG9hZCI6eyJBQ1NVcmwiOiJodHRwczovLzBtZXJjaGFudGFjc3N0YWcuY2FyZGluYWxjb21tZXJjZS5jb20vTWVyY2hhbnRBQ1NXZWIvY3JlcS5qc3AiLCJQYXlsb2FkIjoiZXlKdFpYTnpZV2RsVkhsd1pTSTZJa05TWlhFaUxDSnRaWE56WVdkbFZtVnljMmx2YmlJNklqSXVNaTR3SWl3aWRHaHlaV1ZFVTFObGNuWmxjbFJ5WVc1elNVUWlPaUkyTXpZMVlUUXlPUzFpTXpFd0xUUmxNRGd0WVRrME1DMDBOekZsWW1NeFlUVm1ObUVpTENKaFkzTlVjbUZ1YzBsRUlqb2lZVFZoWldObU5UVXRNV014WXkwME1HTmhMVGhrT0dZdE4ySTBOVEZoWkdZeU0yVXlJaXdpWTJoaGJHeGxibWRsVjJsdVpHOTNVMmw2WlNJNklqQTFJbjAiLCJUcmFuc2FjdGlvbklkIjoiNVJ0Q1BWOVhDbzFROVRTNXZkMzAifSwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmV0dXJuVXJsIjoiaHR0cHM6Ly9leGFtcGxlLmNvbS8zZHMvcmV0dXJuIn0.kd-mKaOEsF3rOP_3jfOAr1KOQALXshbPhs08De4mG6M"}'
-  recorded_at: Tue, 20 Jan 2026 11:42:42 GMT
+      string: '{"veres":"Y","pares":"C","eci":null,"cavv":null,"xid":null,"directory_server_transaction_id":"020e5125-b317-455b-8171-6ebc463b94f7","specification_version":"2.2.0","step_up_url":"https://centinelapistag.cardinalcommerce.com/V2/Cruise/StepUp","access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI0ZThiNjUxMC0zYWYxLTQyNTctYTg3Mi01MDBhN2ZhMGFjNWUiLCJpYXQiOjE3Njg5MDkzNjMsImlzcyI6IjVkZDgzYmYwMGU0MjNkMTQ5OGRjYmFjYSIsImV4cCI6MTc2ODkxMjk2MywiT3JnVW5pdElkIjoiNjE5ZDU1OTVlNGMxZGE1NTAzNmFjMTViIiwiUGF5bG9hZCI6eyJBQ1NVcmwiOiJodHRwczovLzBtZXJjaGFudGFjc3N0YWcuY2FyZGluYWxjb21tZXJjZS5jb20vTWVyY2hhbnRBQ1NXZWIvY3JlcS5qc3AiLCJQYXlsb2FkIjoiZXlKdFpYTnpZV2RsVkhsd1pTSTZJa05TWlhFaUxDSnRaWE56WVdkbFZtVnljMmx2YmlJNklqSXVNaTR3SWl3aWRHaHlaV1ZFVTFObGNuWmxjbFJ5WVc1elNVUWlPaUkxTWpjeFpEWmtNQzFoTWpFNUxUUXlZbVF0T1RFek15MWhaRFptT1RrNU16TTVPVGdpTENKaFkzTlVjbUZ1YzBsRUlqb2lZbVJqWlRCaVlUQXRaV1l4TVMwME5UQTBMVGt4TmpjdFlXUTFOVGs1WldKaVl6YzRJaXdpWTJoaGJHeGxibWRsVjJsdVpHOTNVMmw2WlNJNklqQTFJbjAiLCJUcmFuc2FjdGlvbklkIjoiS3NVZDNKSG9WdHpQWWRWd1d6QzAifSwiT2JqZWN0aWZ5UGF5bG9hZCI6dHJ1ZSwiUmV0dXJuVXJsIjoiaHR0cHM6Ly9leGFtcGxlLmNvbS8zZHMvcmV0dXJuIn0.-1DKJtbILA6UGGud8hFggPBuyqzVpQ_fih1oW1EY6dU"}'
+  recorded_at: Tue, 20 Jan 2026 11:42:43 GMT
 recorded_with: VCR 6.3.1

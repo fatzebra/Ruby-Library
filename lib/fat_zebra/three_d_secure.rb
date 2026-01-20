@@ -35,7 +35,7 @@ module FatZebra
     ].freeze
 
     CHECK_ENROLLMENT_REQUIRED_FIELDS.each do |field|
-      validates field, required: true,  on: :check_enrollment
+      validates field, required: true, on: :check_enrollment
     end
 
     VALIDATE_AUTHENTICATION_REQUIRED_FIELDS = %i[
@@ -52,13 +52,13 @@ module FatZebra
 
     class << self
 
-    def resource_name
-      'three_d_secure'
-    end
+      def resource_name
+        'three_d_secure'
+      end
 
-    def resource_path
-      "/sdk/#{resource_name}"
-    end
+      def resource_path
+        "/sdk/#{resource_name}"
+      end
 
       ##
       # Sets up a 3ds request

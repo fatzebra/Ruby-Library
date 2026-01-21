@@ -19,6 +19,13 @@ shared_context 'payloads' do
     cvv:         123
   }}
 
+  let(:valid_three_d_secure_card_payload) {{
+    card_holder: 'Card Holder',
+    card_number: '4000000000002503',
+    card_expiry: DateTime.new(2045, 2, 3).strftime('%m/%Y'),
+    cvv:         123
+  }}
+
   let(:customer_valid_payload) {{
     first_name: 'Harrold',
     last_name:  'Humphries',

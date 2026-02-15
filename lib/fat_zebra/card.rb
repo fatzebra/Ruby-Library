@@ -19,8 +19,5 @@ module FatZebra
     validates :card_expiry, required: { unless: %i[wallet] }, on: :create
 
     validates :wallet, required: { unless: %i[card_number] }, on: :create
-
-    validates :card_expiry, required: true, on: :update
-
   end
 end

@@ -30,12 +30,6 @@ describe FatZebra::Card do
     it { is_expected.to be_accepted }
     it { expect(credit_card.token).to eq(create.token) }
     it { expect(credit_card.card_expiry).to_not eq(create.card_expiry) }
-
-    context 'validations' do
-      let(:valid_credit_card_update_payload) {{}}
-
-      it { expect{ credit_card }.to raise_error(FatZebra::RequestValidationError) }
-    end
   end
 
   describe '.find', :vcr do

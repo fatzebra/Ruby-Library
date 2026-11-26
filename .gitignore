@@ -7,3 +7,4 @@ doc/
 .ruby-version
 Gemfile.lock
 !gemfiles/*/Gemfile.lock
+.tool-versions

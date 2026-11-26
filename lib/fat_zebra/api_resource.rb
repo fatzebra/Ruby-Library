@@ -24,7 +24,7 @@ module FatZebra
       #
       # @return [Hash] response
       # @raise [FatZebra::RequestError] if the request is invalid
-      # rubocop:disable Metrics/AbcSize
+      # rubocop:disable-next Metrics/AbcSize
       def request(method, path, payload = {}, options = {})
         payload[:test] = true if configurations.test_mode
         payload        = Util.format_dates_in_hash(payload)
@@ -45,7 +45,6 @@ module FatZebra
 
         raise
       end
-      # rubocop:enable Metrics/AbcSize
 
       private
 

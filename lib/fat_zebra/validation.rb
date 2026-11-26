@@ -41,7 +41,7 @@ module FatZebra
       errors << "'#{field}' is required" if params[field].nil? || params[field] == ''
     end
 
-    # rubocop:disable Metrics/CyclomaticComplexity, Lint/MixedRegexpCaptureTypes
+    # rubocop:disable-next Metrics/CyclomaticComplexity, Lint/MixedRegexpCaptureTypes
     def validate_type(field, options, params)
       regexp =
         case options
@@ -63,7 +63,6 @@ module FatZebra
 
       errors << "'#{field}' is not a '#{options}'" unless params[field].to_s =~ regexp
     end
-    # rubocop:enable Metrics/CyclomaticComplexity, Lint/MixedRegexpCaptureTypes
 
   end
 end

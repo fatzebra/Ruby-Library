@@ -53,8 +53,6 @@ jobs:
 
       - name: Validate Base Ref
         id: validate_base_ref
-        env:
-          JSON_ENV_VARS: ${{ inputs.credentials_json }}
         shell: bash
         run: |
           if [ "${{ github.event.base_ref }}" != "refs/heads/main" ]; then

@@ -19,4 +19,13 @@ describe FatZebra::Validation do
     it { expect { klass.valid!({}, :create) }.to raise_error(FatZebra::RequestValidationError) }
   end
 
+  describe 'type: :boolean' do
+    before { klass.validates(:flag, type: :boolean, on: :create) }
+
+    it { expect(klass.valid?({ flag: true }, :create)).to be_truthy }
+    it { expect(klass.valid?({ flag: false }, :create)).to be_truthy }
+    it { expect(klass.valid?({ flag: 'trueish' }, :create)).to be_falsey }
+    it { expect(klass.valid?({ flag: 'notfalse' }, :create)).to be_falsey }
+  end
+
 end

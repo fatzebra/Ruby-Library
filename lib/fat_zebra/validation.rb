@@ -56,7 +56,7 @@ module FatZebra
         when :file_type
           /\A\#<File:.*\z/
         when :boolean
-          /\Atrue|false\z/
+          /\A(?:true|false)\z/
         else
           raise RequestValidationError, "Unknown type #{options} for #{field}"
         end

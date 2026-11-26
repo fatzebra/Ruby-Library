@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.files         = Dir.glob('lib/**/*') + %w[README.md fat_zebra.gemspec]
   s.require_paths = ['lib']
 
-  s.required_ruby_version = '>= 3.2'
+  s.required_ruby_version = '>= 3.3'
 
   s.add_development_dependency 'byebug'
   s.add_development_dependency 'rake'

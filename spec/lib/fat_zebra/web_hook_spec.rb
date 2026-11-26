@@ -47,4 +47,22 @@ describe FatZebra::WebHook do
     it { is_expected.to be_accepted }
   end
 
+  describe '#update payload' do
+    subject(:web_hook) { FatZebra::WebHook.initialize_from(api_response('test hook')) }
+
+    def api_response(name)
+      { 'successful' => true, 'response' => { 'id' => '071-WH-1', 'name' => name, 'mode' => 'Test' } }
+    end
+
+    before do
+      allow(FatZebra::WebHook).to receive(:request).and_return(api_response('New Test hook'))
+      web_hook.update(name: 'New Test hook', id: '071-WH-2')
+    end
+
+    it 'sends each attribute once with string keys, the new value and no id' do
+      expect(FatZebra::WebHook).to have_received(:request)
+        .with(:put, anything, { 'name' => 'New Test hook', 'mode' => 'Test' }, {})
+    end
+  end
+
 end

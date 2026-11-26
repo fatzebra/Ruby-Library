@@ -50,7 +50,7 @@ module FatZebra
         path   = singleton_methods.include?(:id) ? "#{resource_path}/#{id}" : resource_path
         method = singleton_methods.include?(:id) ? :put : :post
 
-        params_for_save = to_hash.merge(params)
+        params_for_save = to_hash.transform_keys(&:to_s).merge(params.transform_keys(&:to_s))
 
         # Remove the id from the params to save, it should not be updated.
         params_for_save.delete('id')

@@ -4,7 +4,7 @@ PATH
     fat_zebra (0.0.0.pre.build)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
